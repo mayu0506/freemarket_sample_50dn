@@ -26,6 +26,7 @@ Things you may want to cover:
 ##commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|text|text|
 |user|references|null: false, foreign_key: true|
 |product|references|null: false, foreign_key: true|
 
@@ -58,10 +59,10 @@ Things you may want to cover:
 |password|string|null: false|
 |password_confirmation|string|null: false|
 |introduction|text|null: false|
-|product|references|null: false, foreign_key: true|
 
 ###Association
 - has_many :comments
+- has_many :likes 
 - has_one :address
 - has_one :payment
 - has_one :sale
@@ -123,8 +124,7 @@ Things you may want to cover:
 |payment_method_of_delivery_fee|string|null: false|
 |origin_of_delivery|string|null: false|
 |estimated_date_of_delivery|string|null: false|
-|image|references|null: false, foreign_key: true|
-|size|references|foreign_key: true|
+|size|string|
 |brand|references|foreign_key: true|
 |category|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
@@ -134,23 +134,13 @@ Things you may want to cover:
 - has_many :likes
 - belongs_to :user
 - has_many :images
-- has_one :size
-- has_one :brand
-- has_one :large_category
+- belongs_to :brand
+- belongs_to :large_category
 
 ##imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
-|product|references|null: false, foreign_key: true|
-
-###Association
-- belongs_to :product, dependent: :destory
-
-##sizeテーブル
-|Column|Type|Options|
-|------|----|-------|
-|size|string|null: false|
+|image_url|text|null: false|
 |product|references|null: false, foreign_key: true|
 
 ###Association
@@ -160,38 +150,14 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|product|references|null: false, foreign_key: true|
 
 ###Association
-- belongs_to :product, dependent: :destory
+- has_many :product
 
-##large_categoriesテーブル
+##categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|product|references|null: false, foreign_key: true|
-|medium_category|references|null: false, foreign_key: true|
 
 ###Association
-- belongs_to :product, dependent: :destory
-- belongs_to :medium_category
-
-##medium_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|large_category|references|null: false, foreign_key: true|
-|small_category|references|null: false, foreign_key: true|
-
-###Association
-- belongs_to :large_category, dependent: :destory
-- belongs_to :small_category
-
-##small_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|medium_category|references|null: false, foreign_key: true|
-
-###Association
-- belongs_to :medium_category, dependent: :destory
+- has_many :products
