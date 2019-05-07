@@ -72,12 +72,12 @@ Things you may want to cover:
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postcode|integer|null: false|
+|postcode|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |street|string|null: false|
 |building|string|
-|phone|integer|
+|phone|string|
 |user|references|null: false, foreign_key: true|
 
 ### Association
