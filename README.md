@@ -132,7 +132,7 @@ Things you may want to cover:
 ### Association
 - has_many :comments
 - has_many :likes
-- belongs_to :user
+- belongs_to :user, dependent: :destory
 - has_many :images
 - belongs_to :brand
 
