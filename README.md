@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-##commentsテーブル
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text|
@@ -34,7 +34,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 
-##likesテーブル
+## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
@@ -58,9 +58,9 @@ Things you may want to cover:
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |password_confirmation|string|null: false|
-|introduction|text|null: false|
+|introduction|text|
 
-###Association
+### Association
 - has_many :comments
 - has_many :likes 
 - has_one :address
@@ -73,53 +73,53 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |postcode|integer|null: false|
-|prefecture||null: false|
+|prefecture|string|null: false|
 |city|string|null: false|
 |address1|string|null: false|
 |address2|string|
 |phone|integer|
 |user|references|null: false, foreign_key: true|
 
-###Association
+### Association
 - belongs_to :user, dependent: :destory
 
-##paymentsテーブル
+## paymentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_name|string|
-|card_number|integer|unique: true|
-|expiration_date|integer|
-|security_code|integer|
+|card_holder|string|null: false|
+|card_number|integer|null: false, unique: true|
+|expiration_date|integer|null: false|
+|security_code|integer|null: false|
 |user|references|null: false, foreign_key: true|
 
-###Association
+### Association
 - belongs_to :user, dependent: :destory
 
-##salesテーブル
+## salesテーブル
 |Column|Type|Options|default|
 |------|----|-------|-------|
 |total_sales|integer|0|
 |user|references|null: false, foreign_key: true|
 
-###Association
+### Association
 - belongs_to :user, dependent: :destory
 
-##pointsテーブル
+## pointsテーブル
 |Column|Type|Options|default|
 |------|----|-------|-------|
 |earn_points|integer|0|
 |used_points|integer|0|
 |user|references|null: false, foreign_key: true|
 
-###Association
+### Association
 - belongs_to :user, dependent: :destory
 
-##productsテーブル
-|Column|Type|Options|default|
-|------|----|-------|-------|
+## productsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |name|string|null: false|
 |description|text|null: false|
-|price|integer|null: false|0|
+|price|integer|null: false|
 |condition|string|null: false|
 |payment_method_of_delivery_fee|string|null: false|
 |origin_of_delivery|string|null: false|
@@ -129,35 +129,34 @@ Things you may want to cover:
 |category|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 
-###Association
+### Association
 - has_many :comments
 - has_many :likes
 - belongs_to :user
 - has_many :images
 - belongs_to :brand
-- belongs_to :large_category
 
-##imagesテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_url|text|null: false|
+|image_url|text|
 |product|references|null: false, foreign_key: true|
 
-###Association
+### Association
 - belongs_to :product, dependent: :destory
 
-##brandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
-###Association
-- has_many :product
+### Association
+- has_many :products
 
-##categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
-###Association
+### Association
 - has_many :products
