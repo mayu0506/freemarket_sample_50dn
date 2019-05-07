@@ -1,5 +1,37 @@
 @import "colors";
 
-.a {
-  color:$skyblue;
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+//新規登録画面 
+.wrapper{
+  background-color:$background-gray;
+  height:100vh;
+}
+
+.signup-header{
+  background-color:$background-gray;
+  width:100vw;
+  height:16vh;
+}
+
+.signup-main{
+  text-align:center;
+  &__contents{
+    background-color:$white;
+    width:700px;
+    height:408px;
+    margin:0 auto;
+    text-align:center;
+    &__header{
+      font-size:22px;
+      font-weight:bold;
+      padding:32px 16px;
+      border-bottom-style: solid;
+      border-bottom-color:$background-gray;
+    }
+  }
 }
