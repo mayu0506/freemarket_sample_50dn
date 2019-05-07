@@ -1,0 +1,133 @@
+@import "colors";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+//新規登録画面 
+.wrapper{
+  background-color:$background-gray;
+  height:100vh;
+}
+
+.signup-header{
+  background-color:$background-gray;
+  width:100vw;
+  height:16vh;
+  &__logo{
+    text-align:center;
+    .Mercari-logo{
+      width: 185px;
+      height: 49px;
+      padding-top:25px;
+    }
+  }
+}
+
+.signup-main{
+  text-align:center;
+  &__contents{
+    background-color:$white;
+    width:700px;
+    height:408px;
+    margin:0 auto;
+    text-align:center;
+    &__header{
+      font-size:22px;
+      font-weight:bold;
+      padding:32px 16px;
+      border-bottom: 1px solid;
+      border-bottom-color:$background-gray;
+    }
+    &__main{
+      display:block;
+      padding:60px;
+      &__inside{
+        max-width:320px;
+        margin:0 auto;
+        font-size:14px;
+        .email{
+          position:relative;
+          padding:15px 0;
+          width:100%;
+          background-color:$background-gray;
+          border: 1px solid;
+          border-color:$background-gray;
+          .email-list{
+            display:inline-block;
+            .email-icon{
+              position:absolute;
+              left:20px;
+              top:23%;
+              color:#ccc;
+              font-size:23px;
+            }
+          }
+        }
+        .facebook{
+          margin-top:15px;
+          position:relative;
+          padding:15px 0;
+          width:100%;
+          background-color:$facebook;
+          color:$white;
+          border: 1px solid;
+          border-color:$facebook;
+          .facebook-list{
+            display:inline-block;
+            .facebook-icon{
+              position:absolute;
+              left:20px;
+              top:20%;
+              color:$white;
+              font-size:30px;
+            }
+          }
+        }
+        .google{
+          margin-top:15px;
+          position:relative;
+          padding:15px 0;
+          width:100%;
+          border:1px solid;
+          .google-list{
+            display:inline-block;
+            .google-icon{
+              position:absolute;
+              left:20px;
+              top:25%;
+              height:25px;
+              width:25px;
+              font-weight:bold;
+              color: #ffab00;
+              fill:url(#grad1);
+              font-size:25px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.signup-footer{
+  background-color:$background-gray;
+  text-align:center;
+  font-size:12px;
+  padding: 40px 0;
+  .regulation{
+    padding-inline-start: 40px;
+    display:inline-block;
+  }
+  &__mercari-mark{
+    padding-top:30px;
+    .mercari-logo{
+      width: 130px;
+      height: 80px;
+    }
+  }
+}
+
+
