@@ -98,7 +98,7 @@ Things you may want to cover:
 ## salesテーブル
 |Column|Type|Options|default|
 |------|----|-------|-------|
-|total_sales|integer|0|
+|total_sales|integer||0|
 |user|references|null: false, foreign_key: true|
 
 ### Association
@@ -107,8 +107,8 @@ Things you may want to cover:
 ## pointsテーブル
 |Column|Type|Options|default|
 |------|----|-------|-------|
-|earn_points|integer|0|
-|used_points|integer|0|
+|earn_points|integer||0|
+|used_points|integer||0|
 |user|references|null: false, foreign_key: true|
 
 ### Association
