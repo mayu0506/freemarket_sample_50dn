@@ -26,7 +26,7 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|
+|contents|text|
 |user|references|null: false, foreign_key: true|
 |product|references|null: false, foreign_key: true|
 
@@ -75,8 +75,8 @@ Things you may want to cover:
 |postcode|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
-|address1|string|null: false|
-|address2|string|
+|street|string|null: false|
+|building|string|
 |phone|integer|
 |user|references|null: false, foreign_key: true|
 
