@@ -8,3 +8,7 @@
 @import "style.scss";
 //modules以下全てのファイルの読み込み
 @import "modules/*";
+// mypageフォルダの読み込み
+@import "mypage/mypage";
+@import "mypage/content";
+@import "mypage/side";
