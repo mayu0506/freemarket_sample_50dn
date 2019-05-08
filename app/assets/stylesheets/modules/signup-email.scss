@@ -1,17 +1,15 @@
 @import "colors";
-
+//新規登録画面
 html, body {
   margin: 0;
   padding: 0;
 }
 
-
-//新規登録画面 
 .wrapper{
   background-color:$background-gray;
   height:100vh;
 }
-
+// 上部ロゴの部分
 .signup-header{
   background-color:$background-gray;
   width:100vw;
@@ -25,7 +23,7 @@ html, body {
     }
   }
 }
-
+// 中間要素(登録デバイスのデザイン)
 .signup-main{
   text-align:center;
   &__contents{
@@ -35,11 +33,12 @@ html, body {
     margin:0 auto;
     text-align:center;
     &__header{
-      font-size:22px;
-      font-weight:bold;
       padding:32px 16px;
       border-bottom: 1px solid;
       border-bottom-color:$background-gray;
+      font-size:22px;
+      font-weight:bold;
+      color:$black;
     }
     &__main{
       display:block;
@@ -55,9 +54,14 @@ html, body {
           background-color:$background-gray;
           border: 1px solid;
           border-color:$background-gray;
+          cursor: pointer;
           .email-list{
-            display:inline-block;
+            .email-registration{
+              color:$black;  
+              display:inline-block;
+            }
             .email-icon{
+              display:inline-block;
               position:absolute;
               left:20px;
               top:23%;
@@ -100,9 +104,6 @@ html, body {
               top:25%;
               height:25px;
               width:25px;
-              font-weight:bold;
-              color: #ffab00;
-              fill:url(#grad1);
               font-size:25px;
             }
           }
@@ -111,7 +112,7 @@ html, body {
     }
   }
 }
-
+// 下部のロゴと各種レギュレーション
 .signup-footer{
   background-color:$background-gray;
   text-align:center;
