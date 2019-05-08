@@ -9,7 +9,7 @@ html, body {
   height:100vh;
 }
 // 上部ロゴの部分
-.signup-header{
+.eachpage-header{
   background-color:$background-gray;
   width:100vw;
   height:16vh;
@@ -112,7 +112,7 @@ html, body {
   }
 }
 // 下部のロゴと各種レギュレーション
-.signup-footer{
+.eachpage-footer{
   background-color:$background-gray;
   text-align:center;
   font-size:12px;
