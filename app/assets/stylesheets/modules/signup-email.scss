@@ -1,9 +1,4 @@
 //新規登録画面
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
 .wrapper{
   background-color:$background-gray;
   height:100vh;
@@ -56,7 +51,7 @@ html, body {
           cursor: pointer;
           .email-list{
             .email-registration{
-              color:$black;  
+              color:$black;
               display:inline-block;
             }
             .email-icon{
@@ -129,5 +124,3 @@ html, body {
     }
   }
 }
-
-
