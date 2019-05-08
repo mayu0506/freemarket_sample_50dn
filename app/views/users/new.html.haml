@@ -1,22 +1,43 @@
 .wrapper
-  .signup-header
+  .eachpage-header
+    .eachpage-header__logo
+      =link_to root_path do
+        =image_tag "Mercari_logo.png", class: 'Mercari-logo'
+
   .signup-main
     .signup-main__contents
       .signup-main__contents__header
         新規会員登録
       .signup-main__contents__main
-        .email
-          メールアドレスで登録
-        .facebook
-          Facebookで登録
-        .gmail
-          Googleで登録
-  .signup-footer
-    .signup-footer__policy
-      プライバシーポリシー
-    .signup-footer__rule
-      メルカリ利用規約
-    .signup-footer__trade-regulation
-      特定商取引に関する表記  
-    .signup-footer__mercari-mark
+        .signup-main__contents__main__inside
+          .email
+            %ul.email-list
+              =link_to new_user_registration_path do
+                .email-registration
+                  メールアドレスで登録
+                  = fa_icon 'envelope-o', class: 'email-icon'
+          .facebook
+            %ul
+              %li.facebook-list
+                = fa_icon 'facebook-square', class: 'facebook-icon'
+              %li.facebook-list
+                Facebookで登録
+          .google
+            %ul
+              %li.google-list
+                =image_tag "google_logo.png", class: 'google-icon'
+              %li.google-list
+                Googleで登録
+  .eachpage-footer
+    %ul
+      %li.regulation
+        プライバシーポリシー
+      %li.regulation
+        メルカリ利用規約
+      %li.regulation
+        特定商取引に関する表記  
+    .eachpage-footer__mercari-mark
+      =link_to root_path do
+        =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?613028459", class: 'mercari-logo'
+      .mercari-copyright
       ©2019 Mercari
