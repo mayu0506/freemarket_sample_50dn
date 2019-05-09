@@ -87,7 +87,7 @@
   display: block;
   &__link{
     background-color: $white;
-    color: #333;
+    color: $black;
     position: relative;
     min-height: 40px;
     padding: 16px;
@@ -112,7 +112,7 @@
   }
   // なぜか&__bodyにしても効かなかったので応急処置
   &__link__body{
-    color: #333;
+    color: $black;
     margin: 0 40px 0 68px;
     font-size: 14px;
     .fa-clock{
@@ -150,7 +150,7 @@
     height: 56px;
     margin: 0 auto;
     background-color: #eee;
-    color: #333;
+    color: $black;
     line-height: 56px;
     text-align: center;
   }
