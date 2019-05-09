@@ -1,4 +1,79 @@
+-# 上部にあるプロフィール部分
 .mypage-content
   %section.mypage-user-icon
+    = link_to '' do
+      %figure.mypage-user-icon__photo
+        = image_tag 'user-icon.jpg'
+      %h2.mypage-user-icon__name たま子
+      .mypage-user-icon__number
+        %div
+          評価
+          %span.bold 8
+        %div
+          出品数
+          %span.bold 10
 
-  %section.mypage-tab.clearfix
+  -# 中間にあるタブの部分。現在は貼り付け状態。
+  %section.mypage-tab-container-notification.clearfix
+    %ul.mypage-tabs.clearfix
+      %li.mypage-tabs__item.active
+        %h3
+          = link_to 'お知らせ', ''
+        %li.mypage-tabs__item
+          %h3
+            = link_to 'やることリスト', ''
+    .tab-content
+      %ul.mypage-item-list
+        %li.mypage-item-list__link
+          = link_to '' do
+            %figure.mypage-item-list__link__icon
+              = image_tag 'mercari_icon.png'
+            .mypage-item-list__link__body
+              .mypage-item-list__link__text
+                事務局から個別メッセージ｢ログイン通知」
+              %time
+                %i.fa.fa-clock-o
+                %span 18時間前
+            %i.fa.fa-angle-right
+        
+        %li.mypage-item-list__link
+          = link_to '' do
+            %figure.mypage-item-list__link__icon
+              = image_tag 'mercari_icon.png'
+            .mypage-item-list__link__body
+              .mypage-item-list__link__text
+                事務局から個別メッセージ｢ログイン通知」
+              %time
+                %i.fa.fa-clock-o
+                %span 21時間前
+            %i.fa.fa-angle-right
+        
+        %li.mypage-item-list__link
+          = link_to '' do
+            %figure.mypage-item-list__link__icon
+              = image_tag 'mercari_icon.png'
+            .mypage-item-list__link__body
+              .mypage-item-list__link__text
+                事務局から個別メッセージ｢ログイン通知」
+              %time
+                %i.fa.fa-clock-o
+                %span 1日前
+            %i.fa.fa-angle-right
+        %li.mypage-item-list__go-lists
+          = link_to '一覧を見る', '', class:"mypage-item-list__go-list"
+
+  -# 下にあるタブの部分。現在は貼り付け状態。
+  %section.mypage-tab-container
+    %h2.mypage-tab-container__head 購入した商品
+    %ul.mypage-tabs.clearfix
+      %li.mypage-tabs__item.active
+        %h3
+          = link_to '取引中', ''
+      %li.mypage-tabs__item
+        %h3
+          = link_to '過去の取引', ''
+    .tab-content
+      %ul.mypage-item-list
+        %li.mypage-item-list--not-found
+          現在取引中の商品がありません
+
