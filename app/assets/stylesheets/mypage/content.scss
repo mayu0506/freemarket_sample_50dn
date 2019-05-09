@@ -1,7 +1,7 @@
 .mypage-content{
   width: 700px;
   float: right;
-  color: #333;
+  color: $black;
 }
 
 // マイページ上部プロフィール部分
@@ -49,7 +49,7 @@
   left: 0;
   right: 0;
   transform: translate(0, -50%);
-  color: #333;
+  color: $black;
 }
 
 // マイページ中間タブ部分。貼り付け状態。
@@ -70,14 +70,14 @@
     background: #eee;
   }
   &__item.active {
-    background-color: #fff;
+    background-color: $white;
     border-top: 2px solid #ea352d;
   }
 }
 .mypage-tabs a {
   position: relative;
   display: block;
-  color: #333;
+  color: $black;
   font-size: 16px;
   line-height: 72px;
   font-weight: 700;
@@ -159,10 +159,10 @@
 // マイページ下部。貼り付け状態。
 .mypage-tab-container {
   margin: 40px 0 0 0;
-  background: #fff;
+  background: $white;
   &__head {
   padding: 0 16px;
-  background: #fafafa;
+  background: $white;
   font-size: 16px;
   line-height: 72px;
   font-weight: 700;
