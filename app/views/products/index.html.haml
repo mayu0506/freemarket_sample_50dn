@@ -27,26 +27,26 @@
                   .seller-reputation
                     .seller-reputation__icons
                       = fa_icon 'smile-o', class: 'smile-icon'
-                      100 
-                    .seller-reputation__icons 
-                      = fa_icon 'meh-o', class: 'meh-icon'  
-                      10 
+                      100
+                    .seller-reputation__icons
+                      = fa_icon 'meh-o', class: 'meh-icon'
+                      10
                     .seller-reputation__icons
                       = fa_icon 'frown-o', class: 'frown-icon'
                       10
               %tr
                 %td.table-right  カテゴリー
-                %td.table-left 
+                %td.table-left
                   .table-name-change-color
                     レディース
-                    %p 
-                    = fa_icon 'angle-right', class: 'table-icon' 
+                    %p
+                    = fa_icon 'angle-right', class: 'table-icon'
                     化粧品
                     %p
-                    = fa_icon 'angle-right', class: 'table-icon'   
-                    リップ 
+                    = fa_icon 'angle-right', class: 'table-icon'
+                    リップ
               %tr
-                %td.table-right 
+                %td.table-right
                   .table-name-change-color
                     ブランド
                 %td.table-left LANCOM
@@ -93,34 +93,34 @@
           .product-comments__icons
             %ul.product-comments__icons__lists
               %li.product-comments__icons__lists__right
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 いいね！
               %li.product-comments__icons__lists__middle
-                = fa_icon 'flag-o', class: 'flag-icon' 
+                = fa_icon 'flag-o', class: 'flag-icon'
                 不適切な商品の報告
               %li.product-comments__icons__lists__left
-                = fa_icon 'lock', class: 'secure-icon' 
+                = fa_icon 'lock', class: 'secure-icon'
                 あんしん・あんぜんへの取り組み
 
-  -#購入者コメント 
+  -#購入者コメント
   .product-comments-contents
     .product-comments-contents__margin
       %p.attentions
         相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       -# あとでインプット先を変える(@userと:email)
       .input-comments
-        %form{:action => "/", :method => "post"}
-          %input{:type => "text", :class => "input-comments__text"}
-          %input{:type => "submit", :value => "コメントする", :class => "input-comments__button"}
+        %form{action: "/", method: "post"}
+          %input{type: "text", class: "input-comments__text"}
+          %input{type: "submit", value: "コメントする", class: "input-comments__button"}
   -#中部ページ切り替えコマンド
   .product-command-contents
     %ul.products-command
       %li.products-command__left
         %span アイシャドウ
-        = fa_icon 'angle-left', class: 'angle-left-icon' 
+        = fa_icon 'angle-left', class: 'angle-left-icon'
       %li.products-command__right
         %span KATE 3Dアイブロウカラー ソフトブラウン
-        = fa_icon 'angle-right', class: 'angle-right-icon' 
+        = fa_icon 'angle-right', class: 'angle-right-icon'
   -#中部SNSアイコン
   .product-sns-contents
     .product-sns-contents__block
@@ -148,7 +148,7 @@
               .related-photos__box__description__bottom__price
                 ¥ 3,500
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 2
             %p.related-photos__box__description__tax (税込)
         %li.related-photos__box
@@ -161,7 +161,7 @@
               .related-photos__box__description__bottom__price
                 ¥ 800
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 10
             %p.related-photos__box__description__tax (税込)
         %li.related-photos__box
@@ -174,7 +174,7 @@
               .related-photos__box__description__bottom__price
                 ¥ 1,500
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 20
             %p.related-photos__box__description__tax (税込)
         %li.related-photos__box
@@ -187,7 +187,7 @@
               .related-photos__box__description__bottom__price
                 ¥ 3,500
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 2
             %p.related-photos__box__description__tax (税込)
         %li.related-photos__box
@@ -200,7 +200,7 @@
               .related-photos__box__description__bottom__price
                 ¥ 800
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 10
             %p.related-photos__box__description__tax (税込)
         %li.related-photos__box
@@ -213,12 +213,12 @@
               .related-photos__box__description__bottom__price
                 ¥ 1,500
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 20
             %p.related-photos__box__description__tax (税込)
     -# ブランド関連商品
     .related-products-contents__brand
-      %h2.related-brand    
+      %h2.related-brand
         LANCOMのリップ　その他の商品
       %ul.related-photos
         %li.related-photos__box
@@ -231,7 +231,7 @@
               .related-photos__box__description__bottom__price
                 ¥ 3,500
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 2
             %p.related-photos__box__description__tax (税込)
         %li.related-photos__box
@@ -244,7 +244,7 @@
               .related-photos__box__description__bottom__price
                 ¥ 800
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 10
             %p.related-photos__box__description__tax (税込)
         %li.related-photos__box
@@ -257,7 +257,7 @@
               .related-photos__box__description__bottom__price
                 ¥ 1,500
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 20
             %p.related-photos__box__description__tax (税込)
         %li.related-photos__box
@@ -270,7 +270,7 @@
               .related-photos__box__description__bottom__price
                 ¥ 3,500
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 2
             %p.related-photos__box__description__tax (税込)
         %li.related-photos__box
@@ -283,7 +283,7 @@
               .related-photos__box__description__bottom__price
                 ¥ 800
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 10
             %p.related-photos__box__description__tax (税込)
         %li.related-photos__box
@@ -296,7 +296,6 @@
               .related-photos__box__description__bottom__price
                 ¥ 1,500
               .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon' 
+                = fa_icon 'heart-o', class: 'heart-icon'
                 20
             %p.related-photos__box__description__tax (税込)
-        
