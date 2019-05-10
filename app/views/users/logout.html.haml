@@ -3,6 +3,6 @@
   .mypage-content
     .logout-container
       .logout-container__form
-        = link_to "ログアウト", '#', method: :delete, class: 'logout-container__form--btn'
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout-container__form--btn'
 
 -# headerとfooterは別で作成。完成次第このページの上と下にrenderする
