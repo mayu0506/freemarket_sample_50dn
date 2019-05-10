@@ -1,0 +1,185 @@
+.mypage-content{
+  width: 700px;
+  float: right;
+  color: $black;
+}
+
+// マイページ上部プロフィール部分
+.mypage-user-icon{
+  height: 200px;
+  padding: 20px;
+  position: relative;
+  background-image: url(user-icon_background.jpg);
+  text-align: center;
+  &__photo{
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+  &__photo img{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+  }
+  &__name{
+    margin: 8px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  &__number{
+    margin: 8px 0 0;
+  }
+  &__number div{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  &__number div span{
+    margin: 0 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+.mypage-user-icon a{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translate(0, -50%);
+  color: $black;
+}
+
+// マイページ中間タブ部分。貼り付け状態。
+.mypage-tab-container-notification {
+  margin: 0;
+  background: $white;
+}
+
+.mypage-tabs{
+  border: 0;
+  background: #eee;
+  &__item {
+    float: left;
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    background: #eee;
+  }
+  &__item.active {
+    background-color: $white;
+    border-top: 2px solid #ea352d;
+  }
+}
+.mypage-tabs a {
+  position: relative;
+  display: block;
+  color: $black;
+  font-size: 16px;
+  line-height: 72px;
+  font-weight: 700;
+}
+
+.mypage-item-list{
+  display: block;
+  &__link{
+    background-color: $white;
+    color: $black;
+    position: relative;
+    min-height: 40px;
+    padding: 16px;
+    border-bottom: solid 1px #eee;
+    &__icon img{
+      background-color: $background-gray;
+      position: relative;
+      overflow: hidden;
+      float: left;
+      width: 48px;
+      height: 48px;
+    &__icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+    }
+   }
+  }
+  // なぜか&__bodyにしても効かなかったので応急処置
+  &__link__body{
+    color: $black;
+    margin: 0 40px 0 68px;
+    font-size: 14px;
+    .fa-clock{
+      margin: 0 8px 0 0;
+    }
+    time{
+      color: #888;
+    }
+  }
+  &__link__text{
+    font-size:14px;
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    max-height: 4.4em;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+  }
+  i.fa-angle-right{
+    position: absolute;
+    font-size: 25px;
+    right: 16px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  &__go-lists{
+    background-color: $white;
+    padding: 16px;
+  }
+  &__go-list{
+    display: block;
+    height: 56px;
+    margin: 0 auto;
+    background-color: #eee;
+    color: $black;
+    line-height: 56px;
+    text-align: center;
+  }
+}
+
+// マイページ下部。貼り付け状態。
+.mypage-tab-container {
+  margin: 40px 0 0 0;
+  background: $white;
+  &__head {
+  padding: 0 16px;
+  background: $white;
+  font-size: 16px;
+  line-height: 72px;
+  font-weight: 700;
+  }
+}
+.mypage-item-list {
+  display: block;
+  &--not-found {
+    padding: 160px 0 60px;
+    background: image-url("mercari_logo_gray.png");
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 130px 85px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+    font-weight: 600;
+  }
+}
+
