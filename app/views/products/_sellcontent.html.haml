@@ -63,7 +63,7 @@
     .sellContent__select
       .sellContent__select__left
         配送について
-        %a{href:"#", class:"form-question"} ?
+        =link_to '?'
 
       .sellContent__select__right
         .sellContent__select__right__form
@@ -108,7 +108,7 @@
     .sellContent__select
       .sellContent__select__left
         販売価格(300〜9,999,999)
-        %a{href:"#", class:"form-question"} ?
+        = link_to '?'
       .sellContent__select__right
         .sellContent__select__right__form__priceForm
           .sellContent__select__right__form__priceForm--label
@@ -130,21 +130,21 @@
             %p -
   .sellContent
     %p 
-      %a{href:"#"}禁止されている出品
+      = link_to '禁止されている出品'
       、
-      %a{href:"#"}行為
+      = link_to '行為'
       を必ずご確認ください。
     %p 
       またブランド品でシリアルナンバー等がある場合はご記載ください。
-      %a{href:"#"}偽ブランドの販売
+      = link_to '偽ブランドの販売'
       は犯罪であり処罰される可能性があります。
     %p 
       また、出品をもちまして
-      %a{href:"#"}加盟店規約
+      = link_to '加盟店規約'
       に同意したことになります。
 
     .button-wrapper 
       %button{class:"red-button defalt-button" } 出品する
-    .botton-wrapper 
+    .button-wrapper 
       %button{class:"gray-button defalt-button"} もどる
 
