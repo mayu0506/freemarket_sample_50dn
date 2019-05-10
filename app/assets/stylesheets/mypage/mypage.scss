@@ -1,0 +1,15 @@
+// マイページの全体に適用される部分。後に全体として統合できる部分は統合したい。
+.mypage {
+  width: 1020px;
+  margin: 0 auto 0;
+  padding: 40px 0 40px 0;
+  background-color: $background-gray;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+// clearfixの設定。あとでまとめたい。
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
