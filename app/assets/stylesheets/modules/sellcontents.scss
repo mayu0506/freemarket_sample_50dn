@@ -1,16 +1,9 @@
 *{
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  a {
-    color: $skyblue;
-    &:hover {
-      border-bottom: 1px solid $skyblue; 
-    }
-  }
-  color: #333;
 }
 
 .sellContents {
-  background-color: white;
+  background-color: $white;
   width: 700px;
   margin: 0 auto;
 }
@@ -18,11 +11,19 @@
 .sellContent {
   padding: 40px;
   border-bottom:$background-gray solid 1px;
+
   p{
     font-size: 14px;
   }
 
-  .botton-wrapper {
+  a {
+    color: $skyblue;
+    &:hover {
+      border-bottom: 1px solid $skyblue; 
+    }
+  }
+
+  .button-wrapper {
     text-align: center;
   }
   button.defalt-button {
@@ -70,7 +71,7 @@
       }
       &--guide {
         font-size: 14px;
-        margin: 8px 0 ; 
+        margin: 8px 0;
       }
       &--upload {
         width: 620px;
@@ -127,7 +128,7 @@
         width: 14px;
         height: 14px;
         line-height: 14px;
-        border-radius: 50%; 
+        border-radius: 50%;
         text-align: center;
       }
     }
