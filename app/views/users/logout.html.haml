@@ -1,0 +1,8 @@
+%main.mypage.clearfix
+  = render 'side'
+  .mypage-content
+    .logout-container
+      .logout-container__form
+        = link_to "ログアウト", '#', method: :delete, class: 'logout-container__form--btn'
+
+-# headerとfooterは別で作成。完成次第このページの上と下にrenderする
