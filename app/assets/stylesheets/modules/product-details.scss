@@ -1,0 +1,402 @@
+// 商品詳細画面
+.product-details-body {
+  background-color:$background-gray; 
+  padding-top:30px;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  // 商品詳細情報のブロック
+  .product-details-contents {
+    display:block;
+    background-color:$white;
+    width:50vw;
+    margin:0 auto;
+    &__margin{
+      padding-top:25px;
+      padding-left:5%;
+      padding-right:5%;
+      // 上部の文字
+      .product-headline{ 
+        &__top{
+          text-align:center;
+          font-weight:bold;
+          font-size:24px;
+        }
+      }
+      // 上部写真と商品詳細のテーブル
+      .product-descriptions{
+        margin-top:16px;
+        padding-bottom:40px;
+        justify-content: space-between;
+        // 写真
+        &__pictures{
+          position: relative;
+          max-width: 300px;
+          max-height: 300px;
+          float:left;
+          &__main{
+            position: relative;
+            background-color:$background-gray;
+            vertical-align:bottom;
+            .product-image{
+              width:300px;
+              height:300px;
+            }
+            &__sub{
+              position:absolute;
+              .product-sub-image{
+                width:100px;
+                height:100px;
+                float:left;
+              }
+            }
+          }
+        }
+        // 商品詳細テーブル
+        &__details{
+          float: right;
+          font-size:14px;
+          table.product-category{
+            height: 400px;
+            width: 300px;
+          }
+          table.product-category, td.table-right, td.table-left{
+            border-collapse: collapse;
+            border: 1px solid $background-gray;
+            line-height: 2;
+            padding-left:8px;
+            td.table-right{
+              background-color:$light-gray;
+            }
+            td.table-left{
+              .table-name-change-color{
+                color:$skyblue;
+                line-height:1;
+              }
+              .seller-reputation{
+                &__icons{
+                  padding-right:10px;
+                  display:inline-block;
+                }
+                  .smile-icon{
+                    color:palevioletred;
+                    font-size:18px;
+                  }
+                .meh-icon{
+                  color:orange;
+                  font-size:18px;
+                }
+                .frown-icon{
+                  color:$skyblue;
+                  font-size:18px;
+                }
+              }
+            }
+            // テーブルの[<]マーク
+            .table-icon{
+              font-size:18px;
+              font-weight:bold;
+            }
+          }
+        }
+      }
+    }
+  //商品の値段 
+  .product-price{
+    clear:both;
+    display:block;
+    text-align:center;
+    padding-top:24px;
+    &__yen{
+      display:inline-block;
+      font-size:45px;
+      padding-right:16px;
+    }
+    &__tax{
+      display:inline-block;
+      font-size:10px;
+    }
+    &__fee{
+      display:inline-block;
+      font-size:16px;
+    }
+  }
+  .product-purchase{
+    height:60px;
+    width:100%;
+    background-color:$red;
+    margin-top:16px;
+    &__button{
+      font-size:24px;
+      line-height:60px;
+      color:$white;
+      text-align:center;
+    }
+  }
+  .product-comments{
+    padding-top:32px;
+    font-size:18px;
+    &__seller{
+      line-height:2;
+    }
+    // 販売者コメントの真下の３つのアイコン
+    &__icons{
+      margin-top:16px;
+      &__lists{        
+        font-size:14px;
+        list-style:none;  
+        &__right{
+          text-align:left;
+          float: left;
+          background-color:$background-gray;
+          margin-right:20px;
+          padding:7px 15px;
+          border-radius: 20px;
+        }
+        &__middle{
+          float: left;  
+          background-color:$background-gray;
+          padding:7px 15px;
+          border-radius: 20px;
+        }        
+        &__left{
+          color:$skyblue;
+          text-align: right; 
+          padding:7px;
+        }
+        .heart-icon{
+          padding-right:5px;
+        }
+        .flag-icon{
+          padding-right:5px;
+        }
+        .secure-icon{
+          padding-right:5px;
+        }
+      }
+    }
+    }
+  }
+
+  // 購入者用コメントのブロック
+  .product-comments-contents{
+    display:block;
+    background-color:$white;
+    width:50vw;
+    margin:10px auto;
+    &__margin{
+      padding:25px 5%;
+      // 注意書き
+      .attentions{
+        font-size:14px;
+        padding:8px;
+        background-color:#fff6de;
+      }
+      // コメント記入欄
+      .input-comments{
+        &__text{
+          margin-top:8px;
+          min-width:100%;
+          min-height:104px;
+        }
+        // コメントボタン
+        &__button{
+          background-color:$dark-gray;
+          color:$white;
+          width:100%;
+          min-height:48px;
+          text-align:center;
+          margin-top:8px;
+          border: 1px solid $dark-gray;
+          font-size:14px;
+        }
+      }
+    }
+  }
+
+  //次＋前の商品のクリックコマンド 
+  .product-command-contents{
+    display:block;
+    width:50vw;
+    margin:20px auto;
+    height:30px;
+    .products-command{
+      color:$skyblue;
+      font-size:14px;    
+      list-style:none;
+      &__left{
+        float:left;
+        line-height:25px;
+        .angle-left-icon{
+          font-size:23px;
+          float:left;
+          padding-right:8px;
+        }
+      }
+      &__right{
+        float:right;
+        line-height:25px;
+        .angle-right-icon{
+          font-size:23px;
+          float:right;
+          padding-left:8px;
+        }
+      }
+    }
+  }
+  // SNSのアイコン(facebook,twitter,pinterest)
+  .product-sns-contents{
+    display:block;
+    width:50vw;
+    margin:0 auto 30px;
+    &__block{
+      padding:50px 0 24px;
+      background-color:$white;
+      text-align:center;
+      &__lists{
+        list-style:none;
+        display:inline-block;
+        &__facebook{
+          display:inline-block;
+          .sns-facebook-icon{
+            font-size:60px;
+            color:$facebook;
+            padding-right:5px;
+          }
+        }
+        &__twitter{
+          display:inline-block;
+          .sns-twitter-icon{
+            font-size:60px;
+            color:$twitter;   
+            padding-right:5px;             
+          }
+        }
+        &__pinterest{
+          display:inline-block;
+          .sns-pinterest-icon{
+            font-size:60px;
+            color:$pinterest;            
+          }           
+        }
+      }
+    }
+  }
+  
+  @mixin related-product-name {
+    color:$skyblue;
+    font-size:22px;
+    font-weight:bold;
+    padding-top:24px;
+    padding-bottom:8px;
+  }
+
+  // 関連商品の一覧
+  .related-products-contents{
+    display:block;
+    width:50vw;
+    margin:0 auto;
+    // 購入者関連商品
+    &__seller{
+      .related-seller{
+        @include related-product-name;
+      }
+      .related-photos{
+        width:100%;
+        flex-wrap: wrap;
+        overflow:hidden;
+        display: flex;
+        justify-content: space-between;
+        padding:0;
+        &__box{
+          width: 220px;
+          height:330px;
+          list-style:none;
+          margin-bottom:20px;
+          &__photo{
+            .photo-size{
+              width:220px;
+              height:220px;
+              vertical-align:bottom;
+            }
+          }
+          &__description{
+            background-color:$white;
+            padding:16px;
+            &__top{
+              font-size:16px;
+              height:40px;
+            }
+            &__bottom{
+              margin-top:8px;
+              &__price{
+                float:left;
+                font-size:16px;
+                font-weight: 600;
+              }
+              &__likes{
+                float:right;
+                font-size:16px;
+              }
+            }
+            &__tax {
+              clear:both;
+              font-size:8px;
+            }
+          }
+        }
+      }
+    }
+    // ブランド関連商品
+    &__brand{
+      padding-bottom:30px;
+      .related-brand{
+        @include related-product-name;  
+      }
+      .related-photos{
+        width:100%;
+        flex-wrap: wrap;
+        overflow:hidden;
+        display: flex;
+        justify-content: space-between;
+        padding:0;
+        &__box{
+          width: 220px;
+          height:330px;
+          list-style:none;
+          margin-bottom:20px;
+          &__photo{
+            .photo-size{
+              width:220px;
+              height:220px;
+              vertical-align:bottom;
+            }
+          }
+          &__description{
+            background-color:$white;
+            padding:16px;
+            &__top{
+              font-size:16px;
+              height:40px;
+            }
+            &__bottom{
+              margin-top:8px;
+              &__price{
+                float:left;
+                font-size:16px;
+                font-weight: 600;
+              }
+              &__likes{
+                float:right;
+                font-size:16px;
+              }
+            }
+            &__tax {
+              clear:both;
+              font-size:8px;
+            }
+          }
+        }
+      }
+    }
+  }
+} 
