@@ -1,0 +1,233 @@
+*{
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  a {
+    color: $skyblue;
+    &:hover {
+      border-bottom: 1px solid $skyblue; 
+    }
+  }
+  color: #333;
+}
+
+.sellContents {
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.sellContent {
+  padding: 40px;
+  border-bottom:$background-gray solid 1px;
+  p{
+    font-size: 14px;
+  }
+
+  .botton-wrapper {
+    text-align: center;
+  }
+  button.defalt-button {
+    font-size: 14px;
+    height: 48px;
+    margin-top: 40px;
+  } 
+  button.red-button {
+    width: 100%;
+    color: $white;
+    background-color: $red;
+    border: 1px solid $red;
+  }
+
+  button.gray-button {
+    width: 280px;
+    color: $white;
+    background-color: #aaaaaa;
+    border: 1px solid #aaaaaa;
+  }
+
+  span.form-require {
+    background-color: $red;
+    color: $white;
+    font-size: 12px;
+    padding: 2px 4px;
+    margin-left: 8px;
+    border-radius: 2px;
+  }
+   &--head{
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    }
+
+    &__form:not(:first-child) {
+      // 最初の子要素（:first-child）以外にスタイルを指定
+      margin-top: 40px;
+    }
+
+    &__form {
+      &--label {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      &--guide {
+        font-size: 14px;
+        margin: 8px 0 ; 
+      }
+      &--upload {
+        width: 620px;
+        padding: 40px;
+        background-color: #f5f5f5;
+        border: 1px dashed #ccc;
+        min-height: 162px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+          font-size: 14px;
+          text-align: center;
+          font-family: monospace,monospace;
+        }
+      }
+
+      input.input-defalt {
+        width: 620px;
+        height: 48px;
+        margin-top: 8px;
+        padding: 10px 16px 8px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+
+      textarea.textarea-defalt {
+        width: 620px;
+        min-height: 104px;
+        margin-top: 8px;
+        padding: 10px;
+        font-size: 16px; 
+        border: 1px solid #ccc;
+        line-height: 1.5;
+      }
+    }
+
+  &__select {
+    display: flex;
+
+    &__left {
+      font-size: 14px;
+      width: 220px;
+      color: #888888;
+
+      a {
+        background-color: $skyblue;
+        color: $white;
+        display: inline-block;
+        font-size: 12px;
+        width: 14px;
+        height: 14px;
+        line-height: 14px;
+        border-radius: 50%; 
+        text-align: center;
+      }
+    }
+    &__right {
+      display: flex;
+      flex-direction:column;
+      &__form:not(:first-child) {
+        // 最初の子要素（:first-child）以外にスタイルを指定
+        margin-top: 40px;
+      }
+      &__form {
+        position: relative;
+        i {
+          color:#888;
+          position: absolute;
+          top: 38px;
+          right: 0;
+          right: 16px;
+
+        }
+        &--label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        }
+
+      select.select-defalt {
+        width: 400px;
+        height: 48px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: flex-end;
+        font-size: 16px;
+        background-color: $white;
+        padding: 0px 16px;
+        border: 1px solid #ccc;
+        // selectのスタイルの無効化
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        }
+       
+        &__priceForm {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 24px;
+          border-bottom: #ccc solid 1px;
+          width: 400px;
+          &--label {
+            font-size: 16px;
+            font-weight: 600;
+          }
+          &--input {
+            display: flex;
+            p {
+              line-height: 36px;
+              margin-right: 4px;
+            }
+          }
+          input.inputPrice {
+            width: 160px;
+            font-size: 14px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+          }
+        }
+
+        &__charge {
+          display: flex;
+          justify-content: space-between;
+          border-bottom: #ccc solid 1px;
+          width: 400px;
+            padding: 24px 0;
+          &--left {
+            font-size: 14px;
+          }
+          &--right {
+            font-size: 14px;
+          }
+        }
+
+        &__profitContent {
+          display: flex;
+          justify-content: space-between;
+          width: 400px;
+          padding: 24px 0;
+
+          &--left {
+            font-size: 16px;
+            font-weight: 600;
+          }
+          &--right {
+            p {font-size: 34px;}
+
+
+          }
+       }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,24 @@
+.wrapper
+  .eachpage-header
+    .eachpage-header__logo
+      =link_to root_path do
+        =image_tag "Mercari_logo.png", class: 'Mercari-logo'
+
+  = render partial: 'sellcontent'
+  
+  .eachpage-footer
+    %ul
+      %li.regulation
+        プライバシーポリシー
+      %li.regulation
+        メルカリ利用規約
+      %li.regulation
+        特定商取引に関する表記  
+    .eachpage-footer__mercari-mark
+      =link_to root_path do
+        =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?613028459", class: 'mercari-logo'
+      .mercari-copyright
+      ©2019 Mercari
+
+
+

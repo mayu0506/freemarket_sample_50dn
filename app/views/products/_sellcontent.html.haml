@@ -1,0 +1,150 @@
+.sellContents
+  .sellContent
+    .sellContent--head
+      商品の情報を入力
+  .sellContent
+    .sellContent__form
+      .sellContent__form--label
+        出品画像
+        %span{class:"form-require"} 必須
+      .sellContent__form--guide
+        最大10枚までアップロードできます
+      .sellContent__form--upload#container
+        %p
+          ドラッグアンドドロップ
+          %br
+          またはクリックしてファイルをアップロード
+
+  .sellContent
+    .sellContent__form
+      .sellContent__form--label
+        商品名
+        %span{class:"form-require"} 必須
+      %input{type:"text", class:"input-defalt", placeholder:"商品名（必須40字まで）"}
+
+    .sellContent__form
+      .sellContent__form--label
+        商品の説明
+        %span{class:"form-require"} 必須
+      %textarea{rows:"4", cols:"40", class:"textarea-defalt", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+
+  .sellContent
+    .sellContent__select
+      .sellContent__select__left
+        商品の詳細
+      .sellContent__select__right
+        .sellContent__select__right__form
+          .sellContent__select__right__form--label
+            カテゴリー
+            %span{class:"form-require"} 必須
+          %form{:action => "/", :method => "POST",class:"selContent__select__left--select"}
+            %select{class:"select-defalt"}
+              %option{value: ""} ---
+              %option{value:"1"} レディース
+              %option{value:"2"} メンズ
+              %option{value: "3"} ベビー・キッズ
+              %option{value: "4"} インテリア・住まい・小物
+            %i.fa.fa-chevron-down
+          
+        .sellContent__select__right__form
+          .sellContent__select__right__form--label
+            商品の状態
+            %span{class:"form-require"} 必須
+          %form{:action => "/", :method => "POST"}
+            %select{:name => "---",class:"select-defalt"}
+              %option{value: ""} ---
+              %option{:value => "1"} 新品、未使用
+              %option{:value => "2"} 未使用に近い
+              %option{:value => "3"} 目立った傷や汚れなし
+              %option{:value => "4"} やや傷や汚れあり
+            %i.fa.fa-chevron-down
+
+  .sellContent
+    .sellContent__select
+      .sellContent__select__left
+        配送について
+        %a{href:"#", class:"form-question"} ?
+
+      .sellContent__select__right
+        .sellContent__select__right__form
+          .sellContent__select__right__form--label
+            配送料の負担
+            %span{class:"form-require"} 必須
+          
+          %select{:name => "---", class:"select-defalt"}
+            %option{value: ""} ---
+            %option{:value => "1"} 送料込み（出品者負担）
+            %option{:value => "2"} 着払い（購入者負担）
+          %i.fa.fa-chevron-down
+
+        .sellContent__select__right__form
+          .sellContent__select__right__form--label
+            発送元の地域
+            %span{class:"form-require"} 必須
+
+          %select{:name => "---", class:"select-defalt"}
+            %option{value: ""} ---
+            %option{:value => "1"} 北海道
+            %option{:value => "2"} 青森県
+            %option{:value => "3"} 岩手県
+            %option{:value => "4"} 宮城県
+          %i.fa.fa-chevron-down
+          
+
+        .sellContent__select__right__form
+          .sellContent__select__right__form--label
+            発送までの日数
+            %span{class:"form-require"} 必須
+
+          %select{:name => "---",class:"select-defalt"}
+            %option{value: ""} ---
+            %option{:value => "1"} 1~2日で発送
+            %option{:value => "2"} 2~3日で発送
+            %option{:value => "3"} 4~7日で発送
+          %i.fa.fa-chevron-down
+      
+
+  .sellContent
+    .sellContent__select
+      .sellContent__select__left
+        販売価格(300〜9,999,999)
+        %a{href:"#", class:"form-question"} ?
+      .sellContent__select__right
+        .sellContent__select__right__form__priceForm
+          .sellContent__select__right__form__priceForm--label
+            価格
+            %span{class:"form-require"} 必須
+          .sellContent__select__right__form__priceForm--input
+            %p ￥  
+            %input{class:"inputPrice",id:"inputPrice", placeholder:"例）300"}
+           
+        .sellContent__select__right__form__charge
+          .sellContent__select__right__form__charge--left
+            %p 販売手数料(10)％
+          .sellContent__select__right__form__charge--right
+            %p -
+        .sellContent__select__right__form__profitContent
+          .sellContent__select__right__form__profitContent--left
+            販売利益
+          .sellContent__select__right__form__profitContent--right
+            %p -
+  .sellContent
+    %p 
+      %a{href:"#"}禁止されている出品
+      、
+      %a{href:"#"}行為
+      を必ずご確認ください。
+    %p 
+      またブランド品でシリアルナンバー等がある場合はご記載ください。
+      %a{href:"#"}偽ブランドの販売
+      は犯罪であり処罰される可能性があります。
+    %p 
+      また、出品をもちまして
+      %a{href:"#"}加盟店規約
+      に同意したことになります。
+
+    .botton-wrapper 
+      %button{class:"red-button defalt-button" } 出品する
+    .botton-wrapper 
+      %button{class:"gray-button defalt-button"} もどる
+

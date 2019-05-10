@@ -1,7 +1,7 @@
 //新規登録画面
 .wrapper{
   background-color:$background-gray;
-  height:100vh;
+  
 }
 // 上部ロゴの部分
 .eachpage-header{
@@ -10,10 +10,11 @@
   height:16vh;
   &__logo{
     text-align:center;
-    .Mercari-logo{
-      width: 185px;
-      height: 49px;
+
+    img.Mercari-logo{
       padding-top:25px;
+      width: 185px;
+
     }
   }
 }
