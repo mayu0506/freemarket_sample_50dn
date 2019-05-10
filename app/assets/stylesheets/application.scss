@@ -7,4 +7,5 @@
 //style.scssファイルの読み込み
 @import "style.scss";
 //modules以下全てのファイルの読み込み
-@import "modules/*";
+@import "modules/product-details.scss";
+@import "modules/signup-email.scss"; 
