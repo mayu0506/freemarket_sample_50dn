@@ -3,7 +3,6 @@
   background-color:$background-gray; 
   padding-top:30px;
   box-sizing: border-box;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   // 商品詳細情報のブロック
   .product-details-contents {
     display:block;
@@ -176,7 +175,6 @@
     }
     }
   }
-
   // 購入者用コメントのブロック
   .product-comments-contents{
     display:block;
@@ -212,7 +210,6 @@
       }
     }
   }
-
   //次＋前の商品のクリックコマンド 
   .product-command-contents{
     display:block;
@@ -281,15 +278,6 @@
       }
     }
   }
-  
-  @mixin related-product-name {
-    color:$skyblue;
-    font-size:22px;
-    font-weight:bold;
-    padding-top:24px;
-    padding-bottom:8px;
-  }
-
   // 関連商品の一覧
   .related-products-contents{
     display:block;
