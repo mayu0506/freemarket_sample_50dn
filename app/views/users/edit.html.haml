@@ -1,0 +1,15 @@
+%main.mypage.clearfix
+  = render 'side'
+  .mypage-content
+    %section.profile-container
+      %h2.profile-container__head プロフィール
+      = form_for root_path do |f|
+        .setting-profile-icon
+          %figure.setting-profile-icon__photo
+            = image_tag 'user-icon.jpg'
+          = f.text_field :nickname, placeholder: '例)tama＠セール中', class: 'setting-profile-icon__form'
+        .setting-profile-content
+          = f.text_area :self_introduction, placeholder: '例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪', class: 'setting-profile-content__form'
+          = f.submit '変更する', class: 'setting-profile-content__submit'
+
+-# この下にrenderでfooterを挿入予定
