@@ -71,7 +71,7 @@
   }
   &__item.active {
     background-color: $white;
-    border-top: 2px solid #ea352d;
+    border-top: 2px solid $red;
   }
 }
 .mypage-tabs a {
@@ -139,6 +139,7 @@
     right: 16px;
     top: 50%;
     transform: translate(0, -50%);
+    color: #333;
   }
 
   &__go-lists{
