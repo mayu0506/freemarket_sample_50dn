@@ -1,0 +1,123 @@
+input{
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: none;
+}
+
+
+
+                              // ヘッダー
+
+.mainHeader{
+    background-color: white;
+    margin:0 auto;
+
+  &_inner{
+      width: 1130px;
+      height: 100px;
+      padding-top: 9px;
+      margin:0 auto;
+
+    &_top{
+        display: flex;
+        justify-content: space-between;
+
+        .mercari-icon{
+          height: 36px;
+          width: 150px;
+          padding-top: 3px;
+        }
+                              // inputタグ
+        &_form{
+          position: relative;
+
+          &--input{
+            width: 930px;
+            height: 44px;
+            border-radius:5px;
+            background-color: $background-gray;
+            border: 1px solid #ccc;
+            font-size:18px;
+          }
+
+          .fa-search{
+            position: absolute;
+            padding: 14px 13px;
+            right: 0;
+            top:0px;
+            color: #333333;
+            font-weight: 300;
+          }
+      }
+    }
+                               // header下
+    &_bottom{
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-between;
+                                // header下左
+      &_left{
+        height: 57px;
+        line-height: 57px;
+
+        .left-icon{
+          color:red;
+        }
+        
+        .fa-tag{
+          margin-left:30px;
+        }
+        .left-text{
+          font-weight:600;
+          color: #333;
+          float: right;
+          margin-left:10px;
+          font-size:15px;
+        }
+      }
+                                // header下右
+      &_right{
+        .right-icon{
+          color:#ccc;
+        }
+        &_notice{
+          float: left;
+          position: relative;
+          top:15px;
+          margin:0 15px;
+          color: #333333;
+        }
+        &_notice:hover{
+          color:$skyblue;
+        }
+        &_myPage{
+          float: left;
+          position: relative;
+          top:5px;
+        
+
+          &--image{
+            border-radius: 50%;
+            font-size:10px;
+            position: relative;
+            margin:5px 0 0 14px;
+          }
+        
+          &_text{
+            float: right;
+            position: relative;
+            top:10px;
+            color: #333333;
+            margin-left:10px;
+          }
+          &_text:hover{
+            color:$skyblue;
+          }
+
+        }
+      }
+    }
+  }
+}
