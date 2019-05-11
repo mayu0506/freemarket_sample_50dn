@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :new, :show]
   resources :users do
     get :logout, on: :collection
+    get :identification, on: :collection
   end
 end

@@ -1,0 +1,31 @@
+// 上部ロゴの部分
+.eachpage-header{
+  background-color:$background-gray;
+  width:100vw;
+  height:16vh;
+  &__logo{
+    text-align:center;
+    img.Mercari-logo{
+      padding-top:25px;
+      width: 185px;
+    }
+  }
+}
+// 下部のロゴと各種レギュレーション
+.eachpage-footer{
+  background-color:$background-gray;
+  text-align:center;
+  font-size:12px;
+  padding: 40px 0;
+  .regulation{
+    padding-inline-start: 40px;
+    display:inline-block;
+  }
+  &__mercari-mark{
+    padding-top:30px;
+    .mercari-logo{
+      width: 130px;
+      height: 80px;
+    }
+  }
+}

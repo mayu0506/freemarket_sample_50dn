@@ -1,28 +1,20 @@
-*{
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-}
-
 .sellContents {
   background-color: $white;
   width: 700px;
   margin: 0 auto;
 }
-
 .sellContent {
   padding: 40px;
   border-bottom:$background-gray solid 1px;
-
   p{
     font-size: 14px;
   }
-
   a {
     color: $skyblue;
     &:hover {
       border-bottom: 1px solid $skyblue; 
     }
   }
-
   .button-wrapper {
     text-align: center;
   }
@@ -37,14 +29,12 @@
     background-color: $red;
     border: 1px solid $red;
   }
-
   button.gray-button {
     width: 280px;
     color: $white;
     background-color: #aaaaaa;
     border: 1px solid #aaaaaa;
   }
-
   span.form-require {
     background-color: $red;
     color: $white;
@@ -58,12 +48,10 @@
     text-align: center;
     font-weight: bold;
     }
-
     &__form:not(:first-child) {
       // 最初の子要素（:first-child）以外にスタイルを指定
       margin-top: 40px;
     }
-
     &__form {
       &--label {
         font-size: 14px;
@@ -83,14 +71,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
         p {
           font-size: 14px;
           text-align: center;
           font-family: monospace,monospace;
         }
       }
-
       input.input-defalt {
         width: 620px;
         height: 48px;
@@ -100,7 +86,6 @@
         border-radius: 4px;
         border: 1px solid #ccc;
       }
-
       textarea.textarea-defalt {
         width: 620px;
         min-height: 104px;
@@ -111,15 +96,12 @@
         line-height: 1.5;
       }
     }
-
   &__select {
     display: flex;
-
     &__left {
       font-size: 14px;
       width: 220px;
       color: #888888;
-
       a {
         background-color: $skyblue;
         color: $white;
@@ -147,14 +129,12 @@
           top: 38px;
           right: 0;
           right: 16px;
-
         }
         &--label {
           font-size: 14px;
           font-weight: 600;
           margin-bottom: 5px;
         }
-
       select.select-defalt {
         width: 400px;
         height: 48px;
@@ -169,8 +149,7 @@
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        }
-       
+        }   
         &__priceForm {
           display: flex;
           justify-content: space-between;
@@ -196,7 +175,6 @@
             border: 1px solid #ccc;
           }
         }
-
         &__charge {
           display: flex;
           justify-content: space-between;
@@ -210,21 +188,17 @@
             font-size: 14px;
           }
         }
-
         &__profitContent {
           display: flex;
           justify-content: space-between;
           width: 400px;
           padding: 24px 0;
-
           &--left {
             font-size: 16px;
             font-weight: 600;
           }
           &--right {
             p {font-size: 34px;}
-
-
           }
        }
       }

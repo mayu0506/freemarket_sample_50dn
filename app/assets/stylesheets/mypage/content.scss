@@ -3,7 +3,6 @@
   float: right;
   color: $black;
 }
-
 // マイページ上部プロフィール部分
 .mypage-user-icon{
   height: 200px;
@@ -51,13 +50,11 @@
   transform: translate(0, -50%);
   color: $black;
 }
-
 // マイページ中間タブ部分。貼り付け状態。
 .mypage-tab-container-notification {
   margin: 0;
   background: $white;
 }
-
 .mypage-tabs{
   border: 0;
   background: #eee;
@@ -82,7 +79,6 @@
   line-height: 72px;
   font-weight: 700;
 }
-
 .mypage-item-list{
   display: block;
   &__link{
@@ -141,7 +137,6 @@
     transform: translate(0, -50%);
     color: #333;
   }
-
   &__go-lists{
     background-color: $white;
     padding: 16px;
@@ -156,7 +151,6 @@
     text-align: center;
   }
 }
-
 // マイページ下部。貼り付け状態。
 .mypage-tab-container {
   margin: 40px 0 0 0;
