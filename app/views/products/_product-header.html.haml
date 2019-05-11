@@ -1,0 +1,27 @@
+.mainHeader
+  .mainHeader_inner
+    .mainHeader_inner_top
+      =link_to image_tag("Mercari_logo.png" ,alt: "mercari",class: "mercari-icon"),root_path
+      =form_with url: products_path, class: "mainHeader_inner_top_form" do |f|
+        %input#user-search-field.mainHeader_inner_top_form--input.font-awesome{name:"key_word",placeholder:"  何かお探しですか？", type: "text",value: ""}
+        %i.fa.fa-search
+    .mainHeader_inner_bottom
+      .mainHeader_inner_bottom_left
+        .fa.fa-list-ul.left-icon
+          .left-text カテゴリーから探す
+        .fa.fa-tag.left-icon
+          .left-text ブランドから探す
+      .mainHeader_inner_bottom_right
+        =link_to "#" do
+          .mainHeader_inner_bottom_right_notice
+            .far.fa-bell.fa-lg.right-icon
+            お知らせ
+        =link_to "#" do
+          .mainHeader_inner_bottom_right_notice
+            .fa.fa-check.fa-lg.right-icon
+            やることリスト
+        =link_to "#" ,class:"myPage" do
+          .mainHeader_inner_bottom_right_myPage
+            =image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",width:"35" ,alt: "mypage",class: "mainHeader_inner_bottom_right_myPage--image"
+            .mainHeader_inner_bottom_right_myPage_text
+              マイページ

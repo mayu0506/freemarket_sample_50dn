@@ -1,0 +1,192 @@
+
+                                        // バナー
+  .topBanner{
+  text-align: center;
+  width: 100%;
+  background-color: #DCDCDC;
+
+  &--left{
+    color:$white;
+    position: absolute;
+    left:50px;
+    top:320px;
+    font-size:40px;
+  }
+  &--right{
+    color:$white;
+    position: absolute;
+    right:50px;
+    top:320px;
+    font-size:40px;
+  }
+  &--image{
+  height: 400px;
+  width: 850px;
+  }
+  }
+
+                                // 商品メイン
+  .bodyMain{
+  background-color:$background-gray;
+
+  &_pickup{
+      margin-bottom:40px;
+    &--title{
+      text-align: center;
+      font-size:28px;
+      font-weight:700;
+      color: $font-color;
+      letter-spacing:0.1em;
+      margin-top:40px;
+    }
+    &_cotegory{
+        margin:0 21vw 0 auto;
+      &_box{
+        &--title{
+          text-align: center;
+          margin:26px 11px;
+          font-weight:800;
+          font-size:24px;
+          letter-spacing:0.1em;
+          padding-left:20vw;
+
+          a.category-title__link{
+            font-size:22px;
+            color: $skyblue;
+            text-decoration:none;
+          }
+        }
+                            // 横並びアイテム
+        &_items{
+            text-align: right;
+                              // 一つ一つのアイテム
+          .itemBox{
+                width: auto;
+                display:inline-block;
+                margin-left:10px;
+          
+              a.itemBox_a{
+                color:$font-color;
+                text-decoration:none;
+              }
+              &--image{
+                vertical-align: bottom;
+              }
+
+            &_ditails{
+              background-color: $white;
+              padding:16px;
+              text-align: left;
+              width:250px;
+              height: 130px;
+
+              &--name{
+                height: 3em;
+                line-height: 1.5;
+                overflow: hidden;
+                position: relative;
+              }
+              .hide{
+                width: 100px;
+                height: 1.5em;
+                position: absolute;
+                background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #fff));
+                right:0px;
+                top:30px
+              }
+
+              &_num{
+                  width: 100%;
+                  display: inline-flex;
+                  justify-content: space-between;
+                  margin-top:8px;
+
+                &--price{
+                  font-weight:bold;
+                }
+              }
+
+              &--tax{
+                font-size:10px;
+              }
+              
+            }
+          }
+        }
+        &_alllink{
+          padding:20px 0px 20px;
+          display:flex;
+          justify-content: flex-end;
+
+          a.allLink{
+            color: $skyblue;
+            text-decoration:none;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.appBanner{
+  &_back{
+    width: 820px;
+    height: 300px;
+    position: relative;
+    display: flex;
+
+    &--backgruond{
+      width: 100vw;
+      position: relative;
+    }
+    &_inner{
+        width: 800px;
+        height:300px;
+        margin:0 25vw;
+        position: absolute;
+      &_text{
+        flex: 1;
+        color: $white;
+        letter-spacing:1.5px;
+        position: absolute;
+
+        &--first{
+          position: absolute;
+          top:50px;
+          font-size:24px;
+          font-weight: 700;
+        }
+        &--second{
+          font-size:35px;
+          margin-top:90px;
+        }
+      }
+      &--icon{
+        position: absolute;
+        top:160px;
+        background-color: $white;
+        border-radius: 10px;
+      }
+      &--app{
+        position: absolute;
+        top:180px;
+        left:100px;
+      }
+
+      &--google{
+        position: absolute;
+        top:180px;
+        left:250px;
+      }
+
+      &_mobilePhone{
+        width: 350px;
+        height: 300px;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+}
+

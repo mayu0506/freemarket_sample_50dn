@@ -1,0 +1,28 @@
+.sellBtn{
+  &_circle{
+    background-color: #ea352d;;
+    font-size:500px;
+    float: right;
+    position: fixed;
+    right:35px;
+    bottom:35px;
+    border-radius: 50%;
+    height: 178px;
+    width: 178px;
+  }
+
+  &_exhibition{
+    position:fixed;
+    bottom:145px;
+    right:100px;
+    font-size: 24px;
+    color:white;
+  }
+
+  .fa-camera{
+    position: fixed;
+    right: 90px;
+    bottom:80px;
+    color: white;
+    }
+}
