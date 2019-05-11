@@ -12,8 +12,10 @@
 @import "modules/product-details.scss";
 @import "modules/signup-email.scss"; 
 @import "modules/user-identification.scss"; 
+@import "modules/sellcontents.scss";
 // mypageフォルダの読み込み
 @import "mypage/mypage";
 @import "mypage/content";
 @import "mypage/side";
-
+// usersフォルダの読み込み
+@import "users/*";
