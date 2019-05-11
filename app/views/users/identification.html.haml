@@ -1,0 +1,51 @@
+%main.mypage
+%main.mypage.clearfix
+  = render 'side'
+  -# 上部にあるプロフィール部分
+  .userIdentificationContent
+    .userIdetificationHeader
+      %h2.identificationTitle 本人情報の登録
+    -# メイン詳細情報記入
+    %form{action: "/", method: "POST", class:"identificationDetails"}
+      %div.identificationAttention
+        %p お客さまの本人情報をご登録ください。
+        %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        .aboutUpload 
+          %p.aboutUpload__text 本人確認書類のアップロードについて
+          = fa_icon 'angle-right', class: 'identification-angleRight'
+      %div.identificationForm--group
+        %label.identificationForm--group__label お名前
+        %p.identificationForm--group__contents Techy Campridge
+      %div.identificationForm--group
+        %label.identificationForm--group__label お名前カナ
+        %p.identificationForm--group__contents テッキー　キャンプリッジ
+      %div.identificationForm--group
+        %label.identificationForm--group__label 生年月日
+        %p.identificationForm--group__contents 2019年4月10日
+      %div.identificationForm--group
+        %label.identificationForm--group__label 郵便番号
+        %span{class: "optional-mark"} 任意 
+        %input{class: "identificationForm--group__input", placeholder: "例) 1234567"}
+      %div.identificationForm--group
+        %label.identificationForm--group__label 都道府県
+        %span{class: "optional-mark"} 任意 
+        %div.select-prefecture
+          = render 'prefecture'            
+      %div.identificationForm--group
+        %label.identificationForm--group__label 市区町村
+        %span{class: "optional-mark"} 任意 
+        %input{class: "identificationForm--group__input", placeholder: "例) 横浜市緑区"}
+      %div.identificationForm--group
+        %label.identificationForm--group__label　番地
+        %span{class: "optional-mark"} 任意 
+        %input{class: "identificationForm--group__input", placeholder: "例) 青山1-1-1"}
+      %div.identificationForm--group
+        %label.identificationForm--group__label　建物名
+        %span{class: "optional-mark"} 任意 
+        %input{class: "identificationForm--group__input", placeholder: "例) 柳ビル103"}
+      %div.identificationForm--group
+        %input{type: "submit", value: "登録する", class: "identificationForm--group__button"} 
+      %div.identificationForm--group__registration
+        本人情報の登録について
+        = fa_icon 'angle-right', class: 'identification-angleRight'
+    

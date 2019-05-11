@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
-  def index
+  def show
   end
 
   def new  
+  end
+
+  def logout
+  end
+
+  def identification
   end
 end

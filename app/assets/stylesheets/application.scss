@@ -4,12 +4,16 @@
 @import "config/*";
 // rest.cssファイルの読み込み
 @import "./reset";
+// mixins
+@import "mixins/mixins";
 //style.scssファイルの読み込み
 @import "style.scss";
 //modules以下全てのファイルの読み込み
 @import "modules/product-details.scss";
 @import "modules/signup-email.scss"; 
+@import "modules/user-identification.scss"; 
 // mypageフォルダの読み込み
 @import "mypage/mypage";
 @import "mypage/content";
 @import "mypage/side";
+
