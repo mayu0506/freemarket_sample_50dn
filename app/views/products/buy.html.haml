@@ -1,0 +1,74 @@
+.wrapper
+  .eachpage-header
+    .eachpage-header__logo
+      =link_to root_path do
+        =image_tag "Mercari_logo.png", class: 'Mercari-logo'
+
+  %main.buy-main
+    .buy-item-container
+      %h2.buy-item-container__head 購入を確定しますか？
+      %section.buy-content
+        .buy-content-inner.buy-item
+          %h3.buy-content-inner__item-image
+            = image_tag 'bag.jpg'
+          %p.buy-content-inner__item-name.bold PRADA 限定ブラック トート
+          = form_for root_path do |f|
+            = f.hidden_field :price
+            %p.buy-content-inner__item-price-ja.bold
+              ¥ 30,000
+              %span.buy-content-inner__shipping-fee 送料込み
+            %ul.buy-content-inner__item-point.not-have
+              %li.buy-content-inner__point_parent
+                .buy-content-inner__point_parent-toggle ポイントはありません
+            %ul.buy-content-inner__price-table
+              %li.buy-content-inner__price-row.bold
+              %li.buy-content-inner__price-cell 支払い金額
+              %li.buy-content-inner__price-cell ¥ 30,000
+            = f.submit '購入する', class: 'buy-content-inner__btn-buy bold'
+
+      %section.buy-content
+        .buy-content-inner
+          %h3.bold 配送先
+          %address.buy-user-info__text
+            〒
+            123-4567
+            %br
+            東京都 新宿区 西新宿2-8-1
+            %br
+            メルカリ たま子
+          = link_to '#', class: 'buy-user-info__fix' do
+            %span 変更する
+            %i.fa.fa-angle-right
+
+      %section.buy-content.buy-user-info
+        .buy-content-inner
+          %h3.bold 支払方法
+          %p.buy-user-info__text
+            = '************' + '1234'
+            %br
+            = '05'
+            = '/'
+            = '06'
+            %figure
+              = image_tag 'visa.png'
+            = link_to '#', class: 'buy-user-info__fix' do
+              %span 変更する
+              %i.fa.fa-angle-right
+
+    -# ここからフッター後ほどまとめる
+    .eachpage-footer
+      %ul
+        %li.regulation
+          プライバシーポリシー
+        %li.regulation
+          メルカリ利用規約
+        %li.regulation
+          特定商取引に関する表記  
+      .eachpage-footer__mercari-mark
+        =link_to root_path do
+          =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?613028459", class: 'mercari-logo'
+        .mercari-copyright
+        ©2019 Mercari
+
+
+-# footerは後ほど部分テンプレートとして切り分け予定
