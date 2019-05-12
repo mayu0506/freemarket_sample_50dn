@@ -1,0 +1,99 @@
+.contents
+  .signup-bar
+    .signup-bar__log
+      =image_tag "Mercari_logo.png", class: 'Mercari-logo'
+     
+      
+    .signup-bar__progress
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            会員情報
+            .signup-bar__progress__box--status
+            .signup-bar__progress__box--status__first
+      
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar__active
+            電話番号認証
+            .signup-bar__progress__box--status
+            .signup-bar__progress__box--status__second
+          
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            お届け先住所入力
+            .signup-bar__progress__box--status
+            .signup-bar__progress__box--status__third
+          
+          
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            支払い方法
+            .signup-bar__progress__box--status
+            .signup-bar__progress__box--status__forth
+          
+          
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            完了
+            .signup-bar__progress__box--status
+            .signup-bar__progress__box--status__fifth
+          
+        
+  .main-contents
+    .single-content
+      .single-content__head 電話番号認証
+      .single-content__inner
+      .single-content__inner__top
+        .single-content__inner__top__action
+          .single-content__inner__top__action__form
+            .form--label
+              %label.certification_number{:for => "certification_number"} 認証番号                   
+              %input.input-default{:name => "phone_number", :placeholder => "認証番号を入力", :type => "text", :value => ""}/
+              %p.first-message
+                SMSで届いた認証番号を入力してください 
+                
+              %input{type: "button",class: "btn-default button-red costom__main", value: "認証して完了"}
+              
+      
+      .single-content__inner__bottom
+        .single-content__inner__bottom__action
+          .single-content__inner__bottom__action__form
+            .form--label            
+              %p.second-message
+                30秒たっても認証が届かない方へ
+              %p.third-message
+                電話で認証番号を聞くこともできます。             
+              %input{type: "button",class: "btn-second button-red costom__main", value: "電話で認証番号を聞く（通話無料）"}
+
+      .single-content__inner__bottom
+        .single-content__inner__bottom__action
+          .single-content__inner__bottom__action__form
+            .form--label            
+              %p.forth-message
+                認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+              %p.fifth-message
+                電話を再度入力する
+              %p.sixth-message
+                ※SMSが届かない場合はSMS受信設定を確認して、もう一度電話番号を入力してください。            
+              
+
+  .eachpage-footer
+    %ul
+      %li.regulation
+        プライバシーポリシー
+      %li.regulation
+        メルカリ利用規約
+      %li.regulation
+        特定商取引に関する表記  
+    .eachpage-footer__mercari-mark
+      =link_to root_path do
+        =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?613028459", class: 'mercari-logo'
+      .mercari-copyright
+      ©2019 Mercari

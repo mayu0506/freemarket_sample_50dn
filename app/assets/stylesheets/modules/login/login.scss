@@ -1,0 +1,182 @@
+@import "./reset";
+
+.contents {
+background: #f5f5f5;
+
+.signup-bar {
+  height: 128px;
+  text-align: center;
+  width:100vw;
+  &__log {
+  img {
+  //  display: inline-block;
+   width: 185px;
+   height: 49px;
+   margin: 40px 0 0;
+   text-align: center;
+       }
+      }   
+    }    
+  }
+
+.main-contents {
+  display: block;
+}
+
+.single-content {
+  background: #fff;
+  width: 700px;
+  margin: 0 auto;
+
+  &__head {
+    width: 45%;
+    padding: 64px;
+    margin: 0 auto;
+    font-weight: bold;
+    padding: 32px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5;;
+
+    .message {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .btn-default.button-blue {
+      width: 100%;
+      margin: 8px 0 0;
+      background: #0099e8;
+      border: 1px solid #0099e8;
+      color: #fff;
+      border-radius: 0px;
+      line-height: 40px;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+    &__inner {
+      width: 45%;
+      padding: 64px;
+      margin: 0 auto;
+      
+      &__action {
+         max-width: 320px;
+         margin: 0 auto;
+         
+         &__form {
+           margin: 40px 0 0;
+          //  .facebook{
+          //   margin-top:15px;
+          //   position:relative;
+          //   padding:15px 0;
+          //   width:100%;
+          //   background-color:$facebook;
+          //   color:$white;
+          //   border: 1px solid;
+          //   border-color:$facebook;
+          //   .facebook-list{
+          //     display:inline-block;
+          //     .facebook-icon{
+          //       position:absolute;
+          //       left:20px;
+          //       top:20%;
+          //       color:$white;
+          //       font-size:30px;
+          //     }
+          //   }
+          // }
+          // .google{
+          //   margin-top:15px;
+          //   position:relative;
+          //   padding:15px 0;
+          //   width:100%;
+          //   border:1px solid;
+          //   .google-list{
+          //     display:inline-block;
+          //     .google-icon{
+          //       position:absolute;
+          //       left:20px;
+          //       top:25%;
+          //       height:25px;
+          //       width:25px;
+          //       font-size:25px;
+          //     }
+          //   }
+          // }
+           .form--label{         
+             margin: 40px 0 0;
+             label {              
+                font-weight: 600;
+                display: inline-block;
+              }
+              .text-left.l-chapter-sub-head {
+                font-size: 16px;
+              }
+              .first-message {
+                color: #333333;
+                margin: 8px 0 0;
+                font-size: 14px;
+              }
+              span {
+                background: #ea352d;
+                color: #fff;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                font-size: 12px;
+                vertical-align: top;
+              }
+              .input-default {
+                box-sizing: border-box;
+                width: 100%;
+                margin: 8px 0 0;
+                height: 48px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #fafafa;;
+                line-height: 1.5;
+                font-size: 16px;
+                  }              
+                }
+              }
+            }
+          }
+        }
+
+        .btn-default.button-red {
+          display: block;
+          width: 100%;
+          margin: 40px 0 0;
+          background: #f04239;
+          border: 1px solid #ea352d;
+          color: #fff;
+          border-radius: 0px;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
+        }
+      
+        // 下部のロゴと各種レギュレーション
+        .eachpage-footer{
+          // background-color:$background-gray;
+          // background-color: gray;
+          text-align:center;
+          font-size:12px;
+          padding: 40px 0;
+          margin: 0 auto;
+          height: 220px; 
+          .regulation{
+            padding-inline-start: 40px;
+            display:inline-block;
+          }
+          &__mercari-mark{
+            padding-top:30px;
+            .mercari-logo{
+              width: 130px;
+              height: 80px;
+            }
+          }
+        }
+        

@@ -1,0 +1,102 @@
+.contents
+  .signup-bar
+    .signup-bar__log
+      =image_tag "Mercari_logo.png", class: 'Mercari-logo'
+     
+      
+    .signup-bar__progress
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            会員情報
+            .signup-bar__progress__box--status__first
+      
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            電話番号認証
+            .signup-bar__progress__box--status__second
+          
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar__active
+            お届け先住所入力
+            .signup-bar__progress__box--status__third
+          
+          
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            支払い方法
+            .signup-bar__progress__box--status__forth
+          
+          
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            完了
+            .signup-bar__progress__box--status__fifth
+          
+        
+  .main-contents
+    .single-content
+      .single-content__head 発送元・お届け先住所入力
+      .single-content__inner
+        .single-content__action
+          .single-content__inner__action__form
+            .form--label
+              %label{:for => "name"} お名前
+              %span.form-require 必須
+              %input.input-default{:name => "family_name", :placeholder => "例) 山田", :type => "text", :value => ""}/
+              %input.input-default{:name => "first_name", :placeholder => "例) 彩", :type => "text", :value => ""}/
+            .form--label
+              %label{:for => "kana"} お名前カナ
+              %span.form-require 必須
+              %input.input-default{:name => "family_name_kana", :placeholder => "例)ヤマダ", :type => "text", :value => ""}/
+              %input.input-default{:name => "first_name_kana", :placeholder => "例)アヤ", :type => "text", :value => ""}/
+            .form--label
+              %label{:for => "postal_code"} 郵便番号
+              %span.form-require 必須
+              %input.input-default{:name => "input_postal_code", :placeholder => "例)123ー4567", :type => "number"}/
+            .form--label        
+              %label{:for => "prefecture"} 都道府県
+              %span.form-require 必須
+              %input.input-default{:name => "input_prefacture", :placeholder => "東京都", :type => "text"}/
+            .form--label        
+              %label{:for => "city"} 市区町村
+              %span.form-require 必須
+              %input.input-default{:name => "input_city", :placeholder => "例）渋谷区", :type => "text"}/
+           
+            .form--label        
+              %label{:for => "address"} 番地
+              %span.form-require 必須
+              %input.input-default{:name => "input_address", :placeholder => "例）青山1-1-1", :type => "text"}/
+
+            .form--label        
+              %label{:for => "building"} 建物名
+              %span.form-option 任意
+              %input.input-default{:name => "input_building", :placeholder => "例）柳ビル103", :type => "text"}/
+
+            .form--label        
+              %label{:for => "phone_number"} 電話
+              %span.form-option 任意
+              %input.input-default{:name => "input_phone_number", :placeholder => "例)09012345678", :type => "number"}/  
+              %input{type: "button",class: "btn-default button-red costom__main", value: "次へ進む"}
+              
+  .eachpage-footer
+    %ul
+      %li.regulation
+        プライバシーポリシー
+      %li.regulation
+        メルカリ利用規約
+      %li.regulation
+        特定商取引に関する表記  
+    .eachpage-footer__mercari-mark
+      =link_to root_path do
+        =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?613028459", class: 'mercari-logo'
+      .mercari-copyright
+      ©2019 Mercari

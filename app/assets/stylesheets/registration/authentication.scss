@@ -1,0 +1,282 @@
+@import "./reset";
+
+.contents {
+background: #f5f5f5;
+
+
+.signup-bar {
+  display: flex;
+  height: 128px;
+  text-align: center;
+  &__log {
+  img {
+   width: 185px;
+   height: 49px;
+   margin: 40px 0 0;
+    }
+  }
+  &__progress {
+   padding: 40px 0 0 44px;
+   display: inline-block;
+   border: 0;
+   font-size: 0;
+   text-align: center;
+   vertical-align: top;
+  
+   
+    &__box {
+      position: relative;
+      z-index: 1;     
+      min-width: 60px;
+      display: inline-block;
+      margin: 0 40px 0 0;
+      font-size: 12px;
+      
+       // ナビゲーションバー設定確認中
+         
+      // &--status__first {
+        // position: absolute;
+        // width: 12px;
+        // height: 12px;
+        // margin: 8px auto 0;
+        // background: #ccc;
+        // border-radius: 50%;      
+        // align-items: center;
+
+        // &:before {
+        //   display: block;
+        //   position: absolute;
+        //   bottom: 5px;
+        //   right: 50%;
+        //   height: 2px;
+        //   width: 100%;
+        //   z-index: -1;
+        //   content: '';
+        //   background-color: #ccc;
+        //   border-style: solid;
+        //   border-width: 0;
+        // }
+        // &:after {
+        //   display: block;
+        //   position: absolute;
+        //   bottom: 5px;
+        //   left: 50%;
+        //   height: 2px;
+        //   width: 100%;
+        //   z-index: -1;
+        //   content: '';
+        //   background-color: #ccc;
+        //   border-style: solid;
+        //   border-width: 0;
+        //  }        
+        // }             
+       }  
+       
+       .signup-bar__active {
+        font-weight: 600;
+        list-style: none;
+        color: #ea352d;
+        .signup-bar__progress__box--status__first {
+          background-color: #ea352d;
+          &:before {
+          background-color: #ea352d;
+          }
+        }
+      }
+      .signup-bar__through {
+        .signup-bar__progress__box--status__first {
+        
+          background-color: #ea352d;
+          &:after {
+            background-color: #ea352d;
+          }
+          &:before {
+            background-color: #ea352d;
+          }
+        }
+      }
+      
+      li {
+        list-style: none;
+        color: #aaa;
+        }
+      }
+    }
+
+// メインコンテンツ
+
+.main-contents {
+  display: block;
+}
+
+.single-content {
+  background: #fff;
+  width: 700px;
+  margin: 0 auto;
+
+  &__head {
+    font-weight: bold;
+    padding: 32px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  // 上の欄
+   
+
+    &__inner__top {   
+      padding: 40px;
+      max-width: 320px;
+      margin: 0 auto;
+      border-bottom: 1px solid #f5f5f5;
+
+      &__action {
+         max-width: 320px;
+         margin: 40px 0 0;
+         &__form {
+          max-width: 320px;
+          margin: 40px 0 0;
+          .form--label{         
+            margin: 40 0 0;           
+             label {              
+                font-weight: 600;
+                display: inline-block;
+              }
+              span {
+                background: #ea352d;
+                color: #fff;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                font-size: 12px;
+                vertical-align: top;
+              }
+              // 電話番号入力欄
+              .input-default {
+                box-sizing: border-box;
+                width: 100%;
+                margin: 8px 0 0;
+                height: 48px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #aaa;
+                line-height: 1.5;
+                font-size: 16px;
+              }
+              .first-message {           
+                color: #333333;
+                margin: 8px 0 0;
+                line-height: 1.5;
+                font-size: 14px;
+              }
+             
+              .btn-default.button-red {
+                display: block;
+                width: 100%;
+                margin: 40px 0 0;
+                background: #ea352d;
+                border: 1px solid #ea352d;
+                color: #fff;
+                border-radius: 0px;
+                line-height: 48px;
+                font-size: 14px;
+                text-align: center;
+              }
+            }                 
+          }
+        }
+     }
+
+          // 中関の欄
+
+          &__inner__bottom {   
+            padding: 40px;
+            max-width: 320px;
+            margin: 0 auto;
+            border-bottom: 1px solid #f5f5f5;
+             
+            &__action {
+               max-width: 320px;
+               margin: 40px 0 0;
+               &__form {
+                max-width: 320px;
+                margin: 40px 0 0;
+                .form--label{         
+                  margin: 40 0 0;           
+                   label {              
+                      font-weight: 600;
+                      display: inline-block;
+                    }
+                    span {
+                      background: #ea352d;
+                      color: #fff;
+                      margin: 0 0 0 8px;
+                      padding: 2px 4px;
+                      border-radius: 2px;
+                      font-size: 12px;
+                      vertical-align: top;
+                    }
+
+                    .second-message {
+                      font-size: 16px;
+                      font-weight: 600;
+                     }
+                    .third-message {
+                      font-size: 12px;
+                     }                 
+                   
+                    .btn-second.button-red {
+                      display: block;
+                      width: 100%;
+                      margin: 40px 0 0;
+                      background: #f04239;
+                      border: 1px solid #ea352d;
+                      color: #fff;
+                      border-radius: 0px;
+                      line-height: 48px;
+                      font-size: 14px;
+                      text-align: center;
+                    }
+                  }                      
+               }
+             }                     
+           }             
+      
+                      .forth-message {
+                        font-size: 16px;
+                        font-weight: 600;
+                       }
+                      .fifth-message {
+                        font-size: 12px;
+                        color: #0099e8;
+                      }      
+                      .sixth-message {
+                        font-size: 12px;
+                       }                                                                                                                 
+          }
+          
+        // 下部のロゴと各種レギュレーション
+        .eachpage-footer{
+          // background-color:$background-gray;
+          // background-color: gray;
+          text-align:center;
+          font-size:12px;
+          padding: 40px 0;
+          margin: 0 auto;
+          height: 220px; 
+          .regulation{
+            padding-inline-start: 40px;
+            display: inline-block;
+          }
+          &__mercari-mark{
+            padding-top:30px;
+            .mercari-logo{
+              width: 130px;
+              height: 80px;
+            }
+          }
+        }
+      }
+        
