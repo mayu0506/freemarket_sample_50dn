@@ -9,26 +9,26 @@
       .cardPage__content__form
         .cardPage__content__form--label
           カード番号
-          %span{class:"form-require"}
+          %span.form-require
             必須
-        %input{class:"card-input", placeholder:"半角数字のみ"}
+        %input.card-input{placeholder:"半角数字のみ"}
         .cardPage__content__form--error
           必須項目です
         .cardPage__content__form--image
-          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?376951604', alt: '', height: '20', width: '49', class: ''
-          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?376951604', alt: '', height: '20', width: '34', class: ''
-          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?376951604', alt: '', height: '20', width: '30', class: ''
-          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?376951604', alt: '', height: '20', width: '32', class: ''
-          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?376951604', alt: '', height: '20', width: '21', class: ''
-          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?376951604', alt: '', height: '20', width: '32', class: ''
-          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?376951604', alt: '', height: '20', width: '32', class: ''
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?376951604', class: 'visa-card'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?376951604', class: 'master-card'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?376951604', class: 'saison-card'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?376951604', class: 'jcb-card'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?376951604', class: 'american-express'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?376951604', class: 'diners-club'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?376951604', class: 'discover'
       .cardPage__content__form
         .cardPage__content__form--label
           有効期限
-          %span{class:"form-require"}
+          %span.form-require
             必須
-        %form{action: "/", method: "POST",class:"cardPageForm"}
-          %select{class:"card-expire"}
+        %form.cardPageForm{action: "/", method: "POST"}
+          %select.card-expire
             %option{value: ""} ---
             %option{value:"1"} 01
             %option{value:"2"} 02
@@ -36,8 +36,8 @@
             %option{value: "4"} 04
           %i.fa.fa-chevron-down
           %span 月
-        %form{action: "/", :method => "POST",class:"cardPageForm"}
-          %select{class:"card-expire"}
+        %form.cardPageForm{action: "/", method: "POST"}
+          %select.card-expire
             %option{value: ""} ---
             %option{value:"1"} 19
             %option{value:"2"} 20
@@ -49,9 +49,9 @@
       .cardPage__content__form
         .cardPage__content__form--label
           セキュリティコード
-          %span{class:"form-require"}
+          %span.form-require
             必須
-        %input{class:"card-input", placeholder:"カード背面4桁もしくは3桁の番号"}
+        %input.card-input{placeholder:"カード背面4桁もしくは3桁の番号"}
         .cardPage__content__form--error
           必須項目です
         .form-question
@@ -59,7 +59,7 @@
             ?
           %p カード裏面の番号とは？
         .button-wrapper
-          %button{class:"add-card"} 追加する
+          %button.add-card 追加する
 
 
 -#  あとでrenderでアプリのバナー部分入れます

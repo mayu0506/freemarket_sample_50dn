@@ -12,8 +12,9 @@
           
         -# クレジットカード情報が登録されている場合
         .cardPage__content__list--data
-          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?376951604', alt: '', height: '20', width: '49', class: ''
-          %button{class:"delete-card"} 削除する
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?376951604', 
+          class: 'visa-card'
+          %button.delete-card 削除する
         .cardPage__content__list--paymentNum
           ************
         .cardPage__content__list--paymentNum
@@ -21,7 +22,7 @@
 
         -# クレジットカードが登録されていない場合
         .cardPage__content__list--add
-          %button{class:"add-card"} クレジットカードを追加する
+          %button.add-card クレジットカードを追加する
 
       .cardPage__content__footer
         = link_to do
