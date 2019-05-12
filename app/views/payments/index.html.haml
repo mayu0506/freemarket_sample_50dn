@@ -1,0 +1,34 @@
+= render 'products/product-header'
+%main.mypage.clearfix
+  = render 'users/side'
+
+  .cardPage
+    .cardPage__header
+      %h2 支払い方法
+    .cardPage__content
+      .cardPage__content__list
+        .cardPage__content__list--head
+          クレジットカード一覧
+          
+        -# クレジットカード情報が登録されている場合
+        .cardPage__content__list--data
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?376951604', 
+          class: 'visa-card'
+          %button.delete-card 削除する
+        .cardPage__content__list--paymentNum
+          ************
+        .cardPage__content__list--paymentNum
+          **/**
+
+        -# クレジットカードが登録されていない場合
+        .cardPage__content__list--add
+          %button.add-card クレジットカードを追加する
+
+      .cardPage__content__footer
+        = link_to do
+          支払い方法について
+          %i.fa.fa-angle-right
+
+
+-#  あとでrenderでアプリのバナー部分入れます
+= render 'products/footer'
