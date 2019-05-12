@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     get :logout, on: :collection
     get :identification, on: :collection
   end
+  resources :payments, only: [:index, :new]
 end
