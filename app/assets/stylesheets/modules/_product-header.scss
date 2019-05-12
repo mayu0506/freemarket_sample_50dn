@@ -13,14 +13,13 @@ input{
       width: 1130px;
       height: 100px;
       padding-top: 9px;
-      margin:0 auto;
+      margin: 0 auto;
       &_top{
         display: flex;
         justify-content: space-between;
         .mercari-icon{
-          height: 36px;
+          height: 44px;
           width: 150px;
-          padding-top: 3px;
         }
         // inputタグ
         &_form{
