@@ -1,4 +1,5 @@
 = render 'products/product-header.html.haml'
+= render 'products/sell-btn.html.haml'
 %main.mypage.clearfix
   = render 'side'
   -# 上部にあるプロフィール部分
@@ -48,4 +49,7 @@
       %div.identificationForm--group__registration
         本人情報の登録について
         = fa_icon 'angle-right', class: 'identification-angleRight'
+
+= render 'products/footer-banner.html.haml'
+= render 'products/footer.html.haml'
     
