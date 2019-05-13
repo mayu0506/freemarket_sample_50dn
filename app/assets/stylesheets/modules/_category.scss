@@ -1,0 +1,91 @@
+.breadcrumbs{
+    width: 100vw;
+    height: 50px;
+    border-top:solid 1px #eee;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    background-color: $white;
+
+  &_list{
+    margin:0 auto;
+    width: 1020px;
+    height: 100%;
+    line-height: 50px;
+    color:$font-color;
+    font-size:14px;
+  }
+}
+
+                            // 商品
+
+.categoryWrapper{
+  &_inner{
+      width: 1050px;
+      margin:40px auto;
+
+    &--list{
+      font-size:14px;
+      color: $skyblue;
+      display:inline-flex;
+      margin:11px 16px 0 0;
+    }
+
+    &--title{
+      font-size:22px;
+      font-weight: 800;
+      margin:24px 0 8px;
+      clear: both;
+    }
+
+    &_footer{
+        width: 100%;
+        background-color:$red;
+        text-align: center;
+        margin-top:30px;
+        border-radius: 4px;
+      
+      &--title{
+        color: $white;
+        font-size:22px;
+        padding:10px 8px;
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+.items{
+
+  &_categoryItemBox{
+    width: 190px;
+    height: 300px;
+    margin:0 13px 25px 0;
+    display: inline-block;
+
+    &_ditails{
+        background-color:$white;
+        padding:14px;
+
+      &--name{
+        font-size:16px;
+        color:$font-color;
+        overflow: hidden;
+        position: relative;
+        font-weight: 400;
+        height: 3em;
+        line-height: 1.5;
+      }
+      &_num{
+          font-size:17px;
+          display:flex;
+          justify-content :space-between;
+          margin-top:8px;
+          color:$font-color;
+      }
+
+      &--tax{
+        font-size:9px;
+        margin:-4px 0 0 2px;
+      }
+    }
+  }
+}
