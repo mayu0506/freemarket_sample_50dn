@@ -25,8 +25,11 @@
 // puroductファイル読み込み
 @import "modules/product-header";
 @import "modules/product-index";
+@import "modules/footer-app-banner";
 @import "modules/product-footer";
 // 出品ボタン
 @import "modules/sell-btn";
 // 新規登録画面
 @import "registration/*";
+// category
+@import "modules/category.scss";

@@ -1,0 +1,60 @@
+.appBanner{
+  &_back{
+    width: 820px;
+    height: 300px;
+    position: relative;
+    display: flex;
+
+    &--backgruond{
+      width: 100vw;
+      position: relative;
+    }
+    &_inner{
+        width: 800px;
+        height:300px;
+        margin:0 25vw;
+        position: absolute;
+      &_text{
+        flex: 1;
+        color: $white;
+        letter-spacing:1.5px;
+        position: absolute;
+
+        &--first{
+          position: absolute;
+          top:50px;
+          font-size:24px;
+          font-weight: 700;
+        }
+        &--second{
+          font-size:35px;
+          margin-top:90px;
+        }
+      }
+      &--icon{
+        position: absolute;
+        top:160px;
+        background-color: $white;
+        border-radius: 10px;
+      }
+      &--app{
+        position: absolute;
+        top:180px;
+        left:100px;
+      }
+
+      &--google{
+        position: absolute;
+        top:180px;
+        left:250px;
+      }
+
+      &_mobilePhone{
+        width: 350px;
+        height: 300px;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+}
