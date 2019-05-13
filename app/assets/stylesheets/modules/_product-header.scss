@@ -5,34 +5,25 @@ input{
   outline: none;
   background: none;
 }
-
-
-
-                              // ヘッダー
-
+// ヘッダー
 .mainHeader{
     background-color: white;
     margin:0 auto;
-
-  &_inner{
+    &_inner{
       width: 1130px;
       height: 100px;
       padding-top: 9px;
-      margin:0 auto;
-
-    &_top{
+      margin: 0 auto;
+      &_top{
         display: flex;
         justify-content: space-between;
-
         .mercari-icon{
-          height: 36px;
+          height: 44px;
           width: 150px;
-          padding-top: 3px;
         }
-                              // inputタグ
+        // inputタグ
         &_form{
           position: relative;
-
           &--input{
             width: 930px;
             height: 44px;
@@ -41,7 +32,6 @@ input{
             border: 1px solid #ccc;
             font-size:18px;
           }
-
           .fa-search{
             position: absolute;
             padding: 14px 13px;
@@ -50,22 +40,20 @@ input{
             color: #333333;
             font-weight: 300;
           }
+        }
       }
-    }
-                               // header下
+    // header下
     &_bottom{
         width: 100%;
         display: inline-flex;
         justify-content: space-between;
-                                // header下左
-      &_left{
-        height: 57px;
-        line-height: 57px;
-
+        // header下左
+        &_left{
+          height: 57px;
+          line-height: 57px;
         .left-icon{
           color:red;
         }
-        
         .fa-tag{
           margin-left:30px;
         }
@@ -77,7 +65,7 @@ input{
           font-size:15px;
         }
       }
-                                // header下右
+      // header下右
       &_right{
         .right-icon{
           color:#ccc;
@@ -96,15 +84,12 @@ input{
           float: left;
           position: relative;
           top:5px;
-        
-
           &--image{
             border-radius: 50%;
             font-size:10px;
             position: relative;
             margin:5px 0 0 14px;
-          }
-        
+          } 
           &_text{
             float: right;
             position: relative;
@@ -115,7 +100,6 @@ input{
           &_text:hover{
             color:$skyblue;
           }
-
         }
       }
     }

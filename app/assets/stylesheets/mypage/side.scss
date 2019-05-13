@@ -4,14 +4,12 @@
   float: left;
   color: $black;
 }
-
 // 「メルペイ」と「設定」の所
 .mypage-nav-head {
   margin: 40px 0 0;
   font-weight: 600;
   color: $black;
 }
-
 // リスト部分
 .mypage-nav__list {
   margin: 8px 0 0;
@@ -37,12 +35,10 @@
     font-size: 25px;
   }
 }
-
 // listの一番上にmarginが入ってしまったので消す
 .mypage-nav__list:first-child {
   margin: 0;
 }
-
 // クリックしたlistは暗くなっている。現在は貼り付け。
 .mypage-nav__list .active {
   font-weight: 600;

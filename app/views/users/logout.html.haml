@@ -1,3 +1,5 @@
+= render 'products/product-header.html.haml'
+= render 'products/sell-btn.html.haml'
 %main.mypage.clearfix
   = render 'side'
   .mypage-content
@@ -5,4 +7,5 @@
       .logout-container__form
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout-container__form--btn'
 
--# headerとfooterは別で作成。完成次第このページの上と下にrenderする
+= render 'products/footer-banner.html.haml'
+= render 'products/footer.html.haml'

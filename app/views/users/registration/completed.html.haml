@@ -1,0 +1,58 @@
+.contents
+  .signup-bar
+    .signup-bar__log
+      =image_tag "Mercari_logo.png", class: 'Mercari-logo'
+     
+      
+    .signup-bar__progress
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            会員情報
+            .signup-bar__progress__box--status__first
+      
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            電話番号認証
+            .signup-bar__progress__box--status__second
+          
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            お届け先住所入力
+            .signup-bar__progress__box--status__third
+                    
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar
+            支払い方法
+            .signup-bar__progress__box--status__forth
+                   
+
+      .signup-bar__progress__box
+        .signup-bar__progress__box--title
+          %li.signup-bar__active
+            完了
+            .signup-bar__progress__box--status__fifth
+          
+        
+  .main-contents
+    .single-content
+      .single-content__head 会員登録完了
+      .single-content__inner
+        .single-content__action
+          .single-content__inner__action__form 
+          .container
+            %p.complete_1
+              ありがとうございます。
+            %p.complete_2
+              会員登録が完了しました。
+              
+                 
+            .clearfix
+              %input{type: "button",class: "btn-default button-red costom__main", value: "メルカリを始める"}
+              

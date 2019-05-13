@@ -1,29 +1,30 @@
 .sellBtn{
   &_circle{
-    background-color: #ea352d;;
-    font-size:500px;
-    float: right;
+    background-color: $red;
+    font-size:22px;
     position: fixed;
     right:32px;
     bottom:32px;
     border-radius: 50%;
     height: 160px;
     width: 160px;
+    text-align: center;
+    z-index: 1000;
   }
-
   &_exhibition{
+
     position:fixed;
     bottom:132px;
     right:90px;
     font-size: 22px;
     color:white;
   }
-
   .fa-camera{
     position: fixed;
     right: 80px;
     bottom:70px;
     color: white;
     font-size: 60px;
-    }
+    display: inline-block;
+  }
 }

@@ -1,10 +1,8 @@
-
-                                        // バナー
-  .topBanner{
+// バナー
+.topBanner{
   text-align: center;
   width: 100%;
   background-color: #DCDCDC;
-
   &--left{
     color:$white;
     position: absolute;
@@ -23,12 +21,10 @@
   height: 400px;
   width: 850px;
   }
-  }
-
-                                // 商品メイン
-  .bodyMain{
+}
+// 商品メイン
+.bodyMain{
   background-color:$background-gray;
-
   &_pickup{
       margin-bottom:40px;
     &--title{
@@ -40,7 +36,8 @@
       margin-top:40px;
     }
     &_cotegory{
-        margin:0 21vw 0 auto;
+        margin: 0 auto;
+        width: 940px;
       &_box{
         &--title{
           text-align: center;
@@ -48,7 +45,6 @@
           font-weight:800;
           font-size:24px;
           letter-spacing:0.1em;
-          padding-left:20vw;
 
           a.category-title__link{
             font-size:22px;
@@ -56,15 +52,15 @@
             text-decoration:none;
           }
         }
-                            // 横並びアイテム
+        // 横並びアイテム
         &_items{
-            text-align: right;
-                              // 一つ一つのアイテム
+            text-align: center;
+          // 一つ一つのアイテム
           .itemBox{
-                width: auto;
-                display:inline-block;
-                margin-left:10px;
-          
+              position: relative;
+              float: left;
+              width: 213px;
+              margin: 0 0 0 20px;
               a.itemBox_a{
                 color:$font-color;
                 text-decoration:none;
@@ -72,14 +68,11 @@
               &--image{
                 vertical-align: bottom;
               }
-
             &_ditails{
               background-color: $white;
               padding:16px;
               text-align: left;
-              width:250px;
               height: 130px;
-
               &--name{
                 height: 3em;
                 line-height: 1.5;
@@ -94,37 +87,35 @@
                 right:0px;
                 top:30px
               }
-
               &_num{
-                  width: 100%;
-                  display: inline-flex;
-                  justify-content: space-between;
-                  margin-top:8px;
-
+                width: 100%;
+                display: inline-flex;
+                justify-content: space-between;
+                margin-top:8px;
                 &--price{
                   font-weight:bold;
                 }
               }
-
               &--tax{
                 font-size:10px;
-              }
-              
+              }      
             }
           }
         }
-        &_alllink{
-          padding:20px 0px 20px;
-          display:flex;
-          justify-content: flex-end;
-
-          a.allLink{
+        .viewAll {
+          text-align: right;
+          display: block;
+          padding: 20px 0 30px;
+          width: 99.5%;
+          a {
             color: $skyblue;
-            text-decoration:none;
+            font-size: 15px;
+          }
+          a:hover{
+            text-decoration: underline;
           }
         }
       }
     }
-
   }
 }

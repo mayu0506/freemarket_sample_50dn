@@ -1,0 +1,22 @@
+.contents
+  .signup-bar
+    .signup-bar__log
+      =image_tag "Mercari_logo.png", class: 'Mercari-logo' 
+        
+  .main-contents
+    .single-content
+      .single-content__head 
+        %p.message
+          アカウントをお持ちでない方はこちら
+        %input{type: "button",class: "btn-default button-blue costom__main", value: "新規会員登録"}
+      .single-content__inner
+        .single-content__action
+          .single-content__inner__action__form
+        
+            .form--label   
+              %input.input-default{:name => "mail_address", :placeholder => "メールアドレス", :type => "text", :value => ""}/
+            .form--label
+              %input.input-default{:name => "password", :placeholder => "パスワード", :type => "text", :value => ""}/
+           
+              %input{type: "button",class: "btn-default button-red costom__main", value: "次へ進む"}
+              
