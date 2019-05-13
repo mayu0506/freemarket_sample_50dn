@@ -139,7 +139,7 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_url|text|
+|image|text|
 |product|references|null: false, foreign_key: true|
 
 ### Association
@@ -157,6 +157,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|tree_path|string|null: false|
 
 ### Association
 - has_many :products
