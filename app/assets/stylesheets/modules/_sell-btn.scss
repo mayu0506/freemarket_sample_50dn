@@ -4,25 +4,26 @@
     font-size:500px;
     float: right;
     position: fixed;
-    right:35px;
-    bottom:35px;
+    right:32px;
+    bottom:32px;
     border-radius: 50%;
-    height: 178px;
-    width: 178px;
+    height: 160px;
+    width: 160px;
   }
 
   &_exhibition{
     position:fixed;
-    bottom:145px;
-    right:100px;
-    font-size: 24px;
+    bottom:132px;
+    right:90px;
+    font-size: 22px;
     color:white;
   }
 
   .fa-camera{
     position: fixed;
-    right: 90px;
-    bottom:80px;
+    right: 80px;
+    bottom:70px;
     color: white;
+    font-size: 60px;
     }
 }
