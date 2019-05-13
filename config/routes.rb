@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :new, :show] do
     get :buy, on: :member
   end
+        # 実装時showのみに変更　productsに入れ子
+    resources :categorys, only: [:index,:show]
+
   resources :users do
     get :logout, on: :collection
     get :identification, on: :collection
