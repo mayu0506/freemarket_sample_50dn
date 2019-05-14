@@ -12,16 +12,26 @@
         .fa.fa-tag.left-icon
           .left-text ブランドから探す
       .mainHeader_inner_bottom_right
-        =link_to "#" do
-          .mainHeader_inner_bottom_right_notice
-            .far.fa-bell.fa-lg.right-icon
-            お知らせ
-        =link_to "#" do
-          .mainHeader_inner_bottom_right_notice
-            .fa.fa-check.fa-lg.right-icon
-            やることリスト
-        =link_to "#" ,class:"myPage" do
-          .mainHeader_inner_bottom_right_myPage
-            =image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",width:"35" ,alt: "mypage",class: "mainHeader_inner_bottom_right_myPage--image"
-            .mainHeader_inner_bottom_right_myPage_text
-              マイページ
+        - if user_signed_in?
+          =link_to "#" do
+            .mainHeader_inner_bottom_right_notice
+              .far.fa-bell.fa-lg.right-icon
+                お知らせ
+          =link_to "#" do
+            .mainHeader_inner_bottom_right_notice
+              .fa.fa-check.fa-lg.right-icon
+              やることリスト
+          =link_to "#" ,class:"myPage" do
+            .mainHeader_inner_bottom_right_myPage
+              =image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",width:"35" ,alt: "mypage",class: "mainHeader_inner_bottom_right_myPage--image"
+              .mainHeader_inner_bottom_right_myPage_text
+                マイページ
+        - else
+          =link_to "/users/sign_up" ,class:"myPage" do
+            .mainHeader_inner_bottom_right_myPage_text  
+              .newRegistrationTop
+                新規会員登録
+          =link_to "/users/sign_in" ,class:"myPage" do
+            .mainHeader_inner_bottom_right_myPage_text 
+              .loginTop
+                ログイン 
