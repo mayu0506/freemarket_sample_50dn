@@ -122,14 +122,15 @@ Things you may want to cover:
 |price|integer|null: false|
 |condition|string|null: false|
 |status|string|null: false|selling|
-|buyer_id|integer|
 |payment_method_of_delivery_fee|string|null: false|
 |origin_of_delivery|string|null: false|
 |estimated_date_of_delivery|string|null: false|
 |size|string|
 |brand|references|foreign_key: true|
 |category|references|null: false, foreign_key: true|
-|user|references|null: false, foreign_key: true|
+|buyer_id|references|null: false, add_foreign_key :products, :users, column: :buyer_id|
+|seller_id|references|null: false, add_foreign_key :products, :users, column: :seller_id|
+
 
 ### Association
 - has_many :comments
