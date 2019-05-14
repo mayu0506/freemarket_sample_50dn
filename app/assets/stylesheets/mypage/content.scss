@@ -49,6 +49,9 @@
   right: 0;
   transform: translate(0, -50%);
   color: $black;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 // マイページ中間タブ部分。貼り付け状態。
 .mypage-tab-container-notification {

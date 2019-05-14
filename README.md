@@ -115,12 +115,14 @@ Things you may want to cover:
 - belongs_to :user, dependent: :destory
 
 ## productsテーブル
-|Column|Type|Options|
-|------|----|-------|
+|Column|Type|Options|Default|
+|------|----|-------|-------|
 |name|string|null: false|
 |description|text|null: false|
 |price|integer|null: false|
 |condition|string|null: false|
+|status|string|null: false|selling|
+|buyer_id|integer|
 |payment_method_of_delivery_fee|string|null: false|
 |origin_of_delivery|string|null: false|
 |estimated_date_of_delivery|string|null: false|
@@ -139,7 +141,7 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_url|text|
+|image|text|
 |product|references|null: false, foreign_key: true|
 
 ### Association
@@ -157,6 +159,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|tree_path|string|null: false|
 
 ### Association
 - has_many :products

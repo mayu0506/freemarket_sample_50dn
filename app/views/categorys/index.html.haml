@@ -1,0 +1,120 @@
+=render "products/product-header"
+.breadcrumbs
+  .breadcrumbs_list
+    メルカリ　＞　カテゴリー一覧
+    -# カテゴリー挿入
+.categoryWrapper
+  .categoryWrapper_inner
+    -#カテゴリー一覧 link
+    %ul
+      %li.categoryWrapper_inner--list 小物 
+      %li.categoryWrapper_inner--list 靴
+    .categoryWrapper_inner--title
+      レディースの商品一覧
+    .items
+      .items_categoryItemBox
+        =link_to '#',  class:"itemBox_a" do
+          = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '190', alt: "product_image",class:"items_itemBox--image")
+        .items_categoryItembox_ditails.clearfix
+          .items_categoryItembox_ditails--name
+            feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
+            .hide
+          .items_categoryItembox_ditails_num
+            .items_categoryItembox_ditails_num--price
+              ¥ 2,900
+            -# likeなければ消す if文？？
+            .items_categoryItembox_ditails_num--like
+              %i.fa.fa-heart
+            -# ライク数挿入
+          .items_categoryItembox_ditails--tax
+            (税込)
+
+      .items_categoryItemBox
+        =link_to '#',  class:"itemBox_a" do
+          = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '190', alt: "product_image",class:"items_itemBox--image")
+        .items_categoryItembox_ditails
+          .items_categoryItembox_ditails--name
+            feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
+            .hide
+          .items_categoryItembox_ditails_num
+            .items_categoryItembox_ditails_num--price
+              ¥1,900
+            -# likeなければ消す if文？？
+            .items_categoryItembox_ditails_num--like
+              %i.fa.fa-heart
+            -# ライク数挿入
+          .items_categoryItembox_ditails--tax
+            (税込)
+      
+      .items_categoryItemBox
+        =link_to '#',  class:"itemBox_a" do
+          = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '190', alt: "product_image",class:"items_itemBox--image")
+        .items_categoryItembox_ditails
+          .items_categoryItembox_ditails--name
+            feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
+            .hide
+          .items_categoryItembox_ditails_num
+            .items_categoryItembox_ditails_num--price
+              ¥1,900
+            -# likeなければ消す if文？？
+            .items_categoryItembox_ditails_num--like
+              %i.fa.fa-heart
+            -# ライク数挿入
+          .items_categoryItembox_ditails--tax
+            (税込)
+
+      .items_categoryItemBox
+        =link_to '#',  class:"itemBox_a" do
+          = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '190', alt: "product_image",class:"items_itemBox--image")
+        .items_categoryItembox_ditails
+          .items_categoryItembox_ditails--name
+            feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
+            .hide
+          .items_categoryItembox_ditails_num
+            .items_categoryItembox_ditails_num--price
+              ¥1,900
+            -# likeなければ消す if文？？
+            .items_categoryItembox_ditails_num--like
+              %i.fa.fa-heart
+            -# ライク数挿入
+          .items_categoryItembox_ditails--tax
+            (税込)
+      .items_categoryItemBox
+        =link_to '#',  class:"itemBox_a" do
+          = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '190', alt: "product_image",class:"items_itemBox--image")
+        .items_categoryItembox_ditails
+          .items_categoryItembox_ditails--name
+            feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
+            .hide
+          .items_categoryItembox_ditails_num
+            .items_categoryItembox_ditails_num--price
+              ¥1,900
+            -# likeなければ消す if文？？
+            .items_categoryItembox_ditails_num--like
+              %i.fa.fa-heart
+            -# ライク数挿入
+          .items_categoryItembox_ditails--tax
+            (税込)
+      
+      .items_categoryItemBox
+        =link_to '#',  class:"itemBox_a" do
+          = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '190', alt: "product_image",class:"items_itemBox--image")
+        .items_categoryItembox_ditails
+          .items_categoryItembox_ditails--name
+            feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
+            .hide
+          .items_categoryItembox_ditails_num
+            .items_categoryItembox_ditails_num--price
+              ¥1,900
+            -# likeなければ消す if文？？
+            .items_categoryItembox_ditails_num--like
+              %i.fa.fa-heart
+            -# ライク数挿入
+          .items_categoryItembox_ditails--tax
+            (税込)
+    
+    .categoryWrapper_inner_footer
+      .categoryWrapper_inner_footer--title
+        レディース
+=render "products/footer-banner"
+=render "products/sell-btn"
