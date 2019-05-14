@@ -121,10 +121,10 @@ Things you may want to cover:
 |description|text|null: false|
 |price|integer|null: false|
 |condition|string|null: false|
-|status|string|null: false|selling|
-|payment_method_of_delivery_fee|string|null: false|
-|origin_of_delivery|string|null: false|
-|estimated_date_of_delivery|string|null: false|
+|status|integer|null: false|selling|
+|payment_method_of_delivery_fee|integer|null: false|
+|origin_of_delivery|integer|null: false|
+|estimated_date_of_delivery|integer|null: false|
 |size|string|
 |brand|references|foreign_key: true|
 |category|references|null: false, foreign_key: true|
@@ -160,7 +160,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|tree_path|string|null: false|
+|tree_path|string|null: false|add_index|
 
 ### Association
 - has_many :products
