@@ -158,9 +158,9 @@ Things you may want to cover:
 - has_many :products
 
 ## categoriesテーブル
-|Column|Type|Options|
+|Column|Type|Options||
 |------|----|-------|-|
-|name|string|null: false|
+|name|string|null: false||
 |tree_path|string|null: false|add_index|
 
 ### Association
