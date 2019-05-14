@@ -132,6 +132,7 @@ Things you may want to cover:
 |seller_id|references|null: false, add_foreign_key :products, :users, column: :seller_id|
 
 
+
 ### Association
 - has_many :comments
 - has_many :likes
