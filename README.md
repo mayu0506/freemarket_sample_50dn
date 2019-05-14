@@ -129,7 +129,7 @@ Things you may want to cover:
 |size|string|
 |brand|references|foreign_key: true|
 |category|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
+|buyer_id|references|null: false,add_foreign_key :comments, :users, column: :buyer_id |
 |seller_id|references|null: false,  add_foreign_key :comments, :users, column: :seller_id|
 
 ### Association
