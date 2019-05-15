@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  def index
+  def show
   end
 
   def new
