@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :addresses, only: [:new, :edit, :create]
 
   devise_scope :user do
+    post 'users/sign_up' => 'users/registrations#new'
     get 'users/sign_up/index' => 'users/registrations#index'
+    get 'users/sign_up/complete' => 'users/registrations#complete' 
   end
 end
