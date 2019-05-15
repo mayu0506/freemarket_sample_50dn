@@ -1,0 +1,67 @@
+= render 'products/product-header'
+= render 'products/sell-btn'
+%main.mypage.clearfix
+  = render 'users/side'
+
+  .cardPage
+    .cardPage__header
+      %h2 クレジットカード情報入力
+    .cardPage__content
+      .cardPage__content__form
+        .cardPage__content__form--label
+          カード番号
+          %span.form-require
+            必須
+        %input.card-input{placeholder:"半角数字のみ"}
+        .cardPage__content__form--error
+          必須項目です
+        .cardPage__content__form--image
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?376951604', class: 'visa-card'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?376951604', class: 'master-card'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?376951604', class: 'saison-card'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?376951604', class: 'jcb-card'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?376951604', class: 'american-express'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?376951604', class: 'diners-club'
+          = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?376951604', class: 'discover'
+      .cardPage__content__form
+        .cardPage__content__form--label
+          有効期限
+          %span.form-require
+            必須
+        %form.cardPageForm{action: "/", method: "POST"}
+          %select.card-expire
+            %option{value: ""} ---
+            %option{value:"1"} 01
+            %option{value:"2"} 02
+            %option{value: "3"} 03
+            %option{value: "4"} 04
+          %i.fa.fa-chevron-down
+          %span 月
+        %form.cardPageForm{action: "/", method: "POST"}
+          %select.card-expire
+            %option{value: ""} ---
+            %option{value:"1"} 19
+            %option{value:"2"} 20
+            %option{value: "3"} 21
+            %option{value: "4"} 22
+          %i.fa.fa-chevron-down
+          %span 年
+
+      .cardPage__content__form
+        .cardPage__content__form--label
+          セキュリティコード
+          %span.form-require
+            必須
+        %input.card-input{placeholder:"カード背面4桁もしくは3桁の番号"}
+        .cardPage__content__form--error
+          必須項目です
+        .form-question
+          .question-icon
+            ?
+          %p カード裏面の番号とは？
+        .button-wrapper
+          %button.add-card 追加する
+
+
+= render 'products/footer-banner'
+= render 'products/footer'
