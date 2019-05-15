@@ -62,12 +62,12 @@ Things you may want to cover:
 
 ### Association
 - has_many :comments
-- has_many :likes 
-- has_one :address
-- has_one :payment
-- has_one :sale
-- has_one :point
-- has_many :products
+- has_many :likes ,dependent: :destory
+- has_one :address,dependent: :destory
+- has_one :payment, dependent: :destory
+- has_one :sale,dependent: :destory
+- has_one :point, dependent: :destory
+- has_many :products, dependent: :destory
 
 ## addressテーブル
 |Column|Type|Options|
@@ -81,7 +81,7 @@ Things you may want to cover:
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user, dependent: :destory
+- belongs_to :user
 
 ## paymentsテーブル
 |Column|Type|Options|
@@ -93,7 +93,7 @@ Things you may want to cover:
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user, dependent: :destory
+- belongs_to :user
 
 ## salesテーブル
 |Column|Type|Options|default|
@@ -102,7 +102,7 @@ Things you may want to cover:
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user, dependent: :destory
+- belongs_to :user
 
 ## pointsテーブル
 |Column|Type|Options|default|
@@ -112,7 +112,7 @@ Things you may want to cover:
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user, dependent: :destory
+- belongs_to :user
 
 ## productsテーブル
 |Column|Type|Options|Default|
@@ -136,8 +136,8 @@ Things you may want to cover:
 ### Association
 - has_many :comments
 - has_many :likes
-- belongs_to :user, dependent: :destory
-- has_many :images
+- belongs_to :user
+- has_many :images,dependent: :destory
 - belongs_to :brand
 
 ## imagesテーブル
@@ -147,7 +147,7 @@ Things you may want to cover:
 |product|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :product, dependent: :destory
+- belongs_to :product
 
 ## brandsテーブル
 |Column|Type|Options|
@@ -161,7 +161,8 @@ Things you may want to cover:
 |Column|Type|Options||
 |------|----|-------|-|
 |name|string|null: false||
-|tree_path|string|null: false|add_index|
+|ancestry|string||add_index|
 
 ### Association
 - has_many :products
+- has_ancestry
