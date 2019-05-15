@@ -22,7 +22,7 @@
               =link_to "レディース新着アイテム",products_path,class:"category-title__link"
             .bodyMain_pickup_cotegory_box_items.clearfix
               .itemBox
-                =link_to '#',  class:"itemBox_a" do
+                =link_to '/products/show',  class:"itemBox_a" do
                   = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
                   .itemBox_ditails
                     .itemBox_ditails--name
@@ -621,6 +621,3 @@
   = render 'sell-btn'
   = render 'footer-banner'
   = render 'footer'
-
-  -# 出品ボタンのcssレイアウトが整い次第コメントアウトを消します
-  -# = render 'sell-btn'
