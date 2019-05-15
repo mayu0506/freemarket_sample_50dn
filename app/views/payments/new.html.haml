@@ -5,7 +5,7 @@
     %h2.register-main__container--header 支払い方法
 
     .register-inner
-      = form_for '/payments', method: :post, id: 'charge-form' do
+      = form_for 'payments', method: :post do
         %span.charge-errors
         .register-inner_contents
           .form-group
