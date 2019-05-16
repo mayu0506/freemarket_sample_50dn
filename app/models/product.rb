@@ -2,8 +2,6 @@ class Product < ApplicationRecord
   has_many :images,dependent: :destroy
   has_many :likes,dependent: :destroy
 
- 
-
   # セレクトボックス選択肢の管理
     enum condition: {
       '---': 0,
@@ -26,6 +24,12 @@ class Product < ApplicationRecord
       '1~2日で発送': 1,
       '2~3日で発送': 2,
       '4~7日で発送': 3,
+    }, _suffix: true
+
+
+    enum origin_of_delivery: {
+      '北海道': 1,'青森県': 2,'岩手県': 3,'宮城県': 4,'秋田県': 5,'山形県': 6,'福島県': 7,
+      '茨城県': 8,'栃木県': 9,
     }, _suffix: true
 
 end
