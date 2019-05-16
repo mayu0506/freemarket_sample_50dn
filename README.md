@@ -69,15 +69,15 @@ Things you may want to cover:
 - has_one :point, dependent: :destory
 - has_many :products, dependent: :destory
 
-## addressテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postcode|string|null: false|
+|postcode|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |street|string|null: false|
 |building|string|
-|phone|string|
+|phone|integer|
 |user|references|null: false, foreign_key: true|
 
 ### Association
@@ -86,9 +86,9 @@ Things you may want to cover:
 ## paymentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_holder|string|null: false|
 |card_number|integer|null: false, unique: true|
-|expiration_date|integer|null: false|
+|expiration_month|integer|null: false|
+|expiration_year|integer|null: false|
 |security_code|integer|null: false|
 |user|references|null: false, foreign_key: true|
 
