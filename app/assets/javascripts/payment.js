@@ -16,7 +16,7 @@ $(document).ready(function() {
     // トークンの生成
     Payjp.createToken(card, function(s, response) {
       if (response.error) {
-        form.find('.charge-errors').text(response.error.message);
+        form.find('.cardPage__content__form--error').text('入力内容を確認して下さい');
         form.find('button').prop('disabled', false);
       }
       else {
