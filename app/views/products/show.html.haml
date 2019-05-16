@@ -79,8 +79,9 @@
             送料込み
         -# 購入画面
         .product-purchase
-          .product-purchase__button
-            購入画面に進む
+          = link_to '/products/1/buy', class:'buyBtn' do
+            .product-purchase__button
+              購入画面に進む
         -# 販売者コメント
         .product-comments
           %p.product-comments__seller
