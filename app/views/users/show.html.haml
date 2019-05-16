@@ -1,4 +1,8 @@
 = render 'products/product-header.html.haml'
+.breadcrumbs
+  .breadcrumbs_list
+    - breadcrumb :show
+    = breadcrumbs separator: " #{content_tag(:i, '', :class=>'fa fa-angle-right')} "
 = render 'products/sell-btn.html.haml'
 %main.mypage.clearfix
   = render 'side'
