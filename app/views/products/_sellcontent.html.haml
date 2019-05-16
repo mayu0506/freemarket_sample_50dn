@@ -2,148 +2,255 @@
   .sellContent
     .sellContent--head
       商品の情報を入力
-  .sellContent
-    .sellContent__form
-      .sellContent__form--label
-        出品画像
-        %span{class:"form-require"} 必須
+  = form_for @product do |f|
+    .sellContent
+      = f.label "出品画像", class:"sellContent__form--label"
+      %span{class:"form-require"} 必須
+
       .sellContent__form--guide
         最大10枚までアップロードできます
-      .sellContent__form--upload#container
-        %p
-          ドラッグアンドドロップ
-          %br
-          またはクリックしてファイルをアップロード
+      .sellContent__form__images
+        .sellContent__form__images--image
+          = image_tag 'https://c.imgz.jp/501/39094501/39094501b_8_d_500.jpg',class:"select_image"
+          .btn_area
+            = link_to '編集'
+            = link_to '削除'
+        .sellContent__form__images--image
+          = image_tag 'https://c.imgz.jp/501/39094501/39094501b_8_d_500.jpg',class:"select_image"
+          .btn_area
+            = link_to '編集'
+            = link_to '削除'
+        .sellContent__form__images--image
+          = image_tag 'https://c.imgz.jp/501/39094501/39094501b_8_d_500.jpg',class:"select_image"
+          .btn_area
+            = link_to '編集'
+            = link_to '削除'
+        .sellContent__form__images--image
+          = image_tag 'https://c.imgz.jp/501/39094501/39094501b_8_d_500.jpg',class:"select_image"
+          .btn_area
+            = link_to '編集'
+            = link_to '削除'
+        .sellContent__form__images--image
+          = image_tag 'https://c.imgz.jp/501/39094501/39094501b_8_d_500.jpg',class:"select_image"
+          .btn_area
+            = link_to '編集'
+            = link_to '削除'
 
-  .sellContent
-    .sellContent__form
-      .sellContent__form--label
-        商品名
-        %span{class:"form-require"} 必須
-      %input{type:"text", class:"input-defalt", placeholder:"商品名（必須40字まで）"}
+      -# .sellContent__form--upload
+      -#   = f.file_field @image, class:"upload"
+        -#   ドラッグアンドドロップ 
+        -#   %br
+        -#     またはクリックしてファイルをアップロード
 
-    .sellContent__form
-      .sellContent__form--label
-        商品の説明
-        %span{class:"form-require"} 必須
-      %textarea{rows:"4", cols:"40", class:"textarea-defalt", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
-
-  .sellContent
-    .sellContent__select
-      .sellContent__select__left
-        商品の詳細
-      .sellContent__select__right
-        .sellContent__select__right__form
-          .sellContent__select__right__form--label
-            カテゴリー
-            %span{class:"form-require"} 必須
-          %form{action: "/", method: "POST",class:"selContent__select__left--select"}
-            %select{class:"select-defalt"}
-              %option{value: ""} ---
-              %option{value:"1"} レディース
-              %option{value:"2"} メンズ
-              %option{value: "3"} ベビー・キッズ
-              %option{value: "4"} インテリア・住まい・小物
-            %i.fa.fa-chevron-down
-          
-        .sellContent__select__right__form
-          .sellContent__select__right__form--label
-            商品の状態
-            %span{class:"form-require"} 必須
-          %form{action: "/", method: "POST"}
-            %select{name: "---", class:"select-defalt"}
-              %option{value: ""} ---
-              %option{value: "1"} 新品、未使用
-              %option{value: "2"} 未使用に近い
-              %option{value: "3"} 目立った傷や汚れなし
-              %option{value: "4"} やや傷や汚れあり
-            %i.fa.fa-chevron-down
-
-  .sellContent
-    .sellContent__select
-      .sellContent__select__left
-        配送について
-        =link_to '?'
-
-      .sellContent__select__right
-        .sellContent__select__right__form
-          .sellContent__select__right__form--label
-            配送料の負担
-            %span{class:"form-require"} 必須
-          
-          %select{name: "---", class:"select-defalt"}
-            %option{value: ""} ---
-            %option{value: "1"} 送料込み（出品者負担）
-            %option{value: "2"} 着払い（購入者負担）
-          %i.fa.fa-chevron-down
-
-        .sellContent__select__right__form
-          .sellContent__select__right__form--label
-            発送元の地域
-            %span{class:"form-require"} 必須
-
-          %select{name: "---", class:"select-defalt"}
-            %option{value: ""} ---
-            %option{value: "1"} 北海道
-            %option{value: "2"} 青森県
-            %option{value: "3"} 岩手県
-            %option{value: "4"} 宮城県
-          %i.fa.fa-chevron-down
-          
-
-        .sellContent__select__right__form
-          .sellContent__select__right__form--label
-            発送までの日数
-            %span{class:"form-require"} 必須
-
-          %select{name: "---",class:"select-defalt"}
-            %option{value: ""} ---
-            %option{value: "1"} 1~2日で発送
-            %option{value: "2"} 2~3日で発送
-            %option{value: "3"} 4~7日で発送
-          %i.fa.fa-chevron-down
+      -# .sellContent__form--upload#container
+      -#   = f.file_field :image, class:"upload-1"
+      -# .sellContent__form--upload#container
+      -#   = f.file_field :image, class:"upload-2"
+      -# .sellContent__form--upload#container
+      -#   = f.file_field :image, class:"upload-3"
+      -# .sellContent__form--upload#container
+      -#   = f.file_field :image, class:"upload-4"
+      -# .sellContent__form--upload#container
+      -#   = f.file_field :image, class:"upload-5"
       
+      .sellContent__form--error
+        画像がありません
 
-  .sellContent
-    .sellContent__select
-      .sellContent__select__left
-        販売価格(300〜9,999,999)
-        = link_to '?'
-      .sellContent__select__right
-        .sellContent__select__right__form__priceForm
-          .sellContent__select__right__form__priceForm--label
-            価格
-            %span{class:"form-require"} 必須
-          .sellContent__select__right__form__priceForm--input
-            %p ￥  
-            %input{class:"inputPrice",id:"inputPrice", placeholder:"例）300"}
-           
-        .sellContent__select__right__form__charge
-          .sellContent__select__right__form__charge--left
-            %p 販売手数料(10)％
-          .sellContent__select__right__form__charge--right
-            %p -
-        .sellContent__select__right__form__profitContent
-          .sellContent__select__right__form__profitContent--left
-            販売利益
-          .sellContent__select__right__form__profitContent--right
-            %p -
-  .sellContent
-    %p 
-      = link_to '禁止されている出品'
-      、
-      = link_to '行為'
-      を必ずご確認ください。
-    %p 
-      またブランド品でシリアルナンバー等がある場合はご記載ください。
-      = link_to '偽ブランドの販売'
-      は犯罪であり処罰される可能性があります。
-    %p 
-      また、出品をもちまして
-      = link_to '加盟店規約'
-      に同意したことになります。
+    .sellContent
+      .sellContent__form
+        .sellContent__form--label
+          = f.label "商品名"
+          %span{class:"form-require"} 必須
+        = f.text_field :name, class:"input-default", placeholder: "商品名（必須40字まで）"
+        .sellContent__form--error
+          入力してください
 
-    .button-wrapper 
-      %button{class:"red-button defalt-button" } 出品する
-    .button-wrapper 
-      %button{class:"gray-button defalt-button"} もどる
+      .sellContent__form
+        .sellContent__form--label
+          = f.label "商品の説明"
+          %span{class:"form-require"} 必須
+        = f.text_area :description, rows:"4", cols:"40", class:"textarea-default", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .sellContent__form--error
+          入力してください
+
+    .sellContent
+      .sellContent__select
+        .sellContent__select__left
+          商品の詳細
+        .sellContent__select__right
+          .sellContent__select__right__form
+            .sellContent__select__right__form--label
+              = f.label "カテゴリー"
+              %span{class:"form-require"} 必須
+          .selContent__select__left--select
+            
+          -#   %select{class:"select-default"}
+          -#     %option{value: ""} ---
+          -#     %option{value:"1"} レディース
+          -#     %option{value:"2"} メンズ
+          -#     %option{value: "3"} ベビー・キッズ
+          -#     %option{value: "4"} インテリア・住まい・小物
+          -#   %i.fa.fa-chevron-down
+          -# .selContent__select__left--select
+          -#   %select{class:"select-default"}
+          -#     %option{value: ""} ---
+          -#     %option{value:"1"} レディース
+          -#     %option{value:"2"} メンズ
+          -#     %option{value: "3"} ベビー・キッズ
+          -#     %option{value: "4"} インテリア・住まい・小物
+          -#   %i.fa.fa-chevron-down
+          -# .selContent__select__left--select
+          -#   %select{class:"select-default"}
+          -#     %option{value: ""} ---
+          -#     %option{value:"1"} レディース
+          -#     %option{value:"2"} メンズ
+          -#     %option{value: "3"} ベビー・キッズ
+          -#     %option{value: "4"} インテリア・住まい・小物
+          -#   %i.fa.fa-chevron-down
+
+          .sellContent__select__right__form--error
+            選択してください
+
+          .sellContent__select__right__form
+            .sellContent__select__right__form--label
+              = f.label "商品の状態"
+              %span{class:"form-require"} 必須
+            = f.select :condition, options_for_select(Product.conditions)
+            %i.fa.fa-chevron-down
+            .sellContent__select__right__form--error
+              選択してください
+
+    .sellContent
+      .sellContent__select
+        .sellContent__select__left
+          配送について
+          =link_to '?'
+
+        .sellContent__select__right
+          .sellContent__select__right__form
+            .sellContent__select__right__form--label
+              = f.label "配送料の負担"
+              %span{class:"form-require"} 必須
+            = f.select :who_to_pay, options_for_select(Product.who_to_pays)
+            %i.fa.fa-chevron-down
+            .sellContent__select__right__form--error
+              選択してください
+
+          .sellContent__select__right__form
+            .sellContent__select__right__form--label
+              = f.label "発送元の地域"
+              %span{class:"form-require"} 必須
+
+
+            %select{name: "delivery_origin",class:"select-prefecture__input"} 
+              %option{value: ""} --
+              %option{value: "1"} 北海道 
+              %option{value: "2"} 青森県 
+              %option{value: "3"} 岩手県
+              %option{value: "4"} 宮城県  
+              %option{value: "5"} 秋田県 
+              %option{value: "6"} 山形県 
+              %option{value: "7"} 福島県
+              %option{value: "8"} 茨城県 
+              %option{value: "9"} 栃木県 
+              %option{value: "10"} 群馬県
+              %option{value: "11"} 埼玉県
+              %option{value: "12"} 千葉県
+              %option{value: "13"} 東京都
+              %option{value: "14"} 神奈川県
+              %option{value: "15"} 新潟県
+              %option{value: "16"} 富山県
+              %option{value: "17"} 石川県
+              %option{value: "18"} 福井県
+              %option{value: "19"} 山梨県
+              %option{value: "20"} 長野県
+              %option{value: "21"} 岐阜県
+              %option{value: "22"} 静岡県
+              %option{value: "23"} 愛知県
+              %option{value: "24"} 三重県
+              %option{value: "25"} 滋賀県
+              %option{value: "26"} 京都府
+              %option{value: "27"} 大阪府
+              %option{value: "28"} 兵庫県
+              %option{value: "29"} 奈良県
+              %option{value: "30"} 和歌山県
+              %option{value: "31"} 鳥取県
+              %option{value: "32"} 島根県
+              %option{value: "33"} 岡山県
+              %option{value: "34"} 広島県
+              %option{value: "35"} 山口県
+              %option{value: "36"} 徳島県
+              %option{value: "37"} 香川県
+              %option{value: "38"} 愛媛県
+              %option{value: "39"} 高知県
+              %option{value: "40"} 福岡県
+              %option{value: "41"} 佐賀県
+              %option{value: "42"} 長崎県
+              %option{value: "43"} 熊本県
+              %option{value: "44"} 大分県
+              %option{value: "45"} 宮崎県
+              %option{value: "46"} 鹿児島県
+              %option{value: "47"} 沖縄県
+            = fa_icon 'angle-down', class: "select-prefecture__scrollIcon"
+            
+            .sellContent__select__right__form--error
+              選択してください
+
+          .sellContent__select__right__form
+            .sellContent__select__right__form--label
+              = f.label "発送までの日数"
+              %span{class:"form-require"} 必須
+            = f.select :deliverying_date, options_for_select(Product.delivery_dates)
+            %i.fa.fa-chevron-down
+          .sellContent__select__right__form--error
+            選択してください
+
+    .sellContent
+      .sellContent__select
+        .sellContent__select__left
+          販売価格(300〜9,999,999)
+          = link_to '?'
+        .sellContent__select__right
+          .sellContent__select__right__priceForm
+            .sellContent__select__right__priceForm__input
+              .sellContent__select__right__priceForm--label
+                = f.label "価格"
+                %span{class:"form-require"} 必須
+              .sellContent__select__right__priceForm--input
+                %p ￥  
+              = f.text_field :price, placeholder: "例）300"
+            .sellContent__select__right__priceForm--error
+              300以上9999999以下で入力してください
+          .sellContent__select__right__charge
+            .sellContent__select__right__charge--left
+              %p 販売手数料(10)％
+            .sellContent__select__right__charge--right
+              %p#charge -
+          .sellContent__select__right__profitContent
+            .sellContent__select__right__profitContent--left
+              販売利益
+            .sellContent__select__right__profitContent--right
+              %p#profit -
+    .sellContent
+      %p 
+        = link_to '禁止されている出品'
+        、
+        = link_to '行為'
+        を必ずご確認ください。
+      %p 
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        = link_to '偽ブランドの販売'
+        は犯罪であり処罰される可能性があります。
+      %p 
+        また、出品をもちまして
+        = link_to '加盟店規約'
+        に同意したことになります。
+     
+      .button-wrapper
+        = f.submit "出品する", {class:"red-button"}
+
+      .button-wrapper.gray-button
+        = link_to "戻る", root_path 
+       
+        
+       
