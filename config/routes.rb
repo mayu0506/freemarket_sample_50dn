@@ -14,9 +14,12 @@ Rails.application.routes.draw do
     get :logout, on: :collection
     get :identification, on: :collection
   end
-  resources :payments, only: [:index, :new]
+  resources :payments, only: [:show, :new, :edit]
+  resources :addresses, only: [:new, :edit, :create]
 
   devise_scope :user do
+    post 'users/sign_up' => 'users/registrations#new'
     get 'users/sign_up/index' => 'users/registrations#index'
+    get 'users/sign_up/complete' => 'users/registrations#complete' 
   end
 end

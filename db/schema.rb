@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2019_05_16_030625) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -62,10 +71,6 @@ ActiveRecord::Schema.define(version: 2019_05_16_030625) do
     t.string "last_name", null: false
     t.string "kana_first_name", null: false
     t.string "kana_last_name", null: false
-    t.integer "birth_year", null: false
-    t.integer "birth_month", null: false
-    t.integer "birth_date", null: false
-    t.text "introduction", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -77,8 +82,8 @@ ActiveRecord::Schema.define(version: 2019_05_16_030625) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
+  add_foreign_key "payments", "users"
   add_foreign_key "products", "users"
 end

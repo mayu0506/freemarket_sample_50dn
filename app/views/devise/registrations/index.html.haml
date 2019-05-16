@@ -1,0 +1,27 @@
+.wrapper
+  = render 'users/eachpage-header'
+  .signup-main
+    .signup-main__contents
+      .signup-main__contents__header
+        新規会員登録
+      .signup-main__contents__main
+        .signup-main__contents__main__inside
+          .email
+            =link_to new_user_registration_path do
+              %ul.email-list
+                .email-registration
+                  メールアドレスで登録
+                  = fa_icon 'envelope-o', class: 'email-icon'
+          .facebook
+            %ul
+              %li.facebook-list
+                = fa_icon 'facebook-square', class: 'facebook-icon'
+              %li.facebook-list
+                Facebookで登録
+          .google
+            %ul
+              %li.google-list
+                =image_tag "google_logo.png", class: 'google-icon'
+              %li.google-list
+                Googleで登録
+  = render 'users/eachpage-footer'
