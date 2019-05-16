@@ -32,3 +32,12 @@ $(document).ready(function() {
   });
 });
 
+$(window).on('turbolinks:load', function() {
+  $(".mypage-nav__list--item").hover(function() {
+    $(this).css("background-color","#eee");
+    $(this).css("font-weight", "600");
+  }, function() {
+    $(this).css("background-color","");
+    $(this).css("font-weight", "");
+  });
+});
