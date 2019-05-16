@@ -5,7 +5,7 @@ class Product < ApplicationRecord
  
 
   # セレクトボックス選択肢の管理
-    enum option: {
+    enum condition: {
       '---': 0,
       '新品、未使用': 1,
       '未使用に近い': 2,
@@ -21,7 +21,7 @@ class Product < ApplicationRecord
       '着払い（購入者負担）': 2
     }, _suffix: true
 
-    enum delivery_date: {
+    enum deliverying_date: {
       '---': 0,
       '1~2日で発送': 1,
       '2~3日で発送': 2,
