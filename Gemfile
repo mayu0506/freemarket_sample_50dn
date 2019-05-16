@@ -76,6 +76,7 @@ gem 'fog-aws'
 gem 'mini_magick'
 gem 'active_hash'
 gem 'ancestry'
+gem 'payjp'
 
 group :production do
   gem 'unicorn', '5.4.1'
