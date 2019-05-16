@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  # before_action :authenticate_user!, except: [:index, :show, :buy]
+  before_action :authenticate_user!, except: [:index, :show, :buy, :new]
 
 
   def index
