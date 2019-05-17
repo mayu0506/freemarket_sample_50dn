@@ -12,9 +12,9 @@
           .single-content__inner__action__form
             = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
               .form--label
-                = f.email_field :email, autofocus: true, autocomplete: "email", name: "mail_address", placeholder: "メールアドレス", name: "email"
+                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
               .form--label
-                = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード",name: "password"
+                = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
                 = f.submit "次へ進む", class: "btn-default button-red costom__main"
   = render 'users/eachpage-footer'
   
