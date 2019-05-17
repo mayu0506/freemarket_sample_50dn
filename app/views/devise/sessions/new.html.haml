@@ -1,20 +1,20 @@
 .contents
   = render 'users/eachpage-header'       
-  .main-contents
-    .single-content
-      .single-content__head 
+  .login-mainContents
+    .login-singleContent
+      .login-singleContent__head 
+        %p.message
+          アカウントをお持ちでない方はこちら
         = link_to '/users/sign_up/index' do
-          %p.message
-            アカウントをお持ちでない方はこちら
-          %input{type: "button",class: "btn-default button-blue costom__main", value: "新規会員登録"}
-      .single-content__inner
-        .single-content__action
-          .single-content__inner__action__form
-            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-              .form--label
-                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
-              .form--label
-                = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
-                = f.submit "次へ進む", class: "btn-default button-red costom__main"
+          %input{type: "button",class: "login-registrationButton", value: "新規会員登録"}
+      .login-singleContent__inner
+        .login-singleContent__inner__form
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .loginForm--label
+              = f.email_field :email,class: "loginInput", autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
+            .loginForm--label
+              = f.password_field :password,class: "loginInput", autocomplete: "current-password", placeholder: "パスワード"
+              = f.submit "ログイン", class: "login-button-red"
+              %p.login-password パスワードをお忘れの方
   = render 'users/eachpage-footer'
   
