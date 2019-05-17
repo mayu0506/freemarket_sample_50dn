@@ -3,9 +3,10 @@
   .main-contents
     .single-content
       .single-content__head 
-        %p.message
-          アカウントをお持ちでない方はこちら
-        %input{type: "button",class: "btn-default button-blue costom__main", value: "新規会員登録"}
+        = link_to '/users/sign_up/index' do
+          %p.message
+            アカウントをお持ちでない方はこちら
+          %input{type: "button",class: "btn-default button-blue costom__main", value: "新規会員登録"}
       .single-content__inner
         .single-content__action
           .single-content__inner__action__form

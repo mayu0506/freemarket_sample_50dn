@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2019_05_16_041529) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -85,5 +85,6 @@ ActiveRecord::Schema.define(version: 2019_05_16_041529) do
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "payments", "users"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
 end

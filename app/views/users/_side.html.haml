@@ -2,7 +2,7 @@
   %nav.mypage-nav
     %ul.mypage-nav__list
       %li
-        = link_to '#',class: 'mypage-nav__list--item active' do
+        = link_to '/users/1',class: 'mypage-nav__list--item' do
           マイページ
           %i.fa.fa-angle-right
       %li
@@ -72,7 +72,7 @@
     %h3.mypage-nav-head 設定
     %ul.mypage-nav__list
       %li
-        = link_to '#',class: 'mypage-nav__list--item' do
+        = link_to '/users/1/edit', class: 'mypage-nav__list--item' do
           プロフィール
           %i.fa.fa-angle-right
       %li
@@ -80,7 +80,7 @@
           発送元･お届け先住所
           %i.fa.fa-angle-right
       %li
-        = link_to '#',class: 'mypage-nav__list--item' do
+        = link_to '/payments/1/edit', class: 'mypage-nav__list--item' do
           支払い方法
           %i.fa.fa-angle-right
       %li
@@ -88,7 +88,7 @@
           メール/パスワード
           %i.fa.fa-angle-right
       %li
-        = link_to '#',class: 'mypage-nav__list--item' do
+        = link_to identification_users_path, class: 'mypage-nav__list--item' do
           本人情報
           %i.fa.fa-angle-right
       %li
@@ -96,6 +96,6 @@
           電話番号の確認
           %i.fa.fa-angle-right
       %li
-        = link_to '#',class: 'mypage-nav__list--item' do
+        = link_to logout_users_path, class: 'mypage-nav__list--item' do
           ログアウト
           %i.fa.fa-angle-right

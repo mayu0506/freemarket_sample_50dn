@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     get :logout, on: :collection
     get :identification, on: :collection
   end
-  resources :payments, only: [:show, :new, :edit]
+  resources :payments, only: [:show, :new, :create, :edit] do
+    post :new, to: 'payments#pay', on: :member
+  end
   resources :addresses, only: [:new, :edit, :create]
 
   devise_scope :user do
