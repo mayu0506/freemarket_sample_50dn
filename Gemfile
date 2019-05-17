@@ -78,6 +78,10 @@ gem 'active_hash'
 gem 'ancestry'
 gem 'payjp'
 gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
 
 group :production do
   gem 'unicorn', '5.4.1'

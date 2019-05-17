@@ -68,6 +68,7 @@ Things you may want to cover:
 - has_one :sale,dependent: :destory
 - has_one :point, dependent: :destory
 - has_many :products, dependent: :destory
+- has_many :sns_credentials
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -131,8 +132,6 @@ Things you may want to cover:
 |buyer_id|references|null: false, add_foreign_key :products, :users, column: :buyer_id|
 |seller_id|references|null: false, add_foreign_key :products, :users, column: :seller_id|
 
-
-
 ### Association
 - has_many :comments
 - has_many :likes
@@ -160,9 +159,19 @@ Things you may want to cover:
 ## categoriesテーブル
 |Column|Type|Options||
 |------|----|-------|-|
-|name|string|null: false||
-|ancestry|string||add_index|
+|name|string|null: false|
+|ancestry|string|add_index|
 
 ### Association
 - has_many :products
 - has_ancestry
+
+## sns_credentials　テーブル
+|Column|Type|Options|
+|------|----|----|
+|uid|string|
+|provider|string|
+|user|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
