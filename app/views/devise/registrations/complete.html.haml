@@ -10,5 +10,6 @@
           %p.complete_2
             会員登録が完了しました。
           .clearfix
-            %input{type: "button",class: "btn-default button-red costom__main", value: "メルカリを始める"}
+            = link_to "/products" do
+              %input{type: "button",class: "btn-default button-red costom__main", value: "メルカリを始める"}
             
