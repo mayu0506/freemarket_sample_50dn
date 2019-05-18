@@ -21,72 +21,23 @@
             .bodyMain_pickup_cotegory_box--title
               =link_to "レディース新着アイテム",products_path,class:"category-title__link"
             .bodyMain_pickup_cotegory_box_items.clearfix
-              .itemBox
-                =link_to '/products/show',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-                      
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
+              - @womens.each do |women|
+                .itemBox
+                  =link_to product_path(women),  class:"itemBox_a" do
+                    = image_tag("#{women.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
+                    .itemBox_ditails
+                      .itemBox_ditails--name
+                        ="#{women.name}"
+                        .hide
+                      .itemBox_ditails_num
+                        .itemBox_ditails_num--price
+                          ="¥#{women.price.to_s(:delimited)}"
+                        -# likeなければ消す if文？？
+                        .itemBox_ditails_num--like
+                          %i.fa.fa-heart
+                        -# ライク数挿入
+                      .itemBox_ditails--tax
+                        (税込)
             .viewAll
               =link_to "すべての商品を見る", products_path
 
@@ -96,72 +47,23 @@
             .bodyMain_pickup_cotegory_box--title
               =link_to "メンズ新着アイテム",products_path,class:"category-title__link"
             .bodyMain_pickup_cotegory_box_items.clearfix
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-                      
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
+              - @mens.each do |men|
+                .itemBox
+                  =link_to product_path(men),  class:"itemBox_a" do
+                    = image_tag("#{men.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
+                    .itemBox_ditails
+                      .itemBox_ditails--name
+                        ="#{men.name}"
+                        .hide
+                      .itemBox_ditails_num
+                        .itemBox_ditails_num--price
+                          ="¥#{men.price.to_s(:delimited)}"
+                        -# likeなければ消す if文？？
+                        .itemBox_ditails_num--like
+                          %i.fa.fa-heart
+                        -# ライク数挿入
+                      .itemBox_ditails--tax
+                        (税込)
             .viewAll
               =link_to "すべての商品を見る", products_path
 
@@ -171,72 +73,23 @@
             .bodyMain_pickup_cotegory_box--title
               =link_to "ベビーキッズ新着アイテム",products_path,class:"category-title__link"
             .bodyMain_pickup_cotegory_box_items.clearfix
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-                      
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
+              - @kids.each do |kid|
+                .itemBox
+                  =link_to product_path(kid),  class:"itemBox_a" do
+                    = image_tag("#{kid.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
+                    .itemBox_ditails
+                      .itemBox_ditails--name
+                        ="#{kid.name}"
+                        .hide
+                      .itemBox_ditails_num
+                        .itemBox_ditails_num--price
+                          ="¥#{kid.price.to_s(:delimited)}"
+                        -# likeなければ消す if文？？
+                        .itemBox_ditails_num--like
+                          %i.fa.fa-heart
+                        -# ライク数挿入
+                      .itemBox_ditails--tax
+                        (税込)
             .viewAll
               =link_to "すべての商品を見る", products_path
 
@@ -246,72 +99,23 @@
             .bodyMain_pickup_cotegory_box--title
               =link_to "コスメ、香水、美容新着アイテム",products_path,class:"category-title__link"
             .bodyMain_pickup_cotegory_box_items.clearfix
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-                      
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
-
-              .itemBox
-                =link_to '#',  class:"itemBox_a" do
-                  = image_tag("https://static.mercdn.net/item/detail/orig/photos/m52661381574_1.jpg?1557292712", width: '213', alt: "product_image",class:"itemBox--image")
-                  .itemBox_ditails
-                    .itemBox_ditails--name
-                      feroux　カットソー　レッセパッセ　ミッシュマッシュ　アプワイザーリッシェ
-                      .hide
-                    .itemBox_ditails_num
-                      .itemBox_ditails_num--price
-                        ¥1,900
-                      -# likeなければ消す if文？？
-                      .itemBox_ditails_num--like
-                        %i.fa.fa-heart
-                      -# ライク数挿入
-                    .itemBox_ditails--tax
-                      (税込)
+              - @cosmetics.each do |cosmetic|
+                .itemBox
+                  =link_to '/products/show',  class:"itemBox_a" do
+                    = image_tag("#{cosmetic.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
+                    .itemBox_ditails
+                      .itemBox_ditails--name
+                        ="#{cosmetic.name}"
+                        .hide
+                      .itemBox_ditails_num
+                        .itemBox_ditails_num--price
+                          ="¥#{cosmetic.price.to_s(:delimited)}"
+                        -# likeなければ消す if文？？
+                        .itemBox_ditails_num--like
+                          %i.fa.fa-heart
+                        -# ライク数挿入
+                      .itemBox_ditails--tax
+                        (税込)
             .viewAll
               =link_to "すべての商品を見る", products_path
 
