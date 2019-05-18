@@ -73,7 +73,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |postcode|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_code|integer|null: false|
 |city|string|null: false|
 |street|string|null: false|
 |building|string|
@@ -81,19 +81,17 @@ Things you may want to cover:
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- belongs_to :user, dependent: :destroy
 
 ## paymentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_month|integer|null: false|
-|expiration_year|integer|null: false|
-|security_code|integer|null: false|
+|customer_id|integer||
+|card_id|integer||
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- belongs_to :user, dependent: :destroy
 
 ## salesテーブル
 |Column|Type|Options|default|
