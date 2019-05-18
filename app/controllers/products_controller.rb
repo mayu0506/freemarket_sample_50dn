@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :buy, :new]
-
+  before_action :set_product
 
   def index
     @womens = Product.where(category_id: 14..59).limit(4)
@@ -44,11 +44,9 @@ class ProductsController < ApplicationController
   def delete
     @product = Product.find(params[:product_id])
     @image = @product.images.first
-
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     redirect_to root_path
   end
@@ -59,6 +57,10 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :user_id)
   #   .merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
   # def image_params
