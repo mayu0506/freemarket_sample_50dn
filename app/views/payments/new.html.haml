@@ -3,16 +3,14 @@
 %main.register-main
   %section.register-main__container
     %h2.register-main__container--header 支払い方法
-
+    %h1 決められたテスト用のカード情報を登録してください！適当！ダメ！！
     .register-inner
-      = form_for 'payments', method: :post do
-        %span.charge-errors
+      = form_tag("/payments", method: :post, id: 'charge-form') do
         .register-inner_contents
           .form-group
             %span.registration_font カード番号
             %span.form-require 必須
             .cardPage__content__form--error
-              必須項目です
             %input.input.number.input-default{maxlength: '16', name: 'number', placeholder: 'カード番号', type: 'text', id: 'payment_card_no'}/
             = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?376951604', class: 'visa-card'
             = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?376951604', class: 'master-card'
@@ -26,7 +24,6 @@
             %span.registration_font 有効期限
             %span.form-require 必須
             .cardPage__content__form--error
-              必須項目です
             .expiration_date_box
               .expiration_date_box__wrap
                 %select.exp_month#payment_expiration_date_1i{maxlength: '2', name: 'exp_month', type: 'text'}
@@ -67,9 +64,8 @@
           .form-group
             %span.registration_font セキュリティ番号
             %span.form-require 必須
-            %input.cvc.input-default{maxlength: "3", name: "cvc", placeholder: "カード背面もしくは４桁もしくは３桁の番号", type: "text", id: "payment_card_cvc"}
             .cardPage__content__form--error
-              必須項目です
+            %input.cvc.input-default{maxlength: "3", name: "cvc", placeholder: "カード背面もしくは４桁もしくは３桁の番号", type: "text", id: "payment_card_cvc"}
             .card-info
               カード裏面の番号とは?
             .actions

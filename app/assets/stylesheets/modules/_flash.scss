@@ -1,0 +1,13 @@
+.flash {
+  padding:1vh 1vh;
+  text-align: center;
+  font-size: 14px;
+  color: $white;
+  &__alert{
+    background-color: #FF3333;
+  }
+  &__notice {
+    background-color: $red;
+  }
+}
+

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'
-  resources :products, only: [:index, :new, :show, :edit ,:destroy] do
+
+  resources :products, only: [:index, :new, :create, :show, :edit ,:destroy] do
+
     get :buy, on: :member
     get :delete
     # , on: :member
@@ -16,7 +18,9 @@ Rails.application.routes.draw do
     get :logout, on: :collection
     get :identification, on: :collection
   end
-  resources :payments, only: [:show, :new, :edit]
+  resources :payments, only: [:show, :new, :create, :edit] do
+    post :new, to: 'payments#pay', on: :member
+  end
   resources :addresses, only: [:new, :edit, :create]
 
   devise_scope :user do
