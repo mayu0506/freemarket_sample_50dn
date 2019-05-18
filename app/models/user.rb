@@ -17,4 +17,6 @@ class User < ApplicationRecord
   # extend ActiveHash::Associations::ActiveRecordExtensions
   # belongs_to_active_hash :prefecture
   has_many :likes
+  has_one :payment
+  has_one :address
 end
