@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_041529) do
+ActiveRecord::Schema.define(version: 2019_05_17_075324) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postcode", limit: 8, null: false
+    t.integer "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "street", null: false
+    t.string "building"
+    t.string "phone", limit: 11
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -20,18 +33,8 @@ ActiveRecord::Schema.define(version: 2019_05_16_041529) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "contents"
-    t.bigint "user_id", null: false
-    t.bigint "product_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_comments_on_product_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "image", null: false
+    t.text "image"
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,21 +60,19 @@ ActiveRecord::Schema.define(version: 2019_05_16_041529) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", default: ""
-    t.text "description"
-    t.integer "price"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "price", null: false
     t.integer "condition", null: false
-    t.string "status", default: "selling"
+    t.string "status", default: "selling", null: false
     t.integer "who_to_pay", null: false
     t.integer "origin_of_delivery", null: false
     t.integer "deliverying_date", null: false
     t.string "size"
     t.integer "buyer_id"
-
     t.bigint "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
@@ -94,6 +95,7 @@ ActiveRecord::Schema.define(version: 2019_05_16_041529) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "payments", "users"
