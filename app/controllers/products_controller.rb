@@ -8,8 +8,6 @@ class ProductsController < ApplicationController
     @mens = Product.where(category_id: 60..70).limit(4)
     @kids = Product.where(category_id: 3).limit(4)
     @cosmetics = Product.where(category_id: 4).limit(4)
-
-
   end
 
   def new
@@ -42,8 +40,6 @@ class ProductsController < ApplicationController
 
   def buy
   end
-
-
 
   def delete
     @product = Product.find(params[:product_id])
