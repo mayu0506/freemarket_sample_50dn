@@ -77,6 +77,8 @@ gem 'mini_magick'
 gem 'active_hash'
 gem 'ancestry'
 gem 'payjp'
+gem 'jquery-rails'
+gem 'jp_prefecture'
 
 group :production do
   gem 'unicorn', '5.4.1'

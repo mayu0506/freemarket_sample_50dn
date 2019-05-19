@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
   before_action :create, only: [:complete]
-  # before_action :configure_permitted_parameters, if: :devise_controller?
 
   def index
-    # super
   end
 
   def new
@@ -21,63 +17,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
     if @user.save
-      # 成功時の処理
-      render :complete
+      redirect_to new_address_path, notice: '会員情報登録に成功しました'
     else
-      # unprocessable entity（422）などのvalidationエラーの処理
-      render :new
+      render :new, notice: '入力に誤りがあります'
     end
   end
 
 
   protected
-  # If you have extra params to permit, append them to the sanitizer.
+
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :last_name, :kana_first_name, :kana_last_name])
   end
-
-  # POST /resource
-  # def create
-  #   super
-  # end
-
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
-
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
-
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
 end
