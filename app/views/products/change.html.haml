@@ -1,7 +1,7 @@
 .deleteWrapper
   .deleteWrapper_inner
     = image_tag "#{@image.image}",class: "imageSize"
-    .deleteWrapper_inner_text
+    .deleteWrapper_inner_text.itemName
       = @image.product.name
     .deleteWrapper_inner_text.backRed
       = link_to "商品の編集",edit_product_path(@product),class: "linkClear centerText"
