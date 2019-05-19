@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :buy, :new]
-  before_action :set_product
+  before_action :set_product, only: [:change]
 
   def index
     @womens = Product.where(category_id: 14..59).limit(4)
@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
   def buy
   end
 
-  def delete
+  def change
     @product = Product.find(params[:product_id])
     @image = @product.images.first
   end
