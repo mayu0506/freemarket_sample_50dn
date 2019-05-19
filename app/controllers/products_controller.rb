@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show, :buy, :new]
+  before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
   before_action :set_product, only: [:change]
 
   def index
@@ -42,7 +42,6 @@ class ProductsController < ApplicationController
   end
 
   def change
-    @product = Product.find(params[:product_id])
     @image = @product.images.first
   end
 
@@ -60,7 +59,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
   end
 
   # def image_params
