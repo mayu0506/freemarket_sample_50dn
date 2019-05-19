@@ -10,6 +10,18 @@
 # Categoryデータ
 
 # grade_one = Category.create(name: "レディース")
+# grade_two = Category.create(name: "メンズ")
+# grade_three = Category.create(name: "ベビー・キッズ")
+# grade_four = Category.create(name: "インテリア・住まい・小物")
+# grade_five = Category.create(name: "本・音楽・ゲーム")
+# grade_six = Category.create(name: "おもちゃ・ホビー・グッズ")
+# grade_seven = Category.create(name: "コスメ・香水・美容")
+# grade_eight = Category.create(name: "家電・スマホ・カメラ")
+# grade_nine = Category.create(name: "スポーツ・レジャー")
+# grade_ten = Category.create(name: "ハンドメイド")
+# grade_eleven = Category.create(name: "チケット")
+# grade_twelve = Category.create(name: "自動車・オートバイ")
+# grade_thirteen = Category.create(name: "その他")
 
 # one_top = grade_one.children.create(name: "トップス")
 # one_jacet = grade_one.children.create(name: "ジャケット/アウター")
@@ -30,19 +42,6 @@
 # one_accessory.children.create([{name:"ネックレス"},{name:"ブレスレット"},{name:"ブレスレット"},{name:"バングル/リストバンド"}])
 
 
-# grade_two = Category.create(name: "メンズ")
-
 # grade_two.children.create([{name:"トップス"}, {name:"ジャケット"}, {name:"パンツ"}, {name:"靴"}, {name:"バッグ"}, {name:"スーツ"}, {name:"帽子"}, {name:"アクセサリー"}, {name:"小物"}, {name:"時計"}, {name:"その他"}])
 
 
-# grade_three = Category.create(name: "ベビー・キッズ")
-# grade_four = Category.create(name: "インテリア・住まい・小物")
-# grade_five = Category.create(name: "本・音楽・ゲーム")
-# grade_six = Category.create(name: "おもちゃ・ホビー・グッズ")
-# grade_seven = Category.create(name: "コスメ・香水・美容")
-# grade_eight = Category.create(name: "家電・スマホ・カメラ")
-# grade_nine = Category.create(name: "スポーツ・レジャー")
-# grade_ten = Category.create(name: "ハンドメイド")
-# grade_eleven = Category.create(name: "チケット")
-# grade_twelve = Category.create(name: "自動車・オートバイ")
-# grade_thirteen = Category.create(name: "その他")
