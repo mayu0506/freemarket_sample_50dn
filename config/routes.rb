@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     post :new, to: 'payments#pay', on: :member
   end
   resources :addresses, only: [:new, :edit, :create]
+  resources :trades, only: [:update]
 
   devise_scope :user do
     post 'users/sign_up' => 'users/registrations#new'

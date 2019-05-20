@@ -23,9 +23,6 @@ class ProductsController < ApplicationController
     @product = Product.new(params_int(product_params))
     @image = Image.new
 
-
-    binding.pry
-
     if @product.save
       redirect_to @product
     else
@@ -64,7 +61,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :user_id)
+    params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :user_id, :buyer_id)
   #   .merge(user_id: current_user.id)
   end
 
@@ -99,5 +96,4 @@ class ProductsController < ApplicationController
       redirect_to new_address_path
     end
   end
-
 end

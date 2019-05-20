@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
     if @payment.save
       redirect_to root_path, notice: '会員登録は全て完了しました。メルカリ(偽)をお楽しみください！'
     else
-      redirect_to new_payment_path, notice; 'クレジットカード登録に失敗しました'
+      redirect_to new_payment_path, notice: 'クレジットカード登録に失敗しました'
     end
   end
 
