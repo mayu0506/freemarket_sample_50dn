@@ -10,114 +10,37 @@
         =image_tag "//www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?376951604" ,class: "topBanner--image"
       
 
-    -# 商品
     .bodyMain
       .bodyMain_pickup
         .bodyMain_pickup--title.link_blue ピックアップカテゴリー
         -# カテゴリー毎
         -# レディース
-        .bodyMain_pickup_cotegory.clearfix
-          .bodyMain_pickup_cotegory_box
-            .bodyMain_pickup_cotegory_box--title
-              =link_to "レディース新着アイテム",products_path,class:"category-title__link"
-            .bodyMain_pickup_cotegory_box_items.clearfix
-              - @womens.each do |women|
-                .itemBox
-                  =link_to product_path(women),  class:"itemBox_a" do
-                    = image_tag("#{women.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
+        - @categories.each do |category|
+          .bodyMain_pickup_cotegory.clearfix
+            .bodyMain_pickup_cotegory_box
+              .bodyMain_pickup_cotegory_box--title
+                =link_to "#{category.name}新着アイテム",products_path,class:"category-title__link"
+              .bodyMain_pickup_cotegory_box_items.clearfix
+                - @products = Product.where(category_id: category.indirect_ids).limit(4)
+                  - @products.each do |product|
+                  .itemBox
+                    =link_to product_path(product),  class:"itemBox_a" do
+                      = image_tag("#{product.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
                     .itemBox_ditails
                       .itemBox_ditails--name
-                        ="#{women.name}"
+                        ="#{product.name}"
                         .hide
                       .itemBox_ditails_num
                         .itemBox_ditails_num--price
-                          ="¥#{women.price.to_s(:delimited)}"
+                          ="¥#{product.price.to_s(:delimited)}"
                         -# likeなければ消す if文？？
                         .itemBox_ditails_num--like
                           %i.fa.fa-heart
                         -# ライク数挿入
                       .itemBox_ditails--tax
                         (税込)
-            .viewAll
-              =link_to "すべての商品を見る", products_path
-
-          -# メンズ
-        .bodyMain_pickup_cotegory.clearfix
-          .bodyMain_pickup_cotegory_box
-            .bodyMain_pickup_cotegory_box--title
-              =link_to "メンズ新着アイテム",products_path,class:"category-title__link"
-            .bodyMain_pickup_cotegory_box_items.clearfix
-              - @mens.each do |men|
-                .itemBox
-                  =link_to product_path(men),  class:"itemBox_a" do
-                    = image_tag("#{men.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
-                    .itemBox_ditails
-                      .itemBox_ditails--name
-                        ="#{men.name}"
-                        .hide
-                      .itemBox_ditails_num
-                        .itemBox_ditails_num--price
-                          ="¥#{men.price.to_s(:delimited)}"
-                        -# likeなければ消す if文？？
-                        .itemBox_ditails_num--like
-                          %i.fa.fa-heart
-                        -# ライク数挿入
-                      .itemBox_ditails--tax
-                        (税込)
-            .viewAll
-              =link_to "すべての商品を見る", products_path
-
-            -# ベビーキッズ
-        .bodyMain_pickup_cotegory.clearfix
-          .bodyMain_pickup_cotegory_box
-            .bodyMain_pickup_cotegory_box--title
-              =link_to "ベビーキッズ新着アイテム",products_path,class:"category-title__link"
-            .bodyMain_pickup_cotegory_box_items.clearfix
-              - @kids.each do |kid|
-                .itemBox
-                  =link_to product_path(kid),  class:"itemBox_a" do
-                    = image_tag("#{kid.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
-                    .itemBox_ditails
-                      .itemBox_ditails--name
-                        ="#{kid.name}"
-                        .hide
-                      .itemBox_ditails_num
-                        .itemBox_ditails_num--price
-                          ="¥#{kid.price.to_s(:delimited)}"
-                        -# likeなければ消す if文？？
-                        .itemBox_ditails_num--like
-                          %i.fa.fa-heart
-                        -# ライク数挿入
-                      .itemBox_ditails--tax
-                        (税込)
-            .viewAll
-              =link_to "すべての商品を見る", products_path
-
-            -# コスメ、香水、美容
-        .bodyMain_pickup_cotegory.clearfix
-          .bodyMain_pickup_cotegory_box
-            .bodyMain_pickup_cotegory_box--title
-              =link_to "コスメ、香水、美容新着アイテム",products_path,class:"category-title__link"
-            .bodyMain_pickup_cotegory_box_items.clearfix
-              - @cosmetics.each do |cosmetic|
-                .itemBox
-                  =link_to '/products/show',  class:"itemBox_a" do
-                    = image_tag("#{cosmetic.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
-                    .itemBox_ditails
-                      .itemBox_ditails--name
-                        ="#{cosmetic.name}"
-                        .hide
-                      .itemBox_ditails_num
-                        .itemBox_ditails_num--price
-                          ="¥#{cosmetic.price.to_s(:delimited)}"
-                        -# likeなければ消す if文？？
-                        .itemBox_ditails_num--like
-                          %i.fa.fa-heart
-                        -# ライク数挿入
-                      .itemBox_ditails--tax
-                        (税込)
-            .viewAll
-              =link_to "すべての商品を見る", products_path
+              .viewAll
+                =link_to "すべての商品を見る", products_path
 
       .bodyMain_pickup  
         .bodyMain_pickup--title.link_blue ピックアップブランド
