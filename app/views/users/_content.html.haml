@@ -4,7 +4,8 @@
     = link_to '#' do
       %figure.mypage-user-icon__photo
         = image_tag 'user-icon.jpg'
-      %h2.mypage-user-icon__name たま子
+      %h2.mypage-user-icon__name
+      = current_user.nickname
       .mypage-user-icon__number
         %div
           評価
