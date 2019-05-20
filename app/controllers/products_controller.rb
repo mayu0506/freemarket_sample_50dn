@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
   before_action :set_product, only: [:change]
+  before_action :check_user, only: :buy
+  before_action :set_api_for_payjp
 
   def index
     @womens = Product.where(category_id: 14..59).limit(4)
@@ -39,6 +41,14 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    # 住所の取得
+    @address = Address.find_by(user_id: current_user.id)
+    @user = User.find(current_user.id)
+    # カード情報の取得
+    @payment = Payment.find_by(user_id: current_user.id)
+    customer = Payjp::Customer.retrieve(@payment.customer_id)
+    @card_information = customer.cards.retrieve(@payment.card_id)
+    @product = Product.find(params[:id])
   end
 
   def change
@@ -80,6 +90,13 @@ class ProductsController < ApplicationController
       if integer_string?(value)
         product_params[key]=value.to_i
       end
+    end
+  end
+
+  # 住所登録を済ませたユーザーかどうかのチェック
+  def check_user
+    if Address.where(user_id: current_user.id).blank?
+      redirect_to new_address_path
     end
   end
 

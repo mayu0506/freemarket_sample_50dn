@@ -2,7 +2,7 @@
   %nav.mypage-nav
     %ul.mypage-nav__list
       %li
-        = link_to '/users/current_user.id',class: 'mypage-nav__list--item' do
+        = link_to "/users/#{current_user.id}",class: 'mypage-nav__list--item' do
           マイページ
           %i.fa.fa-angle-right
       %li
@@ -18,7 +18,7 @@
           いいね！一覧
           %i.fa.fa-angle-right
       %li
-        = link_to '#',class: 'mypage-nav__list--item' do
+        = link_to '/products/new',class: 'mypage-nav__list--item' do
           出品する
           %i.fa.fa-angle-right
       %li
@@ -72,15 +72,15 @@
     %h3.mypage-nav-head 設定
     %ul.mypage-nav__list
       %li
-        = link_to '/users/1/edit', class: 'mypage-nav__list--item' do
+        = link_to "/users/#{current_user.id}/edit", class: 'mypage-nav__list--item' do
           プロフィール
           %i.fa.fa-angle-right
       %li
-        = link_to '#',class: 'mypage-nav__list--item' do
+        = link_to "/addresses/#{current_user.id}/edit",class: 'mypage-nav__list--item' do
           発送元･お届け先住所
           %i.fa.fa-angle-right
       %li
-        = link_to '/payments/1/edit', class: 'mypage-nav__list--item' do
+        = link_to "/payments/#{current_user.id}", class: 'mypage-nav__list--item' do
           支払い方法
           %i.fa.fa-angle-right
       %li
