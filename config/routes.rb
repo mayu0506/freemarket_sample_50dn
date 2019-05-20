@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'
-  resources :products, only: [:index, :new, :create, :show] do
+
+  resources :products, only: [:new, :create, :show, :edit, :destroy] do
     get :buy, on: :member
+    get :change
   end
       # 実装時showのみに変更 productsに入れ子
     resources :categorys, only: [:index,:show]

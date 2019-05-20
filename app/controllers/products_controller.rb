@@ -1,9 +1,13 @@
 class ProductsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show, :buy, :new]
-
+  before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
+  before_action :set_product, only: [:change]
 
   def index
+    @womens = Product.where(category_id: 14..59).limit(4)
+    @mens = Product.where(category_id: 60..70).limit(4)
+    @kids = Product.where(category_id: 3).limit(4)
+    @cosmetics = Product.where(category_id: 4).limit(4)
   end
 
   def new
@@ -31,14 +35,31 @@ class ProductsController < ApplicationController
     
   end
 
+  def edit
+  end
+
   def buy
   end
 
+  def change
+    @image = @product.images.first
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to root_path
+  end
+
+  
   private
 
   def product_params
     params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :user_id)
   #   .merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:product_id])
   end
 
   # def image_params
@@ -61,6 +82,5 @@ class ProductsController < ApplicationController
       end
     end
   end
-
 
 end
