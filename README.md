@@ -164,3 +164,14 @@ Things you may want to cover:
 ### Association
 - has_many :products
 - has_ancestry
+
+## tradesテーブル
+|Column|Type|Options||
+|------|----|-------|-|
+|user|references|null:false,foreign_keys:true|
+|product|references|null:false,foreign_keys:true|
+|date_of_confirmation|date|null:true|
+
+### Association
+- belongs_to :product
+- belongs_to :user

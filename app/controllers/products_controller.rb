@@ -95,5 +95,4 @@ class ProductsController < ApplicationController
       redirect_to new_address_path
     end
   end
-
 end

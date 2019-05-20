@@ -11,7 +11,7 @@
             -# あとでイメージも引っ張ってこれるようにする
           %p.buy-content-inner__item-name.bold
             = @product.name
-          = form_for root_path do |f|
+          = form_for @product, url: {controller: "trades", action: "update"} do |f|
             = f.hidden_field :price, value: @product.price
             %p.buy-content-inner__item-price-ja.bold
               ¥ #{@product.price.to_s(:delimited)}
