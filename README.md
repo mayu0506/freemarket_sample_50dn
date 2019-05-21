@@ -68,7 +68,7 @@ Things you may want to cover:
 - has_one :sale,dependent: :destory
 - has_one :point, dependent: :destory
 - has_many :products, dependent: :destory
-- has_many :sns_credentials
+- has_many :sns_authorizations
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -166,7 +166,7 @@ Things you may want to cover:
 - has_many :products
 - has_ancestry
 
-## sns_credentials　テーブル
+## sns_authorizations　テーブル
 |Column|Type|Options|
 |------|----|----|
 |uid|string|

@@ -1,36 +1,50 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+-# .information-mainContents
+-#   .information-singleContent
+-#     .information-singleContent__head 会員情報入力
+-#     .informationInner
+-#       .informationInner__form
+-#         = form_for @user do |f|
+-#           = devise_error_messages!
+-#           .informationInner--label
+-#             %label.information{for: "nickname"} ニックネーム
+-#             %span.require 必須
+-#             = f.text_field :nickname, autofocus: true, class: "informationInput", placeholder: "例) メルカリ太郎", type: "text", value: "#{@user.nickname}"
+-#           .informationInner--label
+-#             %label.information{for: "email"} メールアドレス
+-#             %span.require 必須
+-#             = f.email_field :"email", class: "informationInput", placeholder: "PC・携帯どちらでも可", type: "email", value: "", autofocus: true, autocomplete: "email", value: "#{session[:email]}"
+-#           .informationInner--label
+-#             %label.information{for: "password"} パスワード
+-#             %span.require 必須
+-#             = f.password_field :"password", class: "informationInput", placeholder: "6文字以上", type: "password", autofocus: true, value: ""
+-#           .informationInner--label
+-#             %label.information{for: "password_confirmation"} パスワード (確認)
+-#             %span.require 必須
+-#             = f.password_field :"password_confirmation", class: "informationInput", placeholder: "6文字以上", type: "password", autofocus: true, value: ""
+-#           .informationInner--label
+-#             %h3.informationPrivacyAgreement 本人確認
+-#             %p.secure-text
+-#               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+-#           .informationInner--label
+-#             %label.information{for: "last_name"} 姓 (全角)              
+-#             %span.require 必須       
+-#             = f.text_field :"last_name", class: "informationInput", placeholder: "例) 山田", type: "text", value: "", autofocus: true, value: ""
+-#           .informationInner--label
+-#             %label.information{for: "first_name"} 名 (全角)
+-#             %span.require 必須
+-#             = f.text_field :"first_name", class: "informationInput", placeholder: "例) 彩", type: "text", value: "", autofocus: true, value: ""
+-#           .informationInner--label
+-#             %label.information{for: "kana_last_name"} 姓カナ (全角)
+-#             %span.require 必須
+-#             = f.text_field :"kana_first_name", class: "informationInput", placeholder: "例) ヤマダ", type: "text", value: "", autofocus: true, value: ""
+-#           .informationInner--label
+-#             %label.information{for: "kana_first_name"} 名カナ (全角)
+-#             %span.require 必須
+-#             = f.text_field :"kana_last_name", class: "informationInput", placeholder: "例) アヤ", type: "text", value: "", autofocus: true, value: ""
+-#           .clearfix
+-#           %p.informationConfirmationMessage
+-#             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。 
+-#           = f.submit "次へ進む", class:  "information-btn"
+-#           %div.identificationForm--group__registration
+-#             本人情報の登録について
+-#             = fa_icon 'angle-right', class: 'identification-angleRight'
