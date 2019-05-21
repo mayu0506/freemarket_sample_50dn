@@ -6,10 +6,9 @@ class ProductsController < ApplicationController
   before_action :set_api_for_payjp
 
   def index
-    @womens = Product.where(category_id: 14..59).limit(4)
-    @mens = Product.where(category_id: 60..70).limit(4)
-    @kids = Product.where(category_id: 3).limit(4)
-    @cosmetics = Product.where(category_id: 4).limit(4)
+    @category_item = ["レディース","メンズ","ベビー・キッズ","コスメ・香水・美容"]
+    @categories = Category.where(name: @category_item)
+    
   end
 
   def new

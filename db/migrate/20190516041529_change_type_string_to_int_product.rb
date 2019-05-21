@@ -1,4 +1,4 @@
-class ChangeTypeStringToIntProduct < ActiveRecord::Migration[5.2]
+class ChangeTypeStringToIntProduct < ActiveRecord::Migration[4.2][5.2]
   def change
     reversible do |dir|
       change_table :products do |t|
