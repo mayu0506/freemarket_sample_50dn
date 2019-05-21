@@ -12,7 +12,6 @@ class User < ApplicationRecord
   # belongs_to_active_hash :prefecture
   has_many :likes
   has_one :payment
-  has_many :sns_authorizations, dependent: :destroy, foreign_key: "user_id"
   
   def self.find_or_create_by_omniauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
