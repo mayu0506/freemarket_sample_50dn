@@ -12,7 +12,8 @@ class User < ApplicationRecord
   # belongs_to_active_hash :prefecture
   has_many :likes
   has_one :payment
-  
+  has_one :address
+
   def self.find_or_create_by_omniauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user

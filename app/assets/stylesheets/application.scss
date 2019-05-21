@@ -19,8 +19,15 @@
 @import "mypage/mypage";
 @import "mypage/content";
 @import "mypage/side";
+
+
 // usersフォルダの読み込み
 @import "users/*";
+// 新規登録画面
+@import "registration/*";
+// ログイン
+@import "login/login.scss";
+
 
 // puroductファイル読み込み
 @import "modules/product-header";
@@ -29,10 +36,12 @@
 @import "modules/product-footer";
 // 出品ボタン
 @import "modules/sell-btn";
-// 新規登録画面
-@import "registration/*";
+// 商品削除
+@import "modules/product-change";
 // category
 @import "modules/category.scss";
-// ログイン
-@import "login/login.scss";
+
+
+// フラッシュメッセージ
+@import 'modules/_flash';
 

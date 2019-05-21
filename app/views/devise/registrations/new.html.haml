@@ -28,19 +28,19 @@
             %p.secure-text
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
           .informationInner--label
-            %label.information{for: "last_name"} 姓 (全角)              
+            %label.information{for: "first_name"} 姓 (全角)              
             %span.require 必須       
             = f.text_field :"last_name", class: "informationInput", placeholder: "例) 山田", type: "text",autofocus: true, value: "#{session[:last_name]}"
           .informationInner--label
-            %label.information{for: "first_name"} 名 (全角)
+            %label.information{for: "last_name"} 名 (全角)
             %span.require 必須
             = f.text_field :"first_name", class: "informationInput", placeholder: "例) 彩", value: "#{session[:first_name]}", type: "text", autofocus: true
           .informationInner--label
-            %label.information{for: "kana_last_name"} 姓カナ (全角)
+            %label.information{for: "kana_first_name"} 姓カナ (全角)
             %span.require 必須
             = f.text_field :"kana_first_name", class: "informationInput", placeholder: "例) ヤマダ", type: "text", autofocus: true, value: ""
           .informationInner--label
-            %label.information{for: "kana_first_name"} 名カナ (全角)
+            %label.information{for: "kana_last_name"} 名カナ (全角)
             %span.require 必須
             = f.text_field :"kana_last_name", class: "informationInput", placeholder: "例) アヤ", type: "text", autofocus: true, value: ""
           .informationInner--label

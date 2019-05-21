@@ -18,9 +18,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
     if @user.save
-      render :complete
+      redirect_to new_address_path, notice: '会員情報登録に成功しました'
     else
-      render :new
+      render :new, notice: '入力に誤りがあります'
     end
   end
 

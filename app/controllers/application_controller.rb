@@ -16,6 +16,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_api_for_payjp
+    Payjp.api_key = 'sk_test_8b4d3c925604e0aef4191408'
+    # 本来は上記の秘密は環境変数として登録すべきですが、みんなで共有するにはどうすればいいかわからないでの保留です。
+    # test鍵なので最悪漏れても影響ないです。
+  end
+
   protected
 
   def configure_permitted_parameters
