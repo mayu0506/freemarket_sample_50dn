@@ -8,11 +8,13 @@
         .buy-content-inner.buy-item
           %h3.buy-content-inner__item-image
             = image_tag 'bag.jpg'
-          %p.buy-content-inner__item-name.bold PRADA 限定ブラック トート
-          = form_for root_path do |f|
-            = f.hidden_field :price
+            -# あとでイメージも引っ張ってこれるようにする
+          %p.buy-content-inner__item-name.bold
+            = @product.name
+          = form_for @product, url: {controller: "trades", action: "update"} do |f|
+            = f.hidden_field :price, value: @product.price
             %p.buy-content-inner__item-price-ja.bold
-              ¥ 30,000
+              ¥ #{@product.price.to_s(:delimited)}
               %span.buy-content-inner__shipping-fee 送料込み
             %ul.buy-content-inner__item-point.not-have
               %li.buy-content-inner__point_parent
@@ -20,7 +22,7 @@
             %ul.buy-content-inner__price-table
               %li.buy-content-inner__price-row.bold
               %li.buy-content-inner__price-cell 支払い金額
-              %li.buy-content-inner__price-cell ¥ 30,000
+              %li.buy-content-inner__price-cell ¥ #{@product.price.to_s(:delimited)}
             = f.submit '購入する', class: 'buy-content-inner__btn-buy bold'
 
       %section.buy-content
@@ -28,11 +30,15 @@
           %h3.bold 配送先
           %address.buy-user-info__text
             〒
-            123-4567
+            = @address.postcode
             %br
-            東京都 新宿区 西新宿2-8-1
+            = @address.prefecture.name
+            = @address.city
+            = @address.street
+            = @address.building
             %br
-            メルカリ たま子
+            = @user.first_name
+            = @user.last_name
           = link_to '#', class: 'buy-user-info__fix' do
             %span 変更する
             %i.fa.fa-angle-right
@@ -41,13 +47,25 @@
         .buy-content-inner
           %h3.bold 支払方法
           %p.buy-user-info__text
-            = '************' + '1234'
+            = '**** **** ****' + @card_information.last4
             %br
-            = '05'
+            = @card_information.exp_month
             = '/'
-            = '06'
+            = @card_information.exp_year.to_s.slice(2,3)
             %figure
-              = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?376951604', class: 'visa-card'
+              - if @card_information.brand == "Visa"
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?376951604', alt: "#{@card_information.brand}", class: "visa-card"
+              - elsif @card_information.brand == "MasterCard"
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?376951604', alt: "#{@card_information.brand}", class: "master-card"
+              - elsif @card_information.brand == "Discover"
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?376951604', alt: "#{@card_information.brand}", class: "discover"
+              - elsif @card_information.brand == "JCB"
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?376951604', alt: "#{@card_information.brand}", class: "jcb-card"
+              - elsif @card_information.brand == "American Express"
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?376951604', alt: "#{@card_information.brand}", class: "american-express"
+              - else @card_information.brand == "Diners Club"
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?376951604', alt: "#{@card_information.brand}", class: "diners-club"
+
             = link_to '#', class: 'buy-user-info__fix' do
               %span 変更する
               %i.fa.fa-angle-right

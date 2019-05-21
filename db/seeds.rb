@@ -42,6 +42,20 @@
 # one_accessory.children.create([{name:"ネックレス"},{name:"ブレスレット"},{name:"ブレスレット"},{name:"バングル/リストバンド"}])
 
 
-# grade_two.children.create([{name:"トップス"}, {name:"ジャケット"}, {name:"パンツ"}, {name:"靴"}, {name:"バッグ"}, {name:"スーツ"}, {name:"帽子"}, {name:"アクセサリー"}, {name:"小物"}, {name:"時計"}, {name:"その他"}])
+# two_top = grade_two.children.create(name: "トップス")
+# two_jacet = grade_two.children.create(name: "ジャケット")
+# two_pants = grade_two.children.create(name: "パンツ")
+# two_shoes = grade_two.children.create(name: "靴")
+# two_bag = grade_two.children.create(name: "バッグ")
 
+# two_top.children.create([{name: "Tシャツ,カットソー(七分/半袖)"}, {name: "Tシャツ/カットソー(半袖/袖なし)"}, {name: "ポロシャツ"},{name: "タンクトップ"}, {name: "パーカー"}])
+# two_jacet.children.create([{name: "テーラードジャケット"}, {name: "ノーカラージャケット"}, {name:"レザージャケット"}, {name:"ロングコート"}, {name:"ダッフルコート"}])
+# two_pants.children.create([{name:"デニム/ジーンズ"}, {name:"ショートパンツ"}, {name:"ペインターパンツ"}, {name:"チノパン"}, {name: "オーバーオール"}, {name:"サルエルパンツ"}])
 
+# three_girltop = grade_three.children.create(name: "ベビー服(女の子用)")
+# three_boytop = grade_three.children.create(name: "ベビー服(男の子用)")
+# three_shoes = grade_three.children.create(name: "キッズ靴")
+
+# three_girltop.children.create([{name: "トップス"}, {name: "アウター"}, {name: "パンツ"}, {name: "スカート"}, {name: "ワンピース"}])
+# three_boytop.children.create([{name: "トップス"}, {name: "アウター"}, {name: "パンツ"}, {name: "おくるみ"},{name: "ロンパース"}])
+# three_shoes.children.create([{name: "スニーカー"}, {name: "サンダル"}, {name: "ブーツ"}, {name: "長靴"}])

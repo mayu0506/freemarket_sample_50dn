@@ -1,13 +1,14 @@
 class ProductsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show, :buy, :new]
-  before_action :set_product
+  before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
+  before_action :set_product, only: [:change]
+  before_action :check_user, only: :buy
+  before_action :set_api_for_payjp
 
   def index
-    @womens = Product.where(category_id: 14..59).limit(4)
-    @mens = Product.where(category_id: 60..70).limit(4)
-    @kids = Product.where(category_id: 3).limit(4)
-    @cosmetics = Product.where(category_id: 4).limit(4)
+    @category_item = ["レディース","メンズ","ベビー・キッズ","コスメ・香水・美容"]
+    @categories = Category.where(name: @category_item)
+    
   end
 
   def new
@@ -20,9 +21,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params_int(product_params))
     @image = Image.new
-
-
-    binding.pry
 
     if @product.save
       redirect_to @product
@@ -39,10 +37,17 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    # 住所の取得
+    @address = Address.find_by(user_id: current_user.id)
+    @user = User.find(current_user.id)
+    # カード情報の取得
+    @payment = Payment.find_by(user_id: current_user.id)
+    customer = Payjp::Customer.retrieve(@payment.customer_id)
+    @card_information = customer.cards.retrieve(@payment.card_id)
+    @product = Product.find(params[:id])
   end
 
-  def delete
-    @product = Product.find(params[:product_id])
+  def change
     @image = @product.images.first
   end
 
@@ -60,7 +65,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
   end
 
   # def image_params
@@ -84,4 +89,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  # 住所登録を済ませたユーザーかどうかのチェック
+  def check_user
+    if Address.where(user_id: current_user.id).blank?
+      redirect_to new_address_path
+    end
+  end
 end
