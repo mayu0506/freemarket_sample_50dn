@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  # before_action :authenticate_user!, except: [:index, :show, :buy, :new]
+  before_action :authenticate_user!, except: [:index, :show, :buy, :new]
 
 
   def index
@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @image = @product.images.build
-  
   end
 
   def create
