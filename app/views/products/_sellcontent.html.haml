@@ -39,30 +39,24 @@
         .sellContent__select__left
           商品の詳細
         .sellContent__select__right
-          .sellContent__select__right__form
-            .sellContent__select__right__form--label
-              = f.label "カテゴリー"
-              %span{class:"form-require"} 必須
-            = f.select :condition, options_for_select({'レディース': '1'})
-      
-            %i.fa.fa-chevron-down
-      
-          .sellContent__select__right__form
-            = f.select :condition, options_for_select({'新品、未使用': 1,'未使用に近い': 2,'目立った傷や汚れなし': 3,'やや汚れや傷あり': 4,'傷や汚れあり': 5,'全体的に状態が悪い': 6})
-            %i.fa.fa-chevron-down
+          -# .sellContent__select__right__form
+          -#   .sellContent__select__right__form--label
+          -#     = f.label "カテゴリー"
+          -#     %span{class:"form-require"} 必須
+          -#   = f.select :category, options_from_collection_for_select(Category.roots, :id, :name)
+          -#   %i.fa.fa-chevron-down
 
-          .selContent__select__left--select
-            = f.select :condition, options_for_select({'新品、未使用': '新品、未使用','未使用に近い': '未使用に近い','目立った傷や汚れなし': '目立った傷や汚れなし','やや汚れや傷あり': 'やや汚れや傷あり','傷や汚れあり': '傷や汚れあり','全体的に状態が悪い': '全体的に状態が悪い'})
-            %i.fa.fa-chevron-down
+          -#   = f.select :category_id, options_from_collection_for_select(Category.roots, :id, :name)
+          -#   %i.fa.fa-chevron-down
 
-          .sellContent__select__right__form--error
-            選択してください
+          -#   = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name)
+          -#   %i.fa.fa-chevron-down
 
           .sellContent__select__right__form
             .sellContent__select__right__form--label
               = f.label "商品の状態"
               %span{class:"form-require"} 必須
-            = f.select :condition, options_for_select({'新品、未使用': 1,'未使用に近い': 2,'目立った傷や汚れなし': 3,'やや汚れや傷あり': 4,'傷や汚れあり': 5,'全体的に状態が悪い': 6}), {},{required:"required"}
+            = f.select :condition, options_for_select({'新品、未使用': '新品、未使用','未使用に近い': '未使用に近い','目立った傷や汚れなし': '目立った傷や汚れなし','やや汚れや傷あり': 'やや汚れや傷あり','傷や汚れあり': '傷や汚れあり','全体的に状態が悪い': '全体的に状態が悪い'}), {},{required:"required"}
             %i.fa.fa-chevron-down
             .sellContent__select__right__form--error.error
               選択してください
