@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :create, only: [:complete]
+  # before_action :create, only: [:complete]
 
   def index
     reset_session
@@ -9,10 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     @user = User.new
-  end
-
-  def complete
-    render :complte
   end
 
   def create

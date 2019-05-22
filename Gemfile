@@ -85,7 +85,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'jp_prefecture'
 
-
 group :production do
   gem 'unicorn', '5.4.1'
 end
