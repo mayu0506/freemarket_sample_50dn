@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # テスト用にコメントアウト
-  # before_action :create, only: [:complete]
+  before_action :create, only: [:complete]
 
   def index
     reset_session
@@ -12,6 +11,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  def complete
+  end
+  
   def create
     @user = User.new(sign_up_params)
     if @user.save
