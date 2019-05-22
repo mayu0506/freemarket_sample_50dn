@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  # テスト用にコメントアウト
   # before_action :create, only: [:complete]
 
   def index
