@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
   before_action :set_product, only: [:change]
-  before_action :check_user, only: :buy
+  before_action :check_address, only: :buy
+  before_action :check_payment, only: :buy
   before_action :set_api_for_payjp
 
   def index
@@ -89,10 +90,16 @@ class ProductsController < ApplicationController
     end
   end
 
-  # 住所登録を済ませたユーザーかどうかのチェック
-  def check_user
+  # 以下で住所登録とクレジットカード登録を済ませたユーザーかどうかのチェック
+  def check_address
     if Address.where(user_id: current_user.id).blank?
-      redirect_to new_address_path
+       redirect_to new_address_path
+    end
+  end
+
+  def check_payment
+    if Payment.where(user_id: current_user.id).blank?
+       redirect_to new_payment_path
     end
   end
 end
