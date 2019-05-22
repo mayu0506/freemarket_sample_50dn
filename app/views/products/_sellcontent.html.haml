@@ -39,18 +39,23 @@
         .sellContent__select__left
           商品の詳細
         .sellContent__select__right
-          -# .sellContent__select__right__form
-          -#   .sellContent__select__right__form--label
-          -#     = f.label "カテゴリー"
-          -#     %span{class:"form-require"} 必須
-          -#   = f.select :category, options_from_collection_for_select(Category.roots, :id, :name)
-          -#   %i.fa.fa-chevron-down
+          .sellContent__select__right__form
+            .sellContent__select__right__form--label
+              = f.label "カテゴリー"
+              %span{class:"form-require"} 必須
+            = f.select :category_id, Category.all.map {|i| ["#{i.name}", i.id]}, { selected: @product.category_id, include_blank: true }, {id: "roots_categoy", required:"required"}
+            %i.fa.fa-chevron-down
 
-          -#   = f.select :category_id, options_from_collection_for_select(Category.roots, :id, :name)
-          -#   %i.fa.fa-chevron-down
 
-          -#   = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name)
-          -#   %i.fa.fa-chevron-down
+            -# = f.select :category_id, options_from_collection_for_select(@roots, :id, :name), {},{required:"required", id:"roots_categoy"}
+            -# %i.fa.fa-chevron-down
+            
+          #category
+            -# = f.select :category_id, options_from_collection_for_select(@category, :id, :name), {},{id:"parents_categoy"}
+            -# %i.fa.fa-chevron-down
+
+            -# = f.select :category_id, options_from_collection_for_select(@categories, :id, :name), {},{id:"children_categoy"}
+            -# %i.fa.fa-chevron-down
 
           .sellContent__select__right__form
             .sellContent__select__right__form--label
