@@ -14,21 +14,38 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @image = Image.new
-    @category = Category.all
-  
+    @image = @product.images.build
+    @categories = Category.all
+
   end
 
   def create
-    @product = Product.new(params_int(product_params))
-    @image = Image.new
+    @product = Product.new(product_params)
 
     if @product.save
+      params[:images]['image'].each do |a|
+        @image = @product.images.create!(image:a)
+      end
       redirect_to @product
     else
       render 'new'
     end
+
+    # カテゴリーセレクトボックスの非同期部（時間があれば実装）
+    # if params[:r_cat]
+    #   @c_cat = Category.find(params[:r_cat]).children
+    # else
+    #   @g_cat = Category.find(params[:c_cat]).children
+    # end
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end    
   end
+
+
+
+
 
   def show
     @product = Product.find(params[:id])
@@ -60,35 +77,12 @@ class ProductsController < ApplicationController
 
   
   private
-
-  def product_params
-    params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :user_id)
-  #   .merge(user_id: current_user.id)
-  end
-
   def set_product
     @product = Product.find(params[:product_id])
   end
 
-  # def image_params
-  #   params.require(:image).permit(:image, :product_id)
-  # end
-
-
-  #フォームに入力されたセレクトボックスの文字列を数値に変換する
-  def integer_string?(str)
-    Integer(str)
-    true
-  rescue ArgumentError
-    false
- end
-
-  def params_int(product_params)
-    product_params.each do |key,value|
-      if integer_string?(value)
-        product_params[key]=value.to_i
-      end
-    end
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :category_id, images_attributes: [:image])
   end
 
   # 以下で住所登録とクレジットカード登録を済ませたユーザーかどうかのチェック
@@ -104,3 +98,4 @@ class ProductsController < ApplicationController
     end
   end
 end
+
