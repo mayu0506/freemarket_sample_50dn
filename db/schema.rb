@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_063014) do
     t.integer "deliverying_date", null: false
     t.string "size"
     t.integer "buyer_id"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 2019_05_20_063014) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname"
-    t.string "last_name"
     t.string "first_name"
+    t.string "last_name"
     t.string "kana_first_name"
     t.string "kana_last_name"
     t.string "provider"
@@ -109,11 +109,9 @@ ActiveRecord::Schema.define(version: 2019_05_20_063014) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "payments", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
-  add_foreign_key "sns_credentials", "users"
 end

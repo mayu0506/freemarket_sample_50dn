@@ -6,5 +6,4 @@ require 'rails_helper'
 #     get :change, params: {product_id: product }
 #     expect(response).to render_template :change
 #   end
-
-end
+# end
