@@ -47,10 +47,7 @@ class ProductsController < ApplicationController
 
 
 
-  def show
-    @product = Product.find(params[:id])
-    @image = @product.images.limit(10)
-  end
+  
 
   def edit
   end
@@ -80,6 +77,7 @@ class ProductsController < ApplicationController
   private
   def set_product
     @product = Product.find(params[:id])
+    @image = @product.images.limit(10)
   end
 
   def product_params
