@@ -7,16 +7,19 @@
       .product-headline
         -# 商品タイトル
         .product-headline__top
-          khaju 2wayハンドバッグ ブラック バンダナ
+          = @product.name
+          
       .product-descriptions
         -# 商品写真(右側)
         .product-descriptions__pictures
-          .product-descriptions__pictures__main
-            =image_tag "bag.jpg", class: 'product-image'
-          .product-descriptions__pictures__main__sub
-            =image_tag "lipstick.jpg", class: 'product-sub-image'
-            =image_tag "lipstick.jpg", class: 'product-sub-image'
-            =image_tag "lipstick.jpg", class: 'product-sub-image'
+          .product-descriptions__pictures__main          
+            - @image.each do |image|
+              = image_tag "#{image.image}", class: 'product-image'
+            
+          .product-descriptions__pictures__main__sub     
+            - @sub_images.each do |image|
+              = image_tag "#{image.image}", class: 'product-sub-image'              
+           
         -# 商品詳細(左側)
         .product-descriptions__details
           %table.product-category
@@ -24,8 +27,9 @@
               %tr
                 %td.table-right 出品者
                 %td.table-left
-                  .table-name-change-color
-                    きみ
+                  .table-name-change-color 
+                    = @product.user.nickname            
+                    
                   .seller-reputation
                     .seller-reputation__icons
                       = fa_icon 'smile-o', class: 'smile-icon'
@@ -40,44 +44,57 @@
                 %td.table-right  カテゴリー
                 %td.table-left
                   .table-name-change-color
-                    レディース
+                    = @product.category.root.name     
+                   
+                    %p                 
+                    = fa_icon 'angle-right', class: 'table-icon'  
+                    = @product.category.parent.name                              
+                    
                     %p
                     = fa_icon 'angle-right', class: 'table-icon'
-                    化粧品
-                    %p
-                    = fa_icon 'angle-right', class: 'table-icon'
-                    リップ
+                    = @product.category.name
+                    
               %tr
                 %td.table-right
-                  .table-name-change-color
-                    ブランド
-                %td.table-left LANCOM
+                  .table-name-change-color　ブランド
+                %td.table-left 
+                 
+                  
               %tr
                 %td.table-right 商品の状態
-                %td.table-left 非常に良い
+                %td.table-left 
+                  = @product.condition
+                  
               %tr
                 %td.table-right 配送料の負担
-                %td.table-left 送料込み(出品者負担)
+                %td.table-left 
+                  = @product.who_to_pay
+                  
               %tr
                 %td.table-right 配送の方法
-                %td.table-left 未定
+                %td.table-left 
+                  
               %tr
                 %td.table-right 配送元地域
                 %td.table-left
                   .table-name-change-color
-                    兵庫県
+                    = @product.origin_of_delivery
+                    
               %tr
                 %td.table-right 配送日の目安
-                %td.table-left 2~3日で配送
+                %td.table-left 
+                  = @product.deliverying_date
+                  
         -# 商品価格
         .product-price
           .product-price__yen
-            ¥ 888
+            = @product.price.to_s(:delimited)
+            
           .product-price__tax
             (税込)
           .product-price__fee
             送料込み
-        -# 購入画面
+       
         .product-purchase
           = link_to '/products/1/buy', class:'buyBtn' do
             .product-purchase__button
@@ -85,13 +102,8 @@
         -# 販売者コメント
         .product-comments
           %p.product-comments__seller
-            %p
-              即購入大歓迎です！
-            %p
-              新品未使用、写真撮影のために開封しています。
-            %p
-              丁寧に梱包してメルカリ便でお送りします♬
-            %p #リップ
+            = @product.description
+           
           -# 下部リンク
           .product-comments__icons
             %ul.product-comments__icons__lists
