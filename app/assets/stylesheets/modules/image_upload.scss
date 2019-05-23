@@ -1,0 +1,20 @@
+input#product_images_attributes_0_image {
+  min-height: 162px;
+  padding: 40px;
+  background-color: #f5f5f5;
+  border: 1px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#preview {
+  display: none;
+  img {
+    height: 140px;
+  }
+
+
+}
+
+
