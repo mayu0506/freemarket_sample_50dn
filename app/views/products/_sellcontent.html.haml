@@ -87,7 +87,7 @@
               = f.label "発送元の地域"
               %span{class:"form-require"} 必須
             
-            = f.select :origin_of_delivery, options_for_select({'北海道': 1,'青森県': 2,'岩手県': 3,'宮城県': 4,'秋田県': 5,'山形県': 6,'福島県': 7,'茨城県': 8,'栃木県': 9,}), {},{required:"required"}
+            = f.collection_select :origin_of_delivery, JpPrefecture::Prefecture.all, :code, :name,include_blank: true, required:"required"
             = fa_icon 'angle-down', class: "select-prefecture__scrollIcon"
             
             .sellContent__select__right__form--error.error
