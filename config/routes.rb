@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
+    registrations: 'users/registrations',
+    omniauth_callbacks:  "users/omniauth_callbacks",
+    }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'
-  resources :products, only: [:index, :new, :create, :show] do
+
+  resources :products, only: [:new, :create, :show, :edit, :destroy] do
     get :buy, on: :member
+    get :change
   end
       # 実装時showのみに変更 productsに入れ子
     resources :categorys, only: [:index,:show]
@@ -18,6 +22,7 @@ Rails.application.routes.draw do
     post :new, to: 'payments#pay', on: :member
   end
   resources :addresses, only: [:new, :edit, :create]
+  resources :trades, only: [:update]
 
   devise_scope :user do
     post 'users/sign_up' => 'users/registrations#new'

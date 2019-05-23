@@ -1,14 +1,13 @@
-.main-contents
-  .single-content
-    .single-content__head 会員登録完了
-    .single-content__inner
-      .single-content__action
-        .single-content__inner__action__form 
-        .container
-          %p.complete_1
-            ありがとうございます。
-          %p.complete_2
-            会員登録が完了しました。
-          .clearfix
-            %input{type: "button",class: "btn-default button-red costom__main", value: "メルカリを始める"}
-            
+.complete-mainContents
+  .complete-singleContent
+    .complete-singleContent__head 会員登録完了
+    .complete-singleContent__inner
+      .complete-container
+        %p
+          ありがとうございます。
+        %p.complete2
+          会員登録が完了しました。
+        .clearfix
+          = link_to "/products",class: "completeButton-input"  do
+            %input{type: "button",class: "completeButton-input__text", value: "メルカリをはじめる"}
+          

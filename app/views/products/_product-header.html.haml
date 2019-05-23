@@ -21,7 +21,7 @@
             .mainHeader_inner_bottom_right_notice
               .fa.fa-check.fa-lg.right-icon
               やることリスト
-          =link_to "users/current_user.id" ,class:"myPage" do
+          =link_to "/users/#{current_user.id}" ,class:"myPage" do
             .mainHeader_inner_bottom_right_myPage
               =image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",width:"35" ,alt: "mypage",class: "mainHeader_inner_bottom_right_myPage--image"
               .mainHeader_inner_bottom_right_myPage_text

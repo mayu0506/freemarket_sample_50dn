@@ -68,12 +68,13 @@ Things you may want to cover:
 - has_one :sale,dependent: :destory
 - has_one :point, dependent: :destory
 - has_many :products, dependent: :destory
+- has_many :sns_authorizations
 
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postcode|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_code|integer|null: false|
 |city|string|null: false|
 |street|string|null: false|
 |building|string|
@@ -81,19 +82,17 @@ Things you may want to cover:
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- belongs_to :user, dependent: :destroy
 
 ## paymentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_month|integer|null: false|
-|expiration_year|integer|null: false|
-|security_code|integer|null: false|
+|customer_id|integer||
+|card_id|integer||
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- belongs_to :user, dependent: :destroy
 
 ## salesテーブル
 |Column|Type|Options|default|
@@ -131,8 +130,6 @@ Things you may want to cover:
 |buyer_id|references|null: false, add_foreign_key :products, :users, column: :buyer_id|
 |seller_id|references|null: false, add_foreign_key :products, :users, column: :seller_id|
 
-
-
 ### Association
 - has_many :comments
 - has_many :likes
@@ -160,9 +157,20 @@ Things you may want to cover:
 ## categoriesテーブル
 |Column|Type|Options||
 |------|----|-------|-|
-|name|string|null: false||
-|ancestry|string||add_index|
+|name|string|null: false|
+|ancestry|string|add_index|
 
 ### Association
 - has_many :products
 - has_ancestry
+
+## tradesテーブル
+|Column|Type|Options||
+|------|----|-------|-|
+|user|references|null:false,foreign_keys:true|
+|product|references|null:false,foreign_keys:true|
+|date_of_confirmation|date|null:true|
+
+### Association
+- belongs_to :product
+- belongs_to :user
