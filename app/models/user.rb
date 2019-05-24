@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :likes
   has_one :payment
   has_one :address
+  has_many :products
 
   def self.find_or_create_by_omniauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
