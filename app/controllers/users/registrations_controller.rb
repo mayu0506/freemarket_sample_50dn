@@ -12,9 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def complete
-    render :complte
   end
-
+  
   def create
     @user = User.new(sign_up_params)
     if @user.save

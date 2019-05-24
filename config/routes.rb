@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :products, only: [:new, :create, :show, :edit, :destroy] do
     get :buy, on: :member
     get :change
+    get :search, on: :collection
   end
       # 実装時showのみに変更 productsに入れ子
     resources :categorys, only: [:index,:show]

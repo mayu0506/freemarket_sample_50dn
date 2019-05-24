@@ -1,0 +1,17 @@
+-if @count == 0 
+  %p 検索結果 0 件
+  ="#{@message}"
+-else
+  %p 検索結果
+  = page_entries_info @products, entry_name: 'product'
+  - @products.each do |product|
+    .itemBox
+      =link_to product_path(product),  class:"itemBox_a" do
+        = image_tag("#{product.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
+    .itemBox_ditails
+      .itemBox_ditails--name
+        ="#{product.name}"
+        .hide
+      .itemBox_ditails_num
+        .itemBox_ditails_num--price
+          ="¥#{product.price.to_s(:delimited)}"

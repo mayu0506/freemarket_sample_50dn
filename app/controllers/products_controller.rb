@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
-  before_action :set_product, only: [:change]
-  before_action :check_user, only: :buy
+  before_action :set_product, only: [:show]
+  before_action :check_address, only: :buy
+  before_action :check_payment, only: :buy
   before_action :set_api_for_payjp
 
   def index
@@ -13,25 +14,48 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @image = Image.new
-    @category = Category.all
-  
+    @image = @product.images.build
+    @categories = Category.all
+
   end
 
   def create
-    @product = Product.new(params_int(product_params))
-    @image = Image.new
+    @product = Product.new(product_params)
 
     if @product.save
+      params[:images]['image'].each do |a|
+        @image = @product.images.create!(image:a)
+      end
       redirect_to @product
     else
       render 'new'
     end
+
+    # カテゴリーセレクトボックスの非同期部（時間があれば実装）
+    # if params[:r_cat]
+    #   @c_cat = Category.find(params[:r_cat]).children
+    # else
+    #   @g_cat = Category.find(params[:c_cat]).children
+    # end
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end    
   end
 
-  def show
-    
+
+  def search
+    @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(2).order("id ASC")
+    @count = @products.count
+    redirect_to root_path if params[:keyword] == ""
+
+    if @products.count == 0
+      @message = "該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。"
+    end
   end
+
+
+  
 
   def edit
   end
@@ -48,6 +72,7 @@ class ProductsController < ApplicationController
   end
 
   def change
+    @product = Product.find(params[:product_id])
     @image = @product.images.first
   end
 
@@ -58,41 +83,25 @@ class ProductsController < ApplicationController
 
   
   private
+  def set_product
+    @product = Product.find(params[:id])
+    @image = @product.images.limit(10)
+  end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :user_id)
-  #   .merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :category_id, images_attributes: [:image])
   end
 
-  def set_product
-    @product = Product.find(params[:product_id])
-  end
-
-  # def image_params
-  #   params.require(:image).permit(:image, :product_id)
-  # end
-
-
-  #フォームに入力されたセレクトボックスの文字列を数値に変換する
-  def integer_string?(str)
-    Integer(str)
-    true
-  rescue ArgumentError
-    false
- end
-
-  def params_int(product_params)
-    product_params.each do |key,value|
-      if integer_string?(value)
-        product_params[key]=value.to_i
-      end
+  # 以下で住所登録とクレジットカード登録を済ませたユーザーかどうかのチェック
+  def check_address
+    if Address.where(user_id: current_user.id).blank?
+       redirect_to new_address_path
     end
   end
 
-  # 住所登録を済ませたユーザーかどうかのチェック
-  def check_user
-    if Address.where(user_id: current_user.id).blank?
-      redirect_to new_address_path
+  def check_payment
+    if Payment.where(user_id: current_user.id).blank?
+       redirect_to new_payment_path
     end
   end
 end
