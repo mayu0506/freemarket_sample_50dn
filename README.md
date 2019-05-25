@@ -127,8 +127,8 @@ Things you may want to cover:
 |size|string|
 |brand|references|foreign_key: true|
 |category|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, add_foreign_key :products, :users, column: :buyer_id|
-|seller_id|references|null: false, add_foreign_key :products, :users, column: :seller_id|
+|user_id|references|null: false, add_foreign_key :true|
+|buyer_id|integer|
 
 ### Association
 - has_many :comments
@@ -136,6 +136,7 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :images,dependent: :destory
 - belongs_to :brand
+- belongs_to :category
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -155,8 +156,8 @@ Things you may want to cover:
 - has_many :products
 
 ## categoriesテーブル
-|Column|Type|Options||
-|------|----|-------|-|
+|Column|Type|Options|
+|------|----|-------|
 |name|string|null: false|
 |ancestry|string|add_index|
 
@@ -165,8 +166,8 @@ Things you may want to cover:
 - has_ancestry
 
 ## tradesテーブル
-|Column|Type|Options||
-|------|----|-------|-|
+|Column|Type|Options|
+|------|----|-------|
 |user|references|null:false,foreign_keys:true|
 |product|references|null:false,foreign_keys:true|
 |date_of_confirmation|date|null:true|

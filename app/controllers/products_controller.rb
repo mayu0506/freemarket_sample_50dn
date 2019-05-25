@@ -44,7 +44,15 @@ class ProductsController < ApplicationController
   end
 
 
+  def search
+    @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(2).order("id ASC")
+    @count = @products.count
+    redirect_to root_path if params[:keyword] == ""
 
+    if @products.count == 0
+      @message = "該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。"
+    end
+  end
 
 
   
@@ -97,4 +105,3 @@ class ProductsController < ApplicationController
     end
   end
 end
-
