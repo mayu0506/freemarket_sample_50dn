@@ -33,21 +33,11 @@ ActiveRecord::Schema.define(version: 2019_05_20_063014) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "contents"
-    t.bigint "user_id", null: false
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "image"
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_comments_on_product_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "image"
-    t.bigint "product_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
@@ -70,19 +60,19 @@ ActiveRecord::Schema.define(version: 2019_05_20_063014) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", default: ""
-    t.text "description"
-    t.integer "price"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "price", null: false
     t.string "condition", null: false
-    t.string "status", default: "selling"
+    t.string "status", default: "selling", null: false
     t.string "who_to_pay", null: false
     t.string "origin_of_delivery", null: false
     t.string "deliverying_date", null: false
     t.string "size"
     t.integer "buyer_id"
-    t.bigint "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
