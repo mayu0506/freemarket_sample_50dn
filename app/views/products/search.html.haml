@@ -1,6 +1,6 @@
 .wrapper
   =render "product-header"
-.product-search__right
-  = render "products-search"
-.page
-  = paginate(@products)
+%main.mypage.clearfix
+  = render "products-searchMain"
+.search-page
+  = paginate(@products, theme: 'my_custom_theme') 

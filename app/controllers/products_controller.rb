@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
+  before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change, :search]
   before_action :set_product, only: [:show]
   before_action :check_address, only: :buy
   before_action :check_payment, only: :buy
@@ -45,13 +45,14 @@ class ProductsController < ApplicationController
 
 
   def search
-    @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(2).order("id ASC")
+    @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(20).order("id DESC")
     @count = @products.count
     redirect_to root_path if params[:keyword] == ""
 
     if @products.count == 0
-      @message = "該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。"
+      @new_products = Product.where(params[:id]).limit(20).order("id DESC")
     end
+
   end
 
 
