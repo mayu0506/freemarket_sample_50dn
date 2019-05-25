@@ -32,13 +32,18 @@ input{
             border: 1px solid #ccc;
             font-size:18px;
           }
-          .fa-search{
+          .search-icon{
             position: absolute;
             padding: 14px 13px;
             right: 0;
             top:0px;
-            color: #333333;
+            background-color:rgb(102, 102, 102);
+            color:$white;
+            font-size:15px;
             font-weight: 300;
+            cursor:pointer;
+            border-bottom-right-radius : 5px;
+            border-top-right-radius : 5px;
           }
         }
       }
