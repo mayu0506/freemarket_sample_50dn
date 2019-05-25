@@ -86,6 +86,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'jp_prefecture'
 gem 'kaminari'
+gem 'gretel'
 
 group :production do
   gem 'unicorn', '5.4.1'
