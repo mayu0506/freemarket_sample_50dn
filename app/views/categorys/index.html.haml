@@ -1,8 +1,8 @@
 =render "products/product-header"
 .breadcrumbs
   .breadcrumbs_list
-    メルカリ　＞　カテゴリー一覧
-    -# カテゴリー挿入
+    - breadcrumb :categorys
+    = breadcrumbs separator: " #{content_tag(:i, '', :class=>'fa fa-angle-right')} "
 .categoryWrapper
   .categoryWrapper_inner
     -#カテゴリー一覧 link

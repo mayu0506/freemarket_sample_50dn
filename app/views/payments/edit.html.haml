@@ -1,4 +1,8 @@
 = render 'products/product-header'
+.breadcrumbs
+  .breadcrumbs_list
+    - breadcrumb :payments
+    = breadcrumbs separator: " #{content_tag(:i, '', :class=>'fa fa-angle-right')} "  
 = render 'products/sell-btn'
 %main.mypage.clearfix
   = render 'users/side'
