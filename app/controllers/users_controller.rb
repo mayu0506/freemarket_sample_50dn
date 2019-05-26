@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_user, only:[:identification,:list]
   def show
   end
 
@@ -14,15 +13,11 @@ class UsersController < ApplicationController
   end
 
   def list
-    @products = @user.products
+    @products = current_user.products
   end
   
   def identification
-    @userName = "#{@user.first_name}" + " " + "#{@user.last_name}"
-    @userName_kana = "#{@user.kana_first_name}" + " " + "#{@user.kana_last_name}"
-  end
-
-  def set_user
-    @user = User.find(current_user.id)
+    @userName = "#{current_user.first_name}" + " " + "#{current_user.last_name}"
+    @userName_kana = "#{current_user.kana_first_name}" + " " + "#{current_user.kana_last_name}"
   end
 end
