@@ -1,10 +1,13 @@
 .deleteWrapper{
-    width: 100vw;
-    height: 100vh;
-    display: inline-flex;
+    margin:20px auto;
+    width: 50vw;
+    padding:0 20px;
+    display: flex;
     justify-content: center;
     align-items: center;
+    background-color: $white;
   &_inner{
+      margin:5px auto;
       text-align: center;
       color: #fff;
       width: 50vw;
@@ -15,7 +18,11 @@
     &_text{
       height: 50px;
       line-height:50px;
-      margin:30px 0;
+      margin:15px 0;
+    }
+    &_box{
+      height: 40px;
+      line-height:50px;
     }
     .backRed{
       background-color:red;
@@ -24,7 +31,7 @@
       color:$font-color;
     }
     .backgray{
-      background-color:gray;
+      background-color: $dark-gray;
     }
   }
 }
