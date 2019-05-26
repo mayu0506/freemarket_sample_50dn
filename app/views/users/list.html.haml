@@ -1,0 +1,58 @@
+-# 上部にあるプロフィール部分
+= render 'products/product-header.html.haml'
+= render 'products/sell-btn.html.haml'
+%main.mypage.clearfix
+  = render 'side'
+  .mypage-content
+    %section.mypage-user-icon
+      = link_to '#' do
+        %figure.mypage-user-icon__photo
+          = image_tag 'user-icon.jpg'
+        %h2.mypage-user-icon__name
+        = current_user.nickname
+        .mypage-user-icon__number
+          %div
+            評価
+            %span.bold 8
+          %div
+            出品数
+            %span.bold 10
+
+    -# 下にあるタブの部分。現在は貼り付け状態。
+    %section.mypage-tab-container
+      %h2.mypage-tab-container__head 出品した商品
+      %ul.mypage-tabs.clearfix
+        %li.mypage-tabs__list.active
+          %h3
+            = link_to '出品中', '#'
+        %li.mypage-tabs__list
+          %h3
+            = link_to '取引中', '#'
+        %li.mypage-tabs__list
+          %h3
+            = link_to '売却済み', '#'
+      .tab-content 
+        .mypage-item-list
+          - if @products.present?
+            - @products.each do |product|
+              .userItem
+                = image_tag "#{product.images.first.image}",width:70,alt: "",class: "userItem--image"
+                .userItem--name
+                  = product.name
+                .userItem-bottom
+                  %i.far.fa-heart.gray
+                    1
+                  %i.far.fa-comment-alt.gray
+                    0
+                  - if product.status == "stop" or product.status == "sold"
+                    .userItem-bottom--status
+                      公開停止中
+                =link_to change_product_path(product) do
+                  %i.fas.fa-chevron-right  
+                  
+          - else
+            .mypage-item-list--not-found
+              現在取引中の商品がありません
+
+= render 'products/footer-banner.html.haml'
+= render 'products/footer.html.haml'
