@@ -1,4 +1,8 @@
 = render 'products/product-header.html.haml'
+.breadcrumbs
+  .breadcrumbs_list
+    - breadcrumb :identification
+    = breadcrumbs separator: " #{content_tag(:i, '', class: 'fa fa-angle-right')} "
 = render 'products/sell-btn.html.haml'
 %main.mypage.clearfix
   = render 'side'
@@ -16,10 +20,12 @@
           = fa_icon 'angle-right', class: 'identification-angleRight'
       %div.identificationForm--group
         %label.identificationForm--group__label お名前
-        %p.identificationForm--group__contents Techy Campridge
+        %p.identificationForm--group__contents
+        = @userName
       %div.identificationForm--group
         %label.identificationForm--group__label お名前カナ
-        %p.identificationForm--group__contents テッキー　キャンプリッジ
+        %p.identificationForm--group__contents
+        = @userName_kana
       %div.identificationForm--group
         %label.identificationForm--group__label 生年月日
         %p.identificationForm--group__contents 2019年4月10日

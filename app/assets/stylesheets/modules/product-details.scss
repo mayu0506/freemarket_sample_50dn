@@ -40,15 +40,21 @@
               width:300px;
               height:300px;
             }
-            &__sub{
+          }
+          .product-descriptions__pictures__main__sub  {
+              
               position:absolute;
+              width: 300px;
+              height: 120px;
+              display: flex;
+              flex-wrap: wrap;
               .product-sub-image{
-                width:100px;
-                height:100px;
+                width:60px;
+                height:60px;
                 float:left;
               }
             }
-          }
+          
         }
         // 商品詳細テーブル
         &__details{

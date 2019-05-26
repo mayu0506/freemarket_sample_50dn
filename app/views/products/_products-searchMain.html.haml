@@ -1,0 +1,46 @@
+%div.searchDetails
+  -if @count == 0 
+    %p.search-zeroResult 
+      検索結果 0 件
+    %p.searchMessgae 
+      該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
+    %h2.newProducts
+      新着商品
+    - @new_products.each do |product|
+      .searchMain-contents
+        =link_to product_path(product),  class:"itemBox_a" do
+          .searchMain-content
+            .search-image
+              = image_tag("#{product.images.first.image}", width: '155', alt: "product_image",class:"itemBox--image")
+            .search-itemDetails
+              .search-itemDetails--name
+                ="#{product.name}"
+              .search-itemDetails--price
+                .search-itemDetails--price__tag
+                  ="¥#{product.price.to_s(:delimited)}"
+                .search-itemDetails--price__likes
+                  = fa_icon 'heart-o', class: 'heart-icon'
+                .search-itemDetails--price__tax
+                  (税込)
+  -else
+    .search-results
+      .search-result
+        %p 検索結果
+      .search-result
+        = page_entries_info @products, entry_name: 'product'
+    - @products.each do |product|
+      .searchMain-contents
+        =link_to product_path(product),  class:"itemBox_a" do
+          .searchMain-content
+            .search-image
+              = image_tag("#{product.images.first.image}", width: '155', alt: "product_image",class:"itemBox--image")
+            .search-itemDetails
+              .search-itemDetails--name
+                ="#{product.name}"
+              .search-itemDetails--price
+                .search-itemDetails--price__tag
+                  ="¥#{product.price.to_s(:delimited)}"
+                .search-itemDetails--price__likes
+                  = fa_icon 'heart-o', class: 'heart-icon'
+                .search-itemDetails--price__tax
+                  (税込)

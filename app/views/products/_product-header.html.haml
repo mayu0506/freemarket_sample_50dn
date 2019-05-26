@@ -2,9 +2,10 @@
   .mainHeader_inner
     .mainHeader_inner_top
       =link_to image_tag("Mercari_logo.png" ,alt: "mercari",class: "mercari-icon"),root_path
-      =form_with url: products_path, class: "mainHeader_inner_top_form" do |f|
-        %input#user-search-field.mainHeader_inner_top_form--input.font-awesome{name:"key_word",placeholder:"  何かお探しですか？", type: "text",value: ""}
-        %i.fa.fa-search
+      =form_with url:  search_products_path, method: :get, class: "mainHeader_inner_top_form",local: true do |f|
+        =f.text_field :keyword ,placeholder:"  何かお探しですか？", type: "text",value: "",class: "mainHeader_inner_top_form--input"
+        =button_tag type:"submit", class: "search-icon" do        
+          =fa_icon "search"
     .mainHeader_inner_bottom
       .mainHeader_inner_bottom_left
         .fa.fa-list-ul.left-icon
@@ -21,7 +22,7 @@
             .mainHeader_inner_bottom_right_notice
               .fa.fa-check.fa-lg.right-icon
               やることリスト
-          =link_to "/users/current_user.id" ,class:"myPage" do
+          =link_to "/users/#{current_user.id}" ,class:"myPage" do
             .mainHeader_inner_bottom_right_myPage
               =image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",width:"35" ,alt: "mypage",class: "mainHeader_inner_bottom_right_myPage--image"
               .mainHeader_inner_bottom_right_myPage_text
@@ -33,5 +34,4 @@
                 新規会員登録
           =link_to "/users/sign_in" ,class:"myPage" do
             .mainHeader_inner_bottom_right_myPage_text 
-              .loginTop
-                ログイン 
+              .loginTop　ログイン 
