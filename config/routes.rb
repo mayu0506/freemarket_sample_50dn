@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:new, :create, :show, :edit, :destroy] do
     get :buy, on: :member
-    get :change
+    get :change, on: :member
     get :search, on: :collection
   end
       # 実装時showのみに変更 productsに入れ子
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :users do [:user, :show]
     get :logout, on: :collection
     get :identification, on: :collection
+    get :list, on: :member
   end
   resources :payments, only: [:show, :new, :create, :edit] do
     post :new, to: 'payments#pay', on: :member
