@@ -1,7 +1,7 @@
 .deleteWrapper{
     margin:20px auto;
     width: 50vw;
-    padding:0 5%;
+    padding:0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@
     &_text{
       height: 50px;
       line-height:50px;
-      margin:10px 0;
+      margin:15px 0;
     }
     &_box{
       height: 40px;
@@ -31,7 +31,7 @@
       color:$font-color;
     }
     .backgray{
-      background-color:gray;
+      background-color: $dark-gray;
     }
   }
 }

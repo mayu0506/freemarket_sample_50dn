@@ -6,4 +6,9 @@
     .input-comments
       %form{action: "/", method: "post"}
         %input{type: "text", class: "input-comments__text"}
-        %input{type: "submit", value: "コメントする", class: "input-comments__button"}
+        - if @product.status == "selling"
+          %input{type: "submit", value: "コメントする", class: "input-comments__button"}
+        - else
+          .input-comments-block
+            売り切れの為コメントできません
+            
