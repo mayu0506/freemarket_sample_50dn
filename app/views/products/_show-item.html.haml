@@ -90,25 +90,25 @@
             (税込)
           .product-price__fee
             送料込み
-        
-        .product-purchase
-          = link_to '/products/1/buy', class:'buyBtn' do
-            .product-purchase__button
-              購入画面に進む
-        -# 販売者コメント
-        .product-comments
-          %p.product-comments__seller
-            = @product.description
-            
-          -# 下部リンク
-          .product-comments__icons
-            %ul.product-comments__icons__lists
-              %li.product-comments__icons__lists__right
-                = fa_icon 'heart-o', class: 'heart-icon'
-                いいね！
-              %li.product-comments__icons__lists__middle
-                = fa_icon 'flag-o', class: 'flag-icon'
-                不適切な商品の報告
-              %li.product-comments__icons__lists__left
-                = fa_icon 'lock', class: 'secure-icon'
-                あんしん・あんぜんへの取り組み
+        - if request.path == product_path(@product)
+          .product-purchase
+            = link_to '/products/1/buy', class:'buyBtn' do
+              .product-purchase__button
+                購入画面に進む
+          -# 販売者コメント
+          .product-comments
+            %p.product-comments__seller
+              = @product.description
+              
+            -# 下部リンク
+            .product-comments__icons
+              %ul.product-comments__icons__lists
+                %li.product-comments__icons__lists__right
+                  = fa_icon 'heart-o', class: 'heart-icon'
+                  いいね！
+                %li.product-comments__icons__lists__middle
+                  = fa_icon 'flag-o', class: 'flag-icon'
+                  不適切な商品の報告
+                %li.product-comments__icons__lists__left
+                  = fa_icon 'lock', class: 'secure-icon'
+                  あんしん・あんぜんへの取り組み
