@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change, :search]
-  before_action :set_product, only: [:show]
+  before_action :set_product, only: [:show,:change]
   before_action :check_address, only: :buy
   before_action :check_payment, only: :buy
   before_action :set_api_for_payjp
@@ -75,8 +75,6 @@ class ProductsController < ApplicationController
   end
 
   def change
-    @product = Product.find(params[:product_id])
-    @image = @product.images.first
   end
 
   def destroy
