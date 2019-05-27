@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change, :search]
-  before_action :set_product, only: [:show,:change]
+  before_action :set_product, only: [:show,:change,:update]
   before_action :check_address, only: :buy
   before_action :check_payment, only: :buy
   before_action :set_api_for_payjp
@@ -63,6 +63,11 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def update
+    @product.update(status_params)
+    redirect_to user_path(current_user)
+  end
+
   def buy
     # 住所の取得
     @address = Address.find_by(user_id: current_user.id)
@@ -87,6 +92,10 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
     @image = @product.images.limit(10)
+  end
+
+  def status_params
+    params.require(:product).permit(:status)
   end
 
   def product_params

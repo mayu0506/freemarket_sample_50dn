@@ -8,9 +8,15 @@
         = link_to "商品の編集",edit_product_path(@product),class: "linkClear centerText"
       .deleteWrapper_inner_box.textBlack
         .centerText or
-      -# 応用実装？？
-      .deleteWrapper_inner_text.backgray
-        .centerText 出品を一旦停止する
+      = form_for(@product, url: product_path(@product), html: {method: "patch"}) do |f|
+        - if @product.status == "selling"
+          .deleteWrapper_inner_text.backgray
+            =f.hidden_field :status, value: 'stop'
+            =f.submit "出品を一旦停止する", class: "statusSubmit"
+        - else
+          .deleteWrapper_inner_text.backgray
+            =f.hidden_field :status, value: 'selling'
+            =f.submit "出品する", class: "statusSubmit"
       .deleteWrapper_inner_text.backgray 
         = link_to "この商品を削除する", product_path(@product),class: "linkClear", method: :delete
   = render "show-comment"
