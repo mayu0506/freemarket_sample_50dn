@@ -3,12 +3,15 @@
 
   .main
     -# バナー
-    .topBanner
-      .fas.fa-chevron-left.topBanner--left
-      .fas.fa-chevron-right.topBanner--right
-      .topBanner_image
-        =image_tag "//www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?376951604" ,class: "topBanner--image"
-      
+    .mainvisual
+      .mainvisual-inner.container
+        .swiper-container
+          .swiper-wrapper
+            = image_tag("http://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?376951604",class: "swiper-slide")
+            %image.swiper-slide{src: "https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg"}
+          .swiper-pagination
+          .swiper-button-prev
+          .swiper-button-next
     .bodyMain
       -# カテゴリー毎
       .bodyMain_pickup
