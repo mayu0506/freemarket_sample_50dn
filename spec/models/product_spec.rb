@@ -38,13 +38,6 @@ describe Product do
         product.valid?
         expect(product.errors[:price]).to include()
       end
-       # priceが空では登録できない
-       it "is invalid price string" do
-        user = create(:user)
-        product.valid?
-        binding.pry
-        expect(product.errors[:price]).to include()
-      end
       # statusが空では登録できない
       it "is invalid without a status" do
         user = create(:user)

@@ -2,15 +2,15 @@ FactoryBot.define do
 
   factory :user do
     id                  {"1"}
-    nickname            {"ryou"}
-    first_name          {"川北"}
-    last_name           {"亮"}
-    kana_first_name     {"カワキタ"}
-    kana_last_name      {"リョウ"}
+    nickname            {Faker::Name.initials}
+    last_name           {ForgeryJa(:name).last_name}
+    first_name          {ForgeryJa(:name).first_name}
+    kana_first_name     {ForgeryJa(:name).first_name(:to => ForgeryJa::KANA)}
+    kana_last_name      {ForgeryJa(:name).last_name(:to => ForgeryJa::KANA)}
     email               {"abc@gmail.com"}
     password            {"00000000"}
     encrypted_password  {"00000000"}
-    birth_date          {"1999/1/1"}
+    birth_date          {Faker::Date.birthday}
     uid                 {"12345"}
     provider            {"google"}
   end
