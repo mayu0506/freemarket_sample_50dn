@@ -1,0 +1,147 @@
+.searchDetails{
+  width:700px;
+  float:right;
+}
+// 検索結果
+.search-results{
+  display:inline-block;
+  .search-result{
+    font-size:22px;
+    font-weight:400;
+    display:inline-block;
+    margin: 0 0 8px;
+  }
+}
+.search-zeroResult {
+  font-size:22px;
+  display:inline-block;
+  margin: 0 0 8px;
+}
+// 0件の場合
+.searchMessgae {
+  margin: 16px 0 0;
+  font-size:14px;
+}
+h2.newProducts{
+  font-size:22px;
+  font-weight:bold;
+  margin: 24px 0 8px;
+}
+
+// メイン情報
+.searchMain-contents{
+  width:100%;
+  .searchMain-content{ 
+    float:left;
+    margin: 0 20px 20px 0;
+    color:$black;
+  }
+  .search-itemDetails{
+    height:110px;
+    width:155px;
+    background-color:$white;
+    padding: 16px;
+    position:relative;
+  }
+  .search-itemDetails--name{
+    font-weight: 400;
+    overflow: hidden;
+    height:42px;
+    width:125px;
+  }
+  .search-itemDetails--price{
+    display:inline-block;
+    &__tag{
+      font-weight:bold;
+      font-size: 14px;
+      margin: 8px 0 0;
+      position:absolute;
+      bottom:25px;
+      display:inline-block;
+    }
+    &__likes{
+      position:absolute;
+      bottom:25px;
+      right:16px;
+    }
+    &__tax{
+      font-size: 8px;
+      position:absolute;
+      bottom:10px;
+    }
+  }
+}
+
+// ページネーション
+.pagination a{
+  color:$black;
+ }
+
+.pagecurrent{
+  background-color:$red;
+  margin:0.5px;
+  @include pagination-box;
+  color:$white;
+  border-color:$dark-gray;
+  position:relative;
+  left:800px;
+}
+.eachPage {
+  background-color: $white;
+  margin:0.5px;
+  @include pagination-box;
+  position:relative;
+  left:800px;
+}
+.eachPage:hover{
+  background-color:$background-gray!important;
+}
+.first{
+  background-color: $white;
+  font-size:40px;
+  margin-top:0.5px;
+  @include pagination-box;
+  padding: 0 8px;
+  position:absolute;
+  left:600px;
+}
+.first:hover{
+  background-color:$background-gray!important;
+}
+.prev{
+  background-color: $white;
+  font-size:40px;
+  margin-top:0.5px;
+  @include pagination-box;
+  padding: 0 12px;
+  position:absolute;
+  left:641px;
+}
+.prev:hover{
+  background-color:$background-gray!important;
+}
+.next{
+  background-color: $white;
+  font-size:40px;
+  margin-top:0.5px;
+  @include pagination-box;
+  padding: 0 12px;
+  position:absolute;
+  left:1080px;
+}
+.next:hover{
+  background-color:$background-gray!important;
+}
+.last{
+  background-color: $white;
+  font-size:40px;
+  margin-top:0.5px;
+  @include pagination-box;
+  padding: 0 8px;
+  position:absolute;
+  left:1120px;
+}
+.last:hover{
+  background-color:$background-gray!important;
+}
+

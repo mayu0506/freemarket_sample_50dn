@@ -1,4 +1,4 @@
-= render 'users/eachpage-header'
+= render 'addresses/address-nav-bar'
 
 %main.register-main
   %section.register-main__container
@@ -6,6 +6,7 @@
 
     .register-inner
       = form_for @address do |f|
+        = f.hidden_field :user_id, value: "#{session[:user_id]}"
         .register-inner_contents
           .form-group
             =f.label '郵便番号', class: 'registration_font'
