@@ -88,7 +88,8 @@ gem 'jp_prefecture'
 gem 'kaminari'
 gem 'gretel'
 gem 'rails-i18n'
-
+gem 'faker'
+gem 'forgery_ja'
 group :production do
   gem 'unicorn', '5.4.1'
 end

@@ -122,6 +122,8 @@ GEM
     factory_bot_rails (5.0.2)
       factory_bot (~> 5.0.2)
       railties (>= 4.2.0)
+    faker (1.9.3)
+      i18n (>= 0.7)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
@@ -143,6 +145,10 @@ GEM
       nokogiri (>= 1.5.11, < 2.0.0)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
+    forgery (0.3.12)
+      nokogiri (~> 1.4)
+    forgery_ja (0.2.2)
+      forgery (~> 0.3.8)
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -399,8 +405,10 @@ DEPENDENCIES
   devise
   erb2haml
   factory_bot_rails
+  faker
   fog-aws
   font-awesome-rails
+  forgery_ja
   gretel
   haml-rails
   jbuilder (~> 2.5)
