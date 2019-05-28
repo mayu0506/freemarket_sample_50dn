@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
   resources :payments, only: [:show, :new, :create, :edit] do
     post :new, to: 'payments#pay', on: :member
+    get :complete, on: :collection
   end
   resources :addresses, only: [:new, :edit, :create]
   resources :trades, only: [:update]
