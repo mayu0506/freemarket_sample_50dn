@@ -1,7 +1,6 @@
 FactoryBot.define do
 
   factory :product do
-    id                  {"1"}
     name                {"Deuxieme Classe☆ＯRIVAストライプワイドパンツ"}
     description         {"説明文"}
     price               {"123456"}

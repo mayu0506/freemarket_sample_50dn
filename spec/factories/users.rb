@@ -1,6 +1,7 @@
 FactoryBot.define do
 
   factory :user do
+    id                  {"1"}
     nickname            {"ryou"}
     first_name          {"川北"}
     last_name           {"亮"}

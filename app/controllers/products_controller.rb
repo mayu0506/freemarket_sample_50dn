@@ -1,15 +1,19 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change, :search]
-  before_action :set_product, only: [:show,:change,:update]
+  before_action :set_product, only: [:show,:change,:update,:destroy]
   before_action :check_address, only: :buy
   before_action :check_payment, only: :buy
   before_action :set_api_for_payjp
 
   def index
+    @test =[] 
+    Category.roots.each do |categories|
+      @test << categories
+    end
+     
     @category_item = ["レディース","メンズ","ベビー・キッズ","コスメ・香水・美容"]
     @categories = Category.where(name: @category_item)
-    
   end
 
   def new
@@ -84,7 +88,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to root_path
+    redirect_to list_user_path(current_user)
   end
 
   
