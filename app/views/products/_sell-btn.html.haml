@@ -1,8 +1,13 @@
 .sellBtn
-
-  =link_to new_product_path ,class:"sellBtn" do
-
-    .sellBtn_circle
-      .sellBtn_exhibition
-        出品
-      .fa.fa-camera.fa-4x
+  - if user_signed_in?
+    = link_to new_product_path ,class:"sellBtn" do 
+      .sellBtn_circle
+        .sellBtn_exhibition
+          出品
+        .fa.fa-camera.fa-4x
+  - else
+    = link_to new_user_session_path ,class:"sellBtn" do 
+      .sellBtn_circle
+        .sellBtn_exhibition
+          出品
+        .fa.fa-camera.fa-4x
