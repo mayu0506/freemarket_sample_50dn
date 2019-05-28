@@ -45,14 +45,13 @@ class ProductsController < ApplicationController
 
 
   def search
+    # あいまい検索
     @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(20).order("id DESC")
     @count = @products.count
+    # 最新情報の取得
+    @new_products = Product.where(params[:id]).limit(20).order("id DESC") 
+    # 何も検索されてない場合ルートに戻る
     redirect_to root_path if params[:keyword] == ""
-
-    if @products.count == 0
-      @new_products = Product.where(params[:id]).limit(20).order("id DESC")
-    end
-
   end
 
 

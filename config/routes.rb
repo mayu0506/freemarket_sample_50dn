@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    omniauth_callbacks:  "users/omniauth_callbacks",
+    omniauth_callbacks:  "users/omniauth_callbacks"
     }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
   resources :payments, only: [:show, :new, :create, :edit] do
     post :new, to: 'payments#pay', on: :member
+    get :complete, on: :collection
   end
   resources :addresses, only: [:new, :edit, :create]
   resources :trades, only: [:update]
