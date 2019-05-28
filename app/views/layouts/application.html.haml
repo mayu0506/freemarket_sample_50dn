@@ -4,12 +4,16 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample50dn
+    
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
     %link{href: "style.scss", rel: "stylesheets"}/
+    = include_gon 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{src:"https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"}
   %body
     = render 'layouts/flash'
     = yield
+
