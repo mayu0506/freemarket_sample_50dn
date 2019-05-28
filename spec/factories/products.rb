@@ -1,10 +1,9 @@
 FactoryBot.define do
 
   factory :product do
-    id                  {"1"}
-    name                {"Deuxieme Classe☆ＯRIVAストライプワイドパンツ"}
+    name                {Faker::FunnyName.name}
     description         {"説明文"}
-    price               {"123456"}
+    price               {Faker::Number.number(5)}
     condition           {"1"}
     status              {"selling"}
     who_to_pay          {"1"}
