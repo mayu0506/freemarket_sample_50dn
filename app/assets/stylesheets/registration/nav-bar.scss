@@ -30,9 +30,7 @@
           padding: 0;
           font-size: 12px;
           margin: 0;
-
-          
-         
+   
           li {
             position: relative;
             display: block;
@@ -47,9 +45,7 @@
             -moz-flex: 1;
             -webkit-box-flex: 1;
             flex: 1;
-
-
-          }
+           }
 
           span.bubble {
             display: block;
@@ -59,8 +55,6 @@
             border-radius: 50%;
             background-color: $natural-gray;
            
-
-
             &::before,  
             &::after  {
               left: 55%;
@@ -73,10 +67,8 @@
               background-color: $natural-gray;
               
             }
-
           }
         }
-
 
         .cp_stepflow01 > li.completed,
         .cp_stepflow01 > li.completed .bubble {
@@ -91,9 +83,7 @@
         .cp_stepflow01 > li:last-child .bubble::before {
           width: 0;
           margin-right: 100%;
-
         }
-
 
         .cp_stepflow01 > li.active,
         .cp_stepflow01 > li.active .bubble {
@@ -103,6 +93,5 @@
         .cp_stepflow01 > li.active .bubble {
           background-color: $red;
         }
-
       }
     }
