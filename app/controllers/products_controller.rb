@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
+  # before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
   before_action :set_product, only: [:change]
   before_action :check_address, only: :buy
   before_action :check_payment, only: :buy
@@ -9,19 +9,20 @@ class ProductsController < ApplicationController
   def index
     @category_item = ["レディース","メンズ","ベビー・キッズ","コスメ・香水・美容"]
     @categories = Category.where(name: @category_item)
-    
   end
 
   def new
     @product = Product.new
     @image = @product.images.build
+    @category = Category.ids
     @categories = Category.all
+    @roots = @categories.roots
 
   end
 
   def create
     @product = Product.new(product_params)
-
+   
     if @product.save
       params[:images]['image'].each do |a|
         @image = @product.images.create!(image:a)
@@ -31,26 +32,27 @@ class ProductsController < ApplicationController
       render 'new'
     end
 
-    # カテゴリーセレクトボックスの非同期部（時間があれば実装）
-    # if params[:r_cat]
-    #   @c_cat = Category.find(params[:r_cat]).children
-    # else
-    #   @g_cat = Category.find(params[:c_cat]).children
-    # end
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end    
   end
-
-
-
 
 
   def show
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @images = @product.images
+    @category = @product.category
+  end
+
+
+  def update 
+    @product = Product.find(params[:id])
+    
+    if @product.update(product_params)
+      redirect_to @product
+    else
+      render 'edit'
+    end
   end
 
   def buy
@@ -80,6 +82,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
+
     params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :category_id, images_attributes: [:image])
   end
 
