@@ -9,13 +9,13 @@ require 'rails_helper'
 # end
 
 # routes {Rails.application.routes}
-describe ProductsController do
-  describe 'GET #show' do
-    it "renders the :show template" do
-      user = FactoryBot.create(:user)
-      product = FactoryBot.create(:product)
-      get :show, params: { id: product }
-      expect(response).to render_template :show
-      end     
-    end
-  end
+# describe ProductsController do
+#   describe 'GET #show' do
+#     it "renders the :show template" do
+#       user = FactoryBot.create(:user)
+#       product = FactoryBot.create(:product)
+#       get :show, params: { id: product }
+#       expect(response).to render_template :show
+#       end     
+#     end
+#   end

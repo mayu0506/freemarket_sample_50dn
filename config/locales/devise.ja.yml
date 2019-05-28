@@ -21,6 +21,9 @@ ja:
               blank: "を入力してください"
             password: 
               blank: "を入力してください"
+              too_short: "パスワードは６文字以上入力ください"
+            password_confirmation:
+              confirmation: "を入力してください"
             encrypted_password: 
               blank:  "を入力してください"
   devise:
