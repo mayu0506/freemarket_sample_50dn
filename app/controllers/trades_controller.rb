@@ -3,7 +3,7 @@ class TradesController < ApplicationController
 
   def update
     customer = Payment.find_by(user_id: current_user.id)
-    Product.find(params[:id]).update_attributes(buyer_id: current_user.id)
+    Product.find(params[:id]).update_attributes(buyer_id: current_user.id,status: params[:product][:status])
     @trade = Trade.new(user_id: current_user.id, product_id: params[:id])
     @trade.save
 

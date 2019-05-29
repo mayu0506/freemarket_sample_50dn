@@ -9,13 +9,15 @@
       .product-descriptions
         -# 商品写真(右側)
         .product-descriptions__pictures
-          .product-descriptions__pictures__main          
+          .product-descriptions__pictures__main
             - @image.each do |image|
               = image_tag "#{image.image}", class: 'product-image'
-            
-          .product-descriptions__pictures__main__sub     
+          .product-descriptions__pictures__main__sub
             - @image.each do |image|
               = image_tag "#{image.image}", class: 'product-sub-image'
+          -if @product.status == "sold"
+            .showSold
+              .showSold-text SOLD
         -# 商品詳細(左側)
         .product-descriptions__details
           %table.product-category
@@ -24,7 +26,7 @@
                 %td.table-right 出品者
                 %td.table-left
                   .table-name-change-color 
-                    = @product.user.nickname            
+                    = @product.user.nickname
                     
                   .seller-reputation
                     .seller-reputation__icons
@@ -40,11 +42,11 @@
                 %td.table-right カテゴリー
                 %td.table-left
                   .table-name-change-color
-                    = @product.category.root.name     
+                    = @product.category.root.name
                     
-                    %p                 
-                    = fa_icon 'angle-right', class: 'table-icon'  
-                    = @product.category.parent.name                              
+                    %p
+                    = fa_icon 'angle-right', class: 'table-icon'
+                    = @product.category.parent.name
                     
                     %p
                     = fa_icon 'angle-right', class: 'table-icon'
@@ -92,14 +94,19 @@
           .product-price__fee
             送料込み
         - if request.path == product_path(@product)
-          .product-purchase
-            = link_to buy_product_path(@product), class:'buyBtn' do
-              .product-purchase__button
-                購入画面に進む
-          -# 販売者コメント
-          .product-comments
-            %p.product-comments__seller
-              = @product.description
+          - if @product.status == "selling"
+            .product-purchase
+              = link_to buy_product_path(@product), class:'buyBtn' do
+                .product-purchase__button
+                  購入画面に進む
+            -# 販売者コメント
+            .product-comments
+              %p.product-comments__seller
+                = @product.description
+          - else
+            .sold-btn 
+              売り切れました
+              
               
             -# 下部リンク
             .product-comments__icons

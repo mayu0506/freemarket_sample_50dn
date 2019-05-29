@@ -37,6 +37,26 @@
               float: left;
               width: 213px;
               margin: 0 0 0 20px;
+              .sold{
+                width:0;
+                height:0;
+                border-right:100px solid transparent;
+                border-top:100px solid $red;
+                position: relative;
+                bottom:346px;
+                &-text{
+                  font-weight: 700;
+                  font-size:20px;
+                  position: relative;
+                  bottom:60px;
+                  left:10px;
+                  color: $white;
+                  -moz-transform: rotate(-45deg);
+                  -webkit-transform: rotate(-45deg);
+                  -o-transform: rotate(-45deg);
+                  -ms-transform: rotate(-45deg); 
+                }
+              }
               a.itemBox_a{
                 color:$font-color;
                 text-decoration:none;
