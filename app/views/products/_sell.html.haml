@@ -3,7 +3,7 @@
     .sellContent--head#title
       商品の情報を入力
   
-  = form_with model: @product do |f|
+  = form_with model: @product, html:{multipart:true,method: "POST"}, local: true do |f|
     .sellContent
       = f.label "出品画像", class:"sellContent__form--label"
       %span{class:"form-require"} 必須
@@ -40,8 +40,23 @@
             .sellContent__select__right__form--label
               = f.label "カテゴリー"
               %span{class:"form-require"} 必須
-            = f.select :category_id, @categories.map {|i| ["#{i.name}", i.id]}, { selected: @product.category_id, include_blank: "---" }, {id: "roots_category", required:"required"}
-            %i.fa.fa-chevron-down
+          
+            - roots = @categories[0..12]
+
+            = f.collection_select :root_id, roots, :id, :name ,{include_blank: "---"} ,class: "root_category"
+            
+            - roots.each do |root|
+              .hidden{class:"parent_category#{root.id}"}
+                = f.collection_select :parent_id, root.children, :id, :name ,{include_blank: "---" }, disabled: "disabled", class: "parent_category"
+          
+
+            - roots.each do |root|
+              - root.children.each do |child|
+                .hidden.hidden-child{class:"child_category#{child.id}"}
+                  = f.collection_select :category_id, child.children, :id, :name ,{include_blank: "---" }, disabled: "disabled", class: "child_category"
+
+            -# = f.select :category_id, @categories.map {|i| ["#{i.name}", i.id]}, { selected: @product.category_id, include_blank: "---" }, {id: "roots_category", required:"required"}
+            -# %i.fa.fa-chevron-down
 
           .sellContent__select__right__form
             .sellContent__select__right__form--label

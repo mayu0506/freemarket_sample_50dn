@@ -31,11 +31,9 @@ $(document).on('turbolinks:load', function(){
             .prop("required",false)
             .clone(true)
             .prependTo(form_upload);
-
             $('#product_image').nextAll()
             .hide();
           } else if (image_length == 5){
-
             $(form_upload).hide();
           }
       });
