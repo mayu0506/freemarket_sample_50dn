@@ -37,7 +37,7 @@
                       = fa_icon 'frown-o', class: 'frown-icon'
                       10
               %tr
-                %td.table-right  カテゴリー
+                %td.table-right カテゴリー
                 %td.table-left
                   .table-name-change-color
                     = @product.category.root.name     
@@ -52,7 +52,7 @@
                     
               %tr
                 %td.table-right
-                  .table-name-change-color　ブランド
+                  .table-name-change-color ブランド
                 %td.table-left 
                   
                   
@@ -83,7 +83,8 @@
                   
         -# 商品価格
         .product-price
-          .product-price__yen
+          .product-price__yen 
+            ¥
             = @product.price.to_s(:delimited)
             
           .product-price__tax
