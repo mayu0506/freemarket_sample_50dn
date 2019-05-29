@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   # before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
-  before_action :set_product, only: [:change]
+  before_action :set_product, only: [:change, :edit, :update]
   before_action :check_address, only: :buy
   before_action :check_payment, only: :buy
   before_action :set_api_for_payjp
@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     @category = Category.ids
     @categories = Category.all
     @roots = @categories.roots
+
 
   end
 
@@ -39,15 +40,13 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+   
     @images = @product.images
     @category = @product.category
   end
 
 
   def update 
-    @product = Product.find(params[:id])
-    
     if @product.update(product_params)
       redirect_to @product
     else
@@ -78,7 +77,7 @@ class ProductsController < ApplicationController
   
   private
   def set_product
-    @product = Product.find(params[:product_id])
+    @product = Product.find(params[:id])
   end
 
   def product_params

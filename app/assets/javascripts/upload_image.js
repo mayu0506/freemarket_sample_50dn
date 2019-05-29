@@ -20,11 +20,13 @@ $(function(){
         src: e.target.result,
         title: file.name,
         class:"item_image"
+
       });
 
     $(item).appendTo('#items')
 
-    var image_length = $('img.item_image').length
+    // var image_length = item.length
+    var image_length = file.type.indexOf("image")
     console.log(image_length)
 
 
@@ -48,5 +50,17 @@ $(function(){
 
     reader.readAsDataURL(file);
   });
+
+
+ $(document).on('click','.upload-delete',function(){
+   var target_image = $(this).parent().parent();
+   console.log(target_image);
+   target_image.remove();
+
+
+
+
+
+ })
 
 })

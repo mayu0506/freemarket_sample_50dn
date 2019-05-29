@@ -2,18 +2,20 @@
   .sellContent
     .sellContent--head#title
       商品の情報を入力
-  = form_for @product do |f|
+  
+  = form_with model: @product do |f|
     .sellContent
       = f.label "出品画像", class:"sellContent__form--label"
       %span{class:"form-require"} 必須
       .sellContent__form--guide
-        最大10枚までアップロードできます
+        最大5枚までアップロードできます
       #upload-container
         #items
         #items2
         = f.fields_for :images do |i|
           .form_upload#form_upload
-            = i.file_field :image, class: "upload", accept:"image/*", required: "required", name: "images[image][]", id: "product_image", multiple: "multiple"
+            = i.file_field :image, class: "upload", accept:"image/*", required: "required", name: "images[image][]", id: "product_image", multipart: true 
+
     .sellContent
       .sellContent__form
         .sellContent__form--label
