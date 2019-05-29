@@ -1,27 +1,34 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change, :search]
-  before_action :set_product, only: [:show]
+  before_action :set_product, only: [:show,:change,:update,:destroy]
   before_action :check_address, only: :buy
   before_action :check_payment, only: :buy
   before_action :set_api_for_payjp
 
   def index
+    @test =[] 
+    Category.roots.each do |categories|
+      @test << categories
+    end
+     
     @category_item = ["レディース","メンズ","ベビー・キッズ","コスメ・香水・美容"]
     @categories = Category.where(name: @category_item)
-    
   end
 
   def new
     @product = Product.new
     @image = @product.images.build
+    @category = Category.ids
     @categories = Category.all
+    @roots = @categories.roots
+
 
   end
 
   def create
     @product = Product.new(product_params)
-
+   
     if @product.save
       params[:images]['image'].each do |a|
         @image = @product.images.create!(image:a)
@@ -31,28 +38,18 @@ class ProductsController < ApplicationController
       render 'new'
     end
 
-    # カテゴリーセレクトボックスの非同期部（時間があれば実装）
-    # if params[:r_cat]
-    #   @c_cat = Category.find(params[:r_cat]).children
-    # else
-    #   @g_cat = Category.find(params[:c_cat]).children
-    # end
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end    
   end
 
 
+
   def search
+    # あいまい検索
     @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(20).order("id DESC")
     @count = @products.count
+    # 最新情報の取得
+    @new_products = Product.where(params[:id]).limit(20).order("id DESC") 
+    # 何も検索されてない場合ルートに戻る
     redirect_to root_path if params[:keyword] == ""
-
-    if @products.count == 0
-      @new_products = Product.where(params[:id]).limit(20).order("id DESC")
-    end
-
   end
 
 
@@ -61,6 +58,23 @@ class ProductsController < ApplicationController
   
 
   def edit
+   
+    @images = @product.images
+    @category = @product.category
+  end
+
+
+  def update 
+    if @product.update(product_params)
+      redirect_to @product
+    else
+      render 'edit'
+    end
+  end
+
+  def update
+    @product.update(status_params)
+    redirect_to user_path(current_user)
   end
 
   def buy
@@ -75,13 +89,11 @@ class ProductsController < ApplicationController
   end
 
   def change
-    @product = Product.find(params[:product_id])
-    @image = @product.images.first
   end
 
   def destroy
     @product.destroy
-    redirect_to root_path
+    redirect_to list_user_path(current_user)
   end
 
   
@@ -91,7 +103,12 @@ class ProductsController < ApplicationController
     @image = @product.images.limit(10)
   end
 
+  def status_params
+    params.require(:product).permit(:status)
+  end
+
   def product_params
+
     params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :category_id, images_attributes: [:image])
   end
 

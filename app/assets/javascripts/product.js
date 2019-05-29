@@ -1,4 +1,4 @@
-$(document).ready(function(){
+  $(document).on('turbolinks:load', function(){
   $('.product-descriptions__pictures__main').slick({
     asNavFor: '.product-descriptions__pictures__main__sub',
     arrows: false, 

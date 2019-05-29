@@ -1,4 +1,31 @@
 ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            nickname: 
+              blank: "を入力してください"
+            email: 
+              taken: "は、すでに存在するメールアドレスです"
+              blank: "を入力してください"
+            first_name: 
+              blank: "を入力してください"
+            last_name: 
+              blank:  "を入力してください"
+            kana_first_name: 
+              blank:  "を入力してください"
+            kana_last_name: 
+              blank:  "を入力してください"
+            birth_date: 
+              blank: "を入力してください"
+            password: 
+              blank: "を入力してください"
+              too_short: "パスワードは６文字以上入力ください"
+            password_confirmation:
+              confirmation: "を入力してください"
+            encrypted_password: 
+              blank:  "を入力してください"
   devise:
     confirmations:
       confirmed: "アカウントが確認されました。ログインしています。"
@@ -71,7 +98,6 @@ ja:
       - :year
       - :month
       - :day
-
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"

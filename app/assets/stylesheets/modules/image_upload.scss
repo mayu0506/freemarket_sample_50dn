@@ -1,20 +1,60 @@
-input#product_images_attributes_0_image {
-  min-height: 162px;
-  padding: 40px;
+input#product_image {
+  width: 100%;
+  opacity: 0;
+}
+
+.form_upload {
+  // jQueryで追加時にクラス名変更もしくは追加
+  height: 162px;
   background-color: #f5f5f5;
   border: 1px dashed #ccc;
   display: flex;
   justify-content: center;
-  width: 100%;
+  flex: 1;
 }
 
-#preview {
+#upload-container {
+  display: flex;
+
+  #items{
+    display: flex;
+    .item {
+      display: flex;
+      flex-direction: column;
+      height: 162px;
+      position: relative;
+      margin-right: 12px;
+    }
+  }
+
+  img {
+  width: 114px;
+  }
+
+  .button-area {
+    display: flex;
+    justify-content: space-around;
+    color: $skyblue;
+    font-size: 14px;
+    background-color: #f5f5f5;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    a {
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      padding: 8px;
+    }
+  }
+}
+
+
+.templateArea {
   display: none;
   img {
     height: 140px;
   }
 
-
 }
-
-

@@ -1,27 +1,48 @@
 $(function(){
-  var input = $('#product_images_attributes_0_image');
-  $(input).on('change',function(){
-    if( !this.files.length) {
-      return;
-    }
-    $preview = $(".preview");
-    var $files = $(this).prop('files');
-    var file_length = $files.length;
+   $('form').on('change', 'input[type="file"]', function(e) {
+    var file = e.target.files[0],
+        reader = new FileReader();
+    var item = $(`<div class= "item"><img></div>`);
+    var form_upload = $('#form_upload')
 
-    for(var i = 0; i < file_length; i++ ) {
-      var file = $files[i];
-      var reader = new FileReader();
+    reader.onload = (function(e) {
+      var button_area = `<div class="button-area">
+          <a class= "upload-edit">編集</a>
+          <a class= "upload-delete">削除</a>
+        </div>
+        `
+      item.append(button_area);
+      item
+        .find('img').attr({
+          src: e.target.result,
+          title: file.name,
+          class:"item_image",
+          id: image_length
+        });
 
-      reader.onload = function(e) {
-        var src = e.target.result;
-        var img = '<img src="'+ src +'">';
-        $('#preview').append(img);
-      }
-      reader.readAsDataURL(file);
-    }
+      $(item).appendTo('#items')
+      var image_length = $('img.item_image').length
+      if (image_length == 0 ) {
+        $('#items').hide();
 
-    $('#preview').css('display','inline-block');
+        } else if (image_length > 0 && image_length < 5) {
+          $('#product_image')
+          .prop("required",false)
+          .clone(true)
+          .prependTo(form_upload);
 
-  })
+          $('#product_image').nextAll()
+          .hide();
+        } else if (image_length == 5){
+
+          $(form_upload).hide();
+        }
+    });
+    reader.readAsDataURL(file);
+  });
+ $(document).on('click','.upload-delete',function(){
+   var target_image = $(this).parent().parent();
+   target_image.remove();
+ })
 
 })

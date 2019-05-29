@@ -3,12 +3,17 @@
 
   .main
     -# バナー
-    .topBanner
-      .fas.fa-chevron-left.topBanner--left
-      .fas.fa-chevron-right.topBanner--right
-      .topBanner_image
-        =image_tag "//www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?376951604" ,class: "topBanner--image"
-      
+    .mainvisual
+      .mainvisual-inner.container
+        .swiper-container
+          .swiper-wrapper
+            .swiper-slide.one
+              = image_tag("http://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?376951604",class: "swiper-slide-image camp")
+            .swiper-slide.two
+              %image.swiper-slide-image{src: "https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg"}
+          .swiper-pagination
+          .swiper-button-prev
+          .swiper-button-next
     .bodyMain
       -# カテゴリー毎
       .bodyMain_pickup
@@ -24,19 +29,19 @@
                   .itemBox
                     =link_to product_path(product),  class:"itemBox_a" do
                       = image_tag("#{product.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
-                    .itemBox_ditails
-                      .itemBox_ditails--name
-                        ="#{product.name}"
-                        .hide
-                      .itemBox_ditails_num
-                        .itemBox_ditails_num--price
-                          ="¥#{product.price.to_s(:delimited)}"
-                        -# likeなければ消す if文？？
-                        .itemBox_ditails_num--like
-                          %i.fa.fa-heart
-                        -# ライク数挿入
-                      .itemBox_ditails--tax
-                        (税込)
+                      .itemBox_ditails
+                        .itemBox_ditails--name
+                          ="#{product.name}"
+                          .hide
+                        .itemBox_ditails_num
+                          .itemBox_ditails_num--price
+                            ="¥#{product.price.to_s(:delimited)}"
+                          -# likeなければ消す if文？？
+                          .itemBox_ditails_num--like
+                            %i.fa.fa-heart
+                          -# ライク数挿入
+                        .itemBox_ditails--tax
+                          (税込)
               .viewAll
                 =link_to "すべての商品を見る", products_path
 

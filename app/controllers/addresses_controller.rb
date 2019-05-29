@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   require 'jp_prefecture'
-  before_action :authenticate_user!, only: [:new, :create]
+  # before_action :authenticate_user!, only: [:new, :create]
   
   def new
     @address = Address.new

@@ -1,0 +1,115 @@
+.product-details-body
+  .product-details-contents
+    .product-details-contents__margin
+      .product-headline
+        -# 商品タイトル
+        .product-headline__top
+          = @product.name
+          
+      .product-descriptions
+        -# 商品写真(右側)
+        .product-descriptions__pictures
+          .product-descriptions__pictures__main          
+            - @image.each do |image|
+              = image_tag "#{image.image}", class: 'product-image'
+            
+          .product-descriptions__pictures__main__sub     
+            - @image.each do |image|
+              = image_tag "#{image.image}", class: 'product-sub-image'
+        -# 商品詳細(左側)
+        .product-descriptions__details
+          %table.product-category
+            %tbody
+              %tr
+                %td.table-right 出品者
+                %td.table-left
+                  .table-name-change-color 
+                    = @product.user.nickname            
+                    
+                  .seller-reputation
+                    .seller-reputation__icons
+                      = fa_icon 'smile-o', class: 'smile-icon'
+                      100
+                    .seller-reputation__icons
+                      = fa_icon 'meh-o', class: 'meh-icon'
+                      10
+                    .seller-reputation__icons
+                      = fa_icon 'frown-o', class: 'frown-icon'
+                      10
+              %tr
+                %td.table-right カテゴリー
+                %td.table-left
+                  .table-name-change-color
+                    = @product.category.root.name     
+                    
+                    %p                 
+                    = fa_icon 'angle-right', class: 'table-icon'  
+                    = @product.category.parent.name                              
+                    
+                    %p
+                    = fa_icon 'angle-right', class: 'table-icon'
+                    = @product.category.name
+                    
+              %tr
+                %td.table-right
+                  .table-name-change-color ブランド
+                %td.table-left 
+                  
+                  
+              %tr
+                %td.table-right 商品の状態
+                %td.table-left 
+                  = @product.condition
+                  
+              %tr
+                %td.table-right 配送料の負担
+                %td.table-left 
+                  = @product.who_to_pay
+                  
+              %tr
+                %td.table-right 配送の方法
+                %td.table-left 
+                  
+              %tr
+                %td.table-right 配送元地域
+                %td.table-left
+                  .table-name-change-color
+                    = @product.origin_of_delivery
+                    
+              %tr
+                %td.table-right 配送日の目安
+                %td.table-left 
+                  = @product.deliverying_date
+                  
+        -# 商品価格
+        .product-price
+          .product-price__yen 
+            ¥
+            = @product.price.to_s(:delimited)
+            
+          .product-price__tax
+            (税込)
+          .product-price__fee
+            送料込み
+        - if request.path == product_path(@product)
+          .product-purchase
+            = link_to '/products/1/buy', class:'buyBtn' do
+              .product-purchase__button
+                購入画面に進む
+          -# 販売者コメント
+          .product-comments
+            %p.product-comments__seller
+              = @product.description
+              
+            -# 下部リンク
+            .product-comments__icons
+              %ul.product-comments__icons__lists
+                %li.product-comments__icons__lists__right
+                  = fa_icon 'heart-o', class: 'heart-icon'
+                  いいね！
+                %li.product-comments__icons__lists__middle
+                  = fa_icon 'flag-o', class: 'flag-icon'
+                  不適切な商品の報告
+                %li.product-comments__icons__lists__left
+                  = fa_icon 'lock', class: 'secure-icon'
+                  あんしん・あんぜんへの取り組み
