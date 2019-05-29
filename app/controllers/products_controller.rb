@@ -22,9 +22,6 @@ class ProductsController < ApplicationController
     @category = Category.ids
     @categories = Category.all
     @roots = @categories.roots
-
-
-
   end
 
   def create

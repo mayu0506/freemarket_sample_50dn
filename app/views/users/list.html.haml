@@ -35,20 +35,21 @@
         .mypage-item-list
           - if @products.present?
             - @products.each do |product|
-              .userItem
-                = image_tag "#{product.images.first.image}",width:70,alt: "",class: "userItem--image"
-                .userItem--name
-                  = product.name
-                .userItem-bottom
-                  %i.far.fa-heart
-                    1
-                  %i.far.fa-comment-alt
-                    0
-                  - if product.status == "stop" or product.status == "sold"
-                    .userItem-bottom--status
-                      公開停止中
-                =link_to change_product_path(product) do
-                  %i.fas.fa-chevron-right  
+              -if product.status != "sold"
+                .userItem
+                  = image_tag "#{product.images.first.image}",width:70,alt: "",class: "userItem--image"
+                  .userItem--name
+                    = product.name
+                  .userItem-bottom
+                    %i.far.fa-heart
+                      1
+                    %i.far.fa-comment-alt
+                      0
+                    - if product.status == "stop" or product.status == "sold"
+                      .userItem-bottom--status
+                        公開停止中
+                  =link_to change_product_path(product) do
+                    %i.fas.fa-chevron-right  
                   
           - else
             .mypage-item-list--not-found
