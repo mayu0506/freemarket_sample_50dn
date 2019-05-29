@@ -17,8 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(sign_up_params)
     if @user.save 
       sign_in(@user)
-      session[:user_id] = @user.id
-      redirect_to new_address_path(session[:user_id]), notice: '会員情報登録に成功しました'
+      redirect_to new_address_path, notice: '会員情報登録に成功しました'
     else
       render :new, notice: '入力に誤りがあります'
     end

@@ -6,7 +6,6 @@
     %h1 決められたテスト用のカード情報を登録してください！適当！ダメ！！
     .register-inner
       = form_tag("/payments", method: :post, id: 'charge-form') do
-        = hidden_field_tag :id, "#{session[:user_id]}"
         .register-inner_contents
           .form-group
             %span.registration_font カード番号
