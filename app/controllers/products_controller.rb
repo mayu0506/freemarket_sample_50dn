@@ -1,12 +1,17 @@
 class ProductsController < ApplicationController
 
-  # before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change]
-  before_action :set_product, only: [:change, :edit, :update]
+  before_action :authenticate_user!, except: [:index, :show, :buy, :new, :change, :search]
+  before_action :set_product, only: [:show,:change,:update,:destroy]
   before_action :check_address, only: :buy
   before_action :check_payment, only: :buy
   before_action :set_api_for_payjp
 
   def index
+    @test =[] 
+    Category.roots.each do |categories|
+      @test << categories
+    end
+     
     @category_item = ["レディース","メンズ","ベビー・キッズ","コスメ・香水・美容"]
     @categories = Category.where(name: @category_item)
   end
@@ -36,8 +41,21 @@ class ProductsController < ApplicationController
   end
 
 
+
+  def search
+    # あいまい検索
+    @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(20).order("id DESC")
+    @count = @products.count
+    # 最新情報の取得
+    @new_products = Product.where(params[:id]).limit(20).order("id DESC") 
+    # 何も検索されてない場合ルートに戻る
+    redirect_to root_path if params[:keyword] == ""
+  end
+
+
   def show
   end
+  
 
   def edit
    
@@ -54,6 +72,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def update
+    @product.update(status_params)
+    redirect_to user_path(current_user)
+  end
+
   def buy
     # 住所の取得
     @address = Address.find_by(user_id: current_user.id)
@@ -66,18 +89,22 @@ class ProductsController < ApplicationController
   end
 
   def change
-    @image = @product.images.first
   end
 
   def destroy
     @product.destroy
-    redirect_to root_path
+    redirect_to list_user_path(current_user)
   end
 
   
   private
   def set_product
     @product = Product.find(params[:id])
+    @image = @product.images.limit(10)
+  end
+
+  def status_params
+    params.require(:product).permit(:status)
   end
 
   def product_params
@@ -98,4 +125,3 @@ class ProductsController < ApplicationController
     end
   end
 end
-

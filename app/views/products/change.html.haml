@@ -1,14 +1,22 @@
-.deleteWrapper
-  .deleteWrapper_inner
-    = image_tag "#{@image.image}",class: "imageSize"
-    .deleteWrapper_inner_text.itemName
-      = @image.product.name
-    .deleteWrapper_inner_text.backRed
-      = link_to "商品の編集",edit_product_path(@product),class: "linkClear centerText"
-    .deleteWrapper_inner_text.textBlack
-      .centerText or
-    -# 応用実装？？
-    -# .deleteWrapper_inner_text.backgray
-    -#   .centerText 出品を一旦停止する
-    .deleteWrapper_inner_text.backgray 
-      = link_to "この商品を削除する", product_path(@product),class: "linkClear", method: :delete
+= render "product-header"
+.product-details-body
+  = render "show-item"
+
+  .deleteWrapper
+    .deleteWrapper_inner
+      .deleteWrapper_inner_text.backRed
+        = link_to "商品の編集",edit_product_path(@product),class: "linkClear centerText"
+      .deleteWrapper_inner_box.textBlack
+        .centerText or
+      = form_for(@product, url: product_path(@product), html: {method: "patch"}) do |f|
+        - if @product.status == "selling"
+          .deleteWrapper_inner_text.backgray
+            =f.hidden_field :status, value: 'stop'
+            =f.submit "出品を一旦停止する", class: "statusSubmit"
+        - else
+          .deleteWrapper_inner_text.backgray
+            =f.hidden_field :status, value: 'selling'
+            =f.submit "出品する", class: "statusSubmit"
+      .deleteWrapper_inner_text.backgray 
+        = link_to "この商品を削除する", product_path(@product),class: "linkClear", method: :delete
+  = render "show-comment"

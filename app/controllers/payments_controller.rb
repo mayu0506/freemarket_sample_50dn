@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :authenticate_user!, only: :new
+  # before_action :authenticate_user!, only: :new
   before_action :set_api_for_payjp
   require 'payjp'
 
@@ -9,14 +9,18 @@ class PaymentsController < ApplicationController
 
   def create
     customer = Payjp::Customer.create(card: params[:payjpToken])
-    @payment = Payment.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+    @payment = Payment.new(user_id: session[:user_id], customer_id: customer.id, card_id: customer.default_card)
     if @payment.save
-      redirect_to root_path, notice: '会員登録は全て完了しました。メルカリ(偽)をお楽しみください！'
+      session[:user_id] = @payment.user_id
+      redirect_to complete_payments_path(session[:user_id]), notice: '会員登録は全て完了しました。メルカリ(偽)をお楽しみください！'
     else
       redirect_to new_payment_path, alert: 'クレジットカード登録に失敗しました'
     end
   end
 
+  def complete
+  end
+  
   def show
     if Payment.where(user_id: current_user.id).blank?
       redirect_to edit_payment_path
@@ -35,4 +39,5 @@ class PaymentsController < ApplicationController
   def set_payment
     @payment = Payment.where(user_id: current_user.id).first if Payment.where(user_id: current_user.id).present?
   end
+
 end

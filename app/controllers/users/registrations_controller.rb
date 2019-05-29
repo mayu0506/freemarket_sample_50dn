@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :create, only: [:complete]
 
@@ -16,8 +15,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def create
     @user = User.new(sign_up_params)
-    if @user.save
-      redirect_to new_address_path, notice: '会員情報登録に成功しました'
+    if @user.save 
+      sign_in(@user)
+      session[:user_id] = @user.id
+      redirect_to new_address_path(session[:user_id]), notice: '会員情報登録に成功しました'
     else
       render :new, notice: '入力に誤りがあります'
     end
@@ -26,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :last_name, :kana_first_name, :kana_last_name, :uid, :provider, :birth_date])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:id, :nickname, :first_name, :last_name, :kana_first_name, :kana_last_name, :birth_date, :uid, :provider])
   end
-  
+
 end

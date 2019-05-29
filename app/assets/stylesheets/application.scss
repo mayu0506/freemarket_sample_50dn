@@ -20,6 +20,7 @@
 @import "mypage/mypage";
 @import "mypage/content";
 @import "mypage/side";
+@import "mypage/user-list";
 
 
 // usersフォルダの読み込み
@@ -35,6 +36,8 @@
 @import "modules/product-index";
 @import "modules/footer-banner";
 @import "modules/product-footer";
+// スライドバナー
+@import 'swiper.scss';
 // 出品ボタン
 @import "modules/sell-btn";
 // 商品削除
