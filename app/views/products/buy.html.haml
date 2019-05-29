@@ -13,6 +13,7 @@
             = @product.name
           = form_for @product, url: {controller: "trades", action: "update"} do |f|
             = f.hidden_field :price, value: @product.price
+            = f.hidden_field :status, value: 'sold'
             %p.buy-content-inner__item-price-ja.bold
               ¥ #{@product.price.to_s(:delimited)}
               %span.buy-content-inner__shipping-fee 送料込み
