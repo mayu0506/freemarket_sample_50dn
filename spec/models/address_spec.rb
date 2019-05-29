@@ -12,28 +12,28 @@ describe Address do
     it "is invalid without a postcode" do
       address = build(:address, postcode: nil)
       address.valid?
-      expect(address.errors[:postcode]).to include("can't be blank")
+      expect(address.errors[:postcode]).to include("を入力してください")
     end
 
     # prefecture_codeが空では登録できないこと
     it "is invalid without a prefecture_code" do
       address = build(:address, prefecture_code: nil)
       address.valid?
-      expect(address.errors[:prefecture_code]).to include("can't be blank")
+      expect(address.errors[:prefecture_code]).to include("を入力してください")
     end
 
     # cityが空では登録できないこと
     it "is invalid without a city" do
       address = build(:address, city: nil)
       address.valid?
-      expect(address.errors[:city]).to include("can't be blank")
+      expect(address.errors[:city]).to include("を入力してください")
     end 
 
     # streetが空では登録できないこと
     it "is invalid without a street" do
       address = build(:address, street: nil)
       address.valid?
-      expect(address.errors[:street]).to include("can't be blank")
+      expect(address.errors[:street]).to include("を入力してください")
     end 
   end
 end
