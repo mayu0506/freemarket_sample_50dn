@@ -41,7 +41,7 @@ describe AddressesController, type: :controller do
 
       it "リダイレクトが成功するかどうか" do
         post :create, params: { user_id: @address.user_id, address: FactoryBot.attributes_for(:address) }
-        expect(response).to redirect_to new_payment_path
+        expect(response).to redirect_to new_payment_path(session[:user_id])
       end
     end
 

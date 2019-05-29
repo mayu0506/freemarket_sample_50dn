@@ -43,7 +43,7 @@ RSpec.describe Users::RegistrationsController, type: :controller do
 
       it "redirect to new_address_path" do
         post :create, params: {user: @user }
-        expect(response).to redirect_to new_address_path
+        expect(response).to redirect_to new_address_path(session[:user_id])
       end
     end
 
