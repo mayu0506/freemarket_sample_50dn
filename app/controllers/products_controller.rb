@@ -109,7 +109,7 @@ class ProductsController < ApplicationController
 
   def product_params
 
-    params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :category_id, images_attributes: [:image])
+    params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :category_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   # 以下で住所登録とクレジットカード登録を済ませたユーザーかどうかのチェック
