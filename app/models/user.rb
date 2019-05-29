@@ -12,8 +12,9 @@ class User < ApplicationRecord
 
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,omniauth_providers: %i[facebook google_oauth2]
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :prefecture
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  
+  belongs_to_active_hash :prefecture
   has_many :likes
   has_one :payment
   has_one :address

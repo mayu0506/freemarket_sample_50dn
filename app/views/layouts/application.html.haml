@@ -2,7 +2,7 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content:"text/html; charset=UTF-8", "http-equiv":"Content-Type"}/
     %title FreemarketSample50dn
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
@@ -10,6 +10,7 @@
     %link{href: "style.scss", rel: "stylesheets"}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{src:"https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"}
     -# スライダー機能
     %link{ rel: "stylesheet", type: "text/css", href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"}
     %script{ type: "text/javascript", src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"}

@@ -19,13 +19,16 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @image = @product.images.build
+    @category = Category.ids
     @categories = Category.all
+    @roots = @categories.roots
+
 
   end
 
   def create
     @product = Product.new(product_params)
-
+   
     if @product.save
       params[:images]['image'].each do |a|
         @image = @product.images.create!(image:a)
@@ -35,17 +38,8 @@ class ProductsController < ApplicationController
       render 'new'
     end
 
-    # カテゴリーセレクトボックスの非同期部（時間があれば実装）
-    # if params[:r_cat]
-    #   @c_cat = Category.find(params[:r_cat]).children
-    # else
-    #   @g_cat = Category.find(params[:c_cat]).children
-    # end
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end    
   end
+
 
 
   def search
@@ -64,6 +58,18 @@ class ProductsController < ApplicationController
   
 
   def edit
+   
+    @images = @product.images
+    @category = @product.category
+  end
+
+
+  def update 
+    if @product.update(product_params)
+      redirect_to @product
+    else
+      render 'edit'
+    end
   end
 
   def update
@@ -102,6 +108,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
+
     params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :category_id, images_attributes: [:image])
   end
 
