@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function(){
 $(function(){
   var form = $('#product_price')
  
@@ -17,4 +18,5 @@ $(function(){
     }
   })
 
+});
 });
