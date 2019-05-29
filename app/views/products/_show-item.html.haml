@@ -74,7 +74,7 @@
                 %td.table-right 配送元地域
                 %td.table-left
                   .table-name-change-color
-                    = @product.origin_of_delivery
+                    = @product.prefecture.name
                     
               %tr
                 %td.table-right 配送日の目安
@@ -93,7 +93,7 @@
             送料込み
         - if request.path == product_path(@product)
           .product-purchase
-            = link_to '/products/1/buy', class:'buyBtn' do
+            = link_to buy_product_path(@product), class:'buyBtn' do
               .product-purchase__button
                 購入画面に進む
           -# 販売者コメント
