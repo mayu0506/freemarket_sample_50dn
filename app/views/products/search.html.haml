@@ -1,6 +1,9 @@
-.wrapper
-  =render "product-header"
+=render "product-header"
+=render "sell-btn"
 %main.mypage.clearfix
+  = render "products-search-side"
   = render "products-searchMain"
 .search-page
   = paginate(@products, theme: 'my_custom_theme') 
+=render "footer-banner"
+=render "footer"
