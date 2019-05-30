@@ -75,7 +75,7 @@ class ProductsController < ApplicationController
 
   def status_update
     @product.update(status_params)
-    redirect_to user_path(current_user)
+    redirect_to list_user_path(current_user)
   end
 
 
