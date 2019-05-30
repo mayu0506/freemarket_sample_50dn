@@ -11,7 +11,7 @@
         最大5枚までアップロードできます
       #upload-container
         #items
-        #items2
+
         = f.fields_for :images do |i|
           .form_upload#form_upload
             = i.file_field :image, class: "upload", accept:"image/*", required: "required", name: "images[image][]", id: "product_image", multipart: true 
