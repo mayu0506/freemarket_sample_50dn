@@ -11,7 +11,7 @@
         =link_to product_path(product),  class:"itemBox_a" do
           .searchMain-content
             .search-image
-              = image_tag("#{product.images.first.image}", width: '155', alt: "product_image",class:"itemBox--image")
+              = image_tag("#{product.images.first.image}", width: '155', height: '155', alt: "product_image",class:"itemBox--image")
             .search-itemDetails
               .search-itemDetails--name
                 ="#{product.name}"
