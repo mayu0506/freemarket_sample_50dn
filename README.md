@@ -47,18 +47,17 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
-|first_name|string|null: false|
-|last_name|string|null: false|
-|kana_first_name|string|null: false|
-|kana_last_name|string|null: false|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_date|integer|null: false|
+|nickname|string|
+|first_name|string|
+|last_name|string|
+|kana_first_name|string|
+|kana_last_name|string|
+|birth_date|data|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |password_confirmation|string|null: false|
-|introduction|text|
+|uid|string|
+|provider|string|
 
 ### Association
 - has_many :comments
@@ -68,7 +67,6 @@ Things you may want to cover:
 - has_one :sale,dependent: :destory
 - has_one :point, dependent: :destory
 - has_many :products, dependent: :destory
-- has_many :sns_authorizations
 
 ## addressesテーブル
 |Column|Type|Options|
