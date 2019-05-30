@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_063014) do
+ActiveRecord::Schema.define(version: 2019_05_30_080447) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", limit: 8, null: false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_063014) do
     t.string "name", null: false
     t.text "description", null: false
     t.integer "price", null: false
-    t.integer "condition", null: false
+    t.string "condition", null: false
     t.string "status", default: "selling", null: false
     t.integer "who_to_pay", null: false
     t.integer "origin_of_delivery", null: false
@@ -103,12 +103,13 @@ ActiveRecord::Schema.define(version: 2019_05_20_063014) do
     t.string "kana_last_name"
     t.string "provider"
     t.string "uid"
-    t.date "birth_date"
+    t.string "birth_date"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "payments", "users"
