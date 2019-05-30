@@ -26,11 +26,12 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    
     if @product.save
-      params[:images]['image'].each do |i|
+      params[:images]['image'].reverse.each do |i|
         @image = @product.images.create!(image:i)
       end
-      redirect_to @product
+      redirect_to change_product_path(@product)
     else
       render 'new'
     end
@@ -63,10 +64,7 @@ class ProductsController < ApplicationController
 
   def update 
     if @product.update(product_params)
-      params[:images]['image'].each do |i|
-      @image = @product.images.update(image:i)
-      end
-      redirect_to @product
+      redirect_to change_product_path(@product)
     else
       render 'edit'
     end
