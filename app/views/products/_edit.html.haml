@@ -10,16 +10,17 @@
         最大5枚までアップロードできます
       #upload-container
         #items
-          - @images.each do |image|
-            .item
-              = image_tag("#{image.image}") if image.image?
-              .button-area
-                = link_to '編集', class:"upload-edit"
-                = link_to '削除', class:"upload-delete"
+
+          -# - @images.each do |image|
+          -#   .item
+          -#     = image_tag("#{image.image}") if image.image?
+          -#     .button-area
+          -#       = link_to '編集', class:"upload-edit"
+          -#       = link_to '削除', class:"upload-delete"
 
         = f.fields_for :images do |i|
           .form_upload#form_upload
-            = i.file_field :image, class: "upload", accept:"image/*", name: "images[image][]", id: "product_image", multiple: "multiple", multipart: true, selected: @product.images.ids
+            = i.file_field :image, class: "upload", accept:"image/*", name: "images[image][]", id: "product_image", multiple: "multiple", multipart: true, selected: @product.images.ids, required:"required"
 
     .sellContent
       .sellContent__form

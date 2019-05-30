@@ -1,12 +1,14 @@
 $(document).on('turbolinks:load', function(){
   $(function(){
     $('form').on('change', 'input[type="file"]', function(e) {
+      
       var file = e.target.files[0],
           reader = new FileReader();
-      var item = $(`<div class= "item"><img></div>`);
+      
       var form_upload = $('#form_upload')
 
       reader.onload = (function(e) {
+        var item = $(`<div class= "item"><img></div>`);
         var button_area = `<div class="button-area">
             <a class= "upload-edit">編集</a>
             <a class= "upload-delete">削除</a>
@@ -30,6 +32,7 @@ $(document).on('turbolinks:load', function(){
             $('#product_image')
             .prop("required",false)
             .clone(true)
+            .val('')
             .prependTo(form_upload);
             $('#product_image').nextAll()
             .hide();
