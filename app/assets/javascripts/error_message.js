@@ -1,3 +1,4 @@
+
 $(function(){
   var form = $('#new_product')
   var error_message = $('.error')
