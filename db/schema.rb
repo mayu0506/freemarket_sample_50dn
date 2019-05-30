@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 2019_05_30_080447) do
     t.integer "price", null: false
     t.string "condition", null: false
     t.string "status", default: "selling", null: false
-    t.integer "who_to_pay", null: false
-    t.integer "origin_of_delivery", null: false
-    t.integer "deliverying_date", null: false
+    t.string "who_to_pay", null: false
+    t.string "origin_of_delivery", null: false
+    t.string "deliverying_date", null: false
     t.string "size"
     t.integer "buyer_id"
     t.bigint "user_id"
@@ -103,13 +103,12 @@ ActiveRecord::Schema.define(version: 2019_05_30_080447) do
     t.string "kana_last_name"
     t.string "provider"
     t.string "uid"
-    t.string "birth_date"
+    t.date "birth_date"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "payments", "users"
