@@ -27,8 +27,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      params[:images]['image'].each do |a|
-        @image = @product.images.create!(image:a)
+      params[:images]['image'].each do |i|
+        @image = @product.images.create!(image:i)
       end
       redirect_to @product
     else
@@ -55,26 +55,29 @@ class ProductsController < ApplicationController
   
 
   def edit
-   
     @images = @product.images
     @category = @product.category
     @categories = Category.all
-    
   end
 
 
   def update 
     if @product.update(product_params)
+      params[:images]['image'].each do |i|
+      @image = @product.images.update(image:i)
+      end
       redirect_to @product
     else
       render 'edit'
     end
   end
 
-  def update
+
+  def status_update
     @product.update(status_params)
     redirect_to user_path(current_user)
   end
+
 
   def buy
     # 住所の取得
@@ -99,7 +102,7 @@ class ProductsController < ApplicationController
   private
   def set_product
     @product = Product.find(params[:id])
-    @image = @product.images.limit(10)
+    @image = @product.images.limit(5)
   end
 
   def status_params
