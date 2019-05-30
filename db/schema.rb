@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_05_30_080447) do
     t.string "name", null: false
     t.text "description", null: false
     t.integer "price", null: false
-    t.integer "condition", null: false
+    t.string "condition", null: false
     t.string "status", default: "selling", null: false
     t.string "who_to_pay", null: false
     t.string "origin_of_delivery", null: false

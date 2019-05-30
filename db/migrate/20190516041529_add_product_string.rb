@@ -5,9 +5,11 @@ class AddProductString < ActiveRecord::Migration[5.2]
         dir.up   { t.change :who_to_pay, :integer }
         dir.up   { t.change :origin_of_delivery, :integer }
         dir.up   { t.change :deliverying_date, :integer }
+        dir.up   { t.change :condition, :integer }
         dir.down { t.change :who_to_pay, :string }
         dir.down { t.change :origin_of_delivery, :string }
         dir.down { t.change :deliverying_date, :string }
+        dir.down { t.change :condition, :string }
       end
     end
   end
