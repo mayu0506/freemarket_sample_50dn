@@ -43,9 +43,9 @@
                             -# ライク数挿入
                           .itemBox_ditails--tax
                             (税込)
-                      - if product.status == "sold"
-                        .sold
-                          .sold-text SOLD
+                        - if product.status == "sold"
+                          .sold
+                            .sold-text SOLD
               .viewAll
                 =link_to "すべての商品を見る", products_path
 
