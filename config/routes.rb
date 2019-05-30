@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get :buy, on: :member
     get :change, on: :member
     get :search, on: :collection
+    patch :status_update, on: :member 
   end
       # 実装時showのみに変更 productsに入れ子
     resources :categorys, only: [:index,:show]
