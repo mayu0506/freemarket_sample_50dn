@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function(){
 $(function(){
 
 $('.root_category').on('change', function(){
@@ -19,4 +20,5 @@ $('.parent_category').on('change', function(){
 
 })
 
-})
+});
+});
