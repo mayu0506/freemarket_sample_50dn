@@ -8,7 +8,7 @@
         = link_to "商品の編集",edit_product_path(@product),class: "linkClear centerText"
       .deleteWrapper_inner_box.textBlack
         .centerText or
-      = form_for(@product, url: product_path(@product), html: {method: "patch"}) do |f|
+      = form_for(@product, url: status_update_product_path(@product), html: {method: "patch"}) do |f|
         - if @product.status == "selling"
           .deleteWrapper_inner_text.backgray
             =f.hidden_field :status, value: 'stop'

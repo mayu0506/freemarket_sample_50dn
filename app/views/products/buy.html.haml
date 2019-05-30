@@ -7,8 +7,7 @@
       %section.buy-content
         .buy-content-inner.buy-item
           %h3.buy-content-inner__item-image
-            = image_tag 'bag.jpg'
-            -# あとでイメージも引っ張ってこれるようにする
+            = image_tag "#{@product.images.first.image}"
           %p.buy-content-inner__item-name.bold
             = @product.name
           = form_for @product, url: {controller: "trades", action: "update"} do |f|
