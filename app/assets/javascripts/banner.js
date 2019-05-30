@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function() {
+$(document).on('turbolinks:load', function(){
   var swiper = new Swiper('.swiper-container', {
     pagination:{el: '.swiper-pagination',type: 'bullets',clickable: true},
     paginationClickable: true,
@@ -12,4 +12,4 @@ window.addEventListener('DOMContentLoaded', function() {
       disableOnInteraction: true
     },
   });
-}, false);
+});

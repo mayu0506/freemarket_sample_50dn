@@ -29,7 +29,7 @@
                   - if product.status != "stop"
                     .itemBox
                       =link_to product_path(product),  class:"itemBox_a" do
-                        = image_tag("#{product.images.first.image}", width: '213', alt: "product_image",class:"itemBox--image")
+                        = image_tag("#{product.images.first.image}",height: "216", width: '213', alt: "product_image",class:"itemBox--image")
                         .itemBox_ditails
                           .itemBox_ditails--name
                             ="#{product.name}"
