@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
   
   def identification
-    @userName = "#{current_user.first_name}" + " " + "#{current_user.last_name}"
-    @userName_kana = "#{current_user.kana_first_name}" + " " + "#{current_user.kana_last_name}"
+    @userName = "#{current_user.last_name}" + " " + "#{current_user.first_name}"
+    @userName_kana = "#{current_user.kana_last_name}" + " " + "#{current_user.kana_first_name}"
   end
 end
