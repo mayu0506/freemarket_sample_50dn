@@ -1,0 +1,130 @@
+= render 'product-header'
+.product-details-body
+  -# 上部の商品詳細コンテント
+.product-details-body
+  .product-details-contents
+    .product-details-contents__margin
+      .product-headline
+        -# 商品タイトル
+        .product-headline__top
+          コスメセット
+      .product-descriptions
+        -# 商品写真(右側)
+        .product-descriptions__pictures
+          .product-descriptions__pictures__main
+            =image_tag "cosmetics.jpg", class: 'photo-size'
+        -# 商品詳細(左側)
+        .product-descriptions__details
+          %table.product-category
+            %tbody
+              %tr
+                %td.table-right 出品者
+                %td.table-left
+                  .table-name-change-color
+                    メル子
+                  .seller-reputation
+                    .seller-reputation__icons
+                      = fa_icon 'smile-o', class: 'smile-icon'
+                      100
+                    .seller-reputation__icons
+                      = fa_icon 'meh-o', class: 'meh-icon'
+                      10
+                    .seller-reputation__icons
+                      = fa_icon 'frown-o', class: 'frown-icon'
+                      10
+              %tr
+                %td.table-right カテゴリー
+                %td.table-left
+                  .table-name-change-color
+                    コスメ・香水
+                    %p
+                    = fa_icon 'angle-right', class: 'table-icon'
+                    コスメセット
+              %tr
+                %td.table-right
+                  .table-name-change-color ブランド
+                %td.table-left
+              %tr
+                %td.table-right 商品の状態
+                %td.table-left
+                  新品
+              %tr
+                %td.table-right 配送料の負担
+                %td.table-left
+                  手数料込み
+              %tr
+                %td.table-right 配送の方法
+                %td.table-left
+              %tr
+                %td.table-right 配送元地域
+                %td.table-left
+                  .table-name-change-color
+                    沖縄県
+              %tr
+                %td.table-right 配送日の目安
+                %td.table-left
+                  1~2日程度
+        -# 商品価格
+        .product-price
+          .product-price__yen
+            ¥
+            3,500
+          .product-price__tax
+            (税込)
+          .product-price__fee
+            送料込み
+        .product-purchase
+          .product-purchase__button
+            購入画面に進む
+  -#購入者コメント
+  .product-comments-contents
+    .product-comments-contents__margin
+      %p.attentions
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      -# あとでインプット先を変える(@userと:email)
+      .input-comments
+        %form{action: "/", method: "post"}
+          %input{type: "text", class: "input-comments__text"}
+          %input{type: "submit", value: "コメントする", class: "input-comments__button"}
+  -#中部ページ切り替えコマンド
+  .product-command-contents
+    %ul.products-command
+      %li.products-command__left
+        %span アイシャドウ
+        = fa_icon 'angle-left', class: 'angle-left-icon'
+      %li.products-command__right
+        %span KATE 3Dアイブロウカラー ソフトブラウン
+        = fa_icon 'angle-right', class: 'angle-right-icon'
+  -#中部SNSアイコン
+  .product-sns-contents
+    .product-sns-contents__block
+      %ul.product-sns-contents__block__lists
+        %li.product-sns-contents__block__lists__facebook
+          = fa_icon 'facebook-square', class: 'sns-facebook-icon'
+        %li.product-sns-contents__block__lists__twitter
+          = fa_icon 'twitter-square', class: 'sns-twitter-icon'
+        %li.product-sns-contents__block__lists__pinterest
+          = fa_icon 'pinterest-square', class: 'sns-pinterest-icon'
+  -#下部の関連商品リスト
+  .related-products-contents
+    -# 出品者関連商品
+    .related-products-contents__seller
+      %h2.related-seller
+        メル子さんのその他の出品
+      %ul.related-photos
+        %li.related-photos__box
+          =link_to dammy_show_products_path,  class:"itemBox_a" do
+            .related-photos__box__photo
+              =image_tag "cosmetics.jpg", class: 'photo-size'
+            .related-photos__box__description
+              .related-photos__box__description__top
+                コスメセット
+              .related-photos__box__description__bottom
+                .related-photos__box__description__bottom__price
+                  ¥ 3,500
+                .related-photos__box__description__bottom__likes
+                  = fa_icon 'heart-o', class: 'heart-icon'
+                  2
+              %p.related-photos__box__description__tax (税込)
+= render 'footer-banner'
+= render 'footer'
