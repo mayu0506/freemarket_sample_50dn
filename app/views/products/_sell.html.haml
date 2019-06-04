@@ -3,7 +3,7 @@
     .sellContent--head#title
       商品の情報を入力
   
-  = form_with model: @product, html:{multipart:true,method: "POST"}, local: true do |f|
+  = form_with model: @product, html:{multipart:true, method: "POST", id:"product_form"}, local: true do |f|
     .sellContent
       = f.label "出品画像", class:"sellContent__form--label"
       %span{class:"form-require"} 必須
@@ -13,7 +13,7 @@
         #items
         = f.fields_for :images do |i|
           .form_upload#form_upload
-            = i.file_field :image, class: "upload", accept:"image/*", required: "required", name: "images[image][]", id: "product_image", multipart: true 
+            = i.file_field :image, class: "upload0", accept:"image/*", required: "required", name: "images[image][]", id: "product_image", multipart: true
 
     .sellContent
       .sellContent__form
@@ -42,7 +42,7 @@
           
             - roots = @categories[0..12]
 
-            = f.collection_select :root_id, roots, :id, :name ,{include_blank: "---"} ,class: "root_category"
+            = f.collection_select :root_id, roots, :id, :name ,{include_blank: "---"} ,class: "root_category", required: "required"
             
             - roots.each do |root|
               .hidden{class:"parent_category#{root.id}"}
@@ -53,10 +53,7 @@
               - root.children.each do |child|
                 .hidden.hidden-child{class:"child_category#{child.id}"}
                   = f.collection_select :category_id, child.children, :id, :name ,{include_blank: "---" }, disabled: "disabled", class: "child_category"
-
-            -# = f.select :category_id, @categories.map {|i| ["#{i.name}", i.id]}, { selected: @product.category_id, include_blank: "---" }, {id: "roots_category", required:"required"}
-            -# %i.fa.fa-chevron-down
-
+                  
           .sellContent__select__right__form
             .sellContent__select__right__form--label
               = f.label "商品の状態"
@@ -87,7 +84,7 @@
             .sellContent__select__right__form--label
               = f.label "発送元の地域"
               %span{class:"form-require"} 必須
-            = f.collection_select :origin_of_delivery, JpPrefecture::Prefecture.all, :code, :name,{include_blank: "---" , required:"required"}
+            = f.collection_select :origin_of_delivery, JpPrefecture::Prefecture.all, :code, :name,{include_blank: "---" },{required:"required"}
             = fa_icon 'angle-down', class: "select-prefecture__scrollIcon"
 
             .sellContent__select__right__form--error.error
