@@ -30,6 +30,18 @@ class PaymentsController < ApplicationController
     end
   end
 
+  def destroy
+    payment = Payment.where(user_id: current_user.id).first
+    if payment.blank?
+      redirect_to new_payment_path
+    else
+      customer = Payjp::Customer.retrieve(payment.customer_id)
+      customer.delete
+      payment.delete
+      redirect_to root_path, notice: 'クレジットカード情報の削除が完了しました。'
+    end
+  end
+
   def edit
   end
 

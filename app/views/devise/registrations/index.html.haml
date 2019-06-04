@@ -12,18 +12,18 @@
                 .email-registration
                   メールアドレスで登録
                   = fa_icon 'envelope-o', class: 'email-icon'
-          .facebook
-            =link_to user_facebook_omniauth_authorize_path, class: "facebook-button" do
-              %ul
-                %li.facebook-list
-                  = fa_icon 'facebook-square', class: 'facebook-icon'
-                %li.facebook-list
-                  Facebookで登録
-          .google
-            =link_to user_google_oauth2_omniauth_authorize_path, class: "google-button"  do
-              %ul
-                %li.google-list
-                  =image_tag "google_logo.png", class: 'google-icon'
-                %li.google-list
-                  Googleで登録
+          -# .facebook
+          -#   =link_to user_facebook_omniauth_authorize_path, class: "facebook-button" do
+          -#     %ul
+          -#       %li.facebook-list
+          -#         = fa_icon 'facebook-square', class: 'facebook-icon'
+          -#       %li.facebook-list
+          -#         Facebookで登録
+          -# .google
+          -#   =link_to user_google_oauth2_omniauth_authorize_path, class: "google-button"  do
+          -#     %ul
+          -#       %li.google-list
+          -#         =image_tag "google_logo.png", class: 'google-icon'
+          -#       %li.google-list
+          -#         Googleで登録
   = render 'users/eachpage-footer'

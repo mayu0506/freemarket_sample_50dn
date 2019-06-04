@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    logger.debug @product.errors.inspect
     if @product.save
       params[:images]['image'].reverse.each do |i|
         @image = @product.images.create!(image:i)

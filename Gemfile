@@ -91,6 +91,7 @@ gem 'rails-i18n'
 gem 'faker'
 gem 'forgery_ja'
 gem 'ransack'
+
 group :production do
   gem 'unicorn', '5.4.1'
 end

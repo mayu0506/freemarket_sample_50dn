@@ -6,7 +6,7 @@ CarrierWave.configure do |config|
 
   if Rails.env.development? || Rails.env.test?
     config.storage = :file
-  else
+  else Rails.env.production?
    config.storage = :fog
    config.fog_provider = 'fog/aws'
    config.fog_credentials = {
@@ -16,7 +16,7 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'freemarket-sample-50dn'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-sample-50dn'
+    config.fog_directory  = 'freemarket-sample-50dn-image'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-sample-50dn-image'
   end
 end

@@ -74,18 +74,27 @@ ActiveRecord::Schema.define(version: 2019_05_30_080447) do
     t.text "description"
     t.integer "price"
     t.string "condition", null: false
-    t.string "status", default: "selling"
+    t.string "status", default: "selling", null: false
     t.string "who_to_pay", null: false
     t.string "origin_of_delivery", null: false
     t.string "deliverying_date", null: false
     t.string "size"
     t.integer "buyer_id"
-    t.bigint "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -107,8 +116,8 @@ ActiveRecord::Schema.define(version: 2019_05_30_080447) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname"
-    t.string "first_name"
     t.string "last_name"
+    t.string "first_name"
     t.string "kana_first_name"
     t.string "kana_last_name"
     t.string "provider"
@@ -124,4 +133,5 @@ ActiveRecord::Schema.define(version: 2019_05_30_080447) do
   add_foreign_key "payments", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
+  add_foreign_key "sns_credentials", "users"
 end

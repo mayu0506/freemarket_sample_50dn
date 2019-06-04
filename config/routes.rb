@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     get :identification, on: :collection
     get :list, on: :member
   end
-  resources :payments, only: [:show, :new, :create, :edit] do
+  resources :payments, only: [:show, :new, :create, :edit, :destroy] do
     post :new, to: 'payments#pay', on: :member
     get :complete, on: :collection
   end
