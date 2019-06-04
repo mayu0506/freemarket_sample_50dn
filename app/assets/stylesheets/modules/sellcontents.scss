@@ -10,20 +10,6 @@
     font-size: 14px;
   }
 
-  p.upload {
-    font-size: 14px;
-    text-align: center;
-    font-family: monospace,monospace;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    width: 100%;
-    
-    }
-
   .button-wrapper {
     text-align: center;
   }
@@ -82,13 +68,18 @@
       display: none;
     }
 
+
+
     input#product_price {
       width: 160px;
       font-size: 14px;
       padding: 10px 16px 8px;
       border-radius: 4px;
       border: 1px solid #ccc;
+      position: relative;
+      text-align: right;
     }
+    
 
   // エラーメッセージ
     label.error {
@@ -97,7 +88,12 @@
       margin-top:8px;
       color: $red; 
     }
+    #product_image-error {
+      position: absolute;
+      bottom: -30;
+      left: 0;
 
+    }
     
    &--head{
     font-size: 22px;
@@ -186,10 +182,13 @@
           font-weight: 600;
         }
         &--input {
-          display: flex;
+          position: relative;
+         
           p {
             line-height: 36px;
             margin-right: 4px;
+            position: absolute;
+            left: -20;
           }
         }
         &--error {

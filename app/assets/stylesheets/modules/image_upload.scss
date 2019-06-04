@@ -1,6 +1,7 @@
 input#product_image {
   width: 100%;
   opacity: 0;
+  height: 100%;
 }
 
 .form_upload {
@@ -8,10 +9,10 @@ input#product_image {
   height: 162px;
   background-color: #f5f5f5;
   border: 1px dashed #ccc;
-  display: flex;
   justify-content: center;
   flex: 1;
   position: relative;
+
 }
 
 #upload-container {
@@ -27,6 +28,13 @@ input#product_image {
       margin-right: 12px;
     }
   }
+
+  pre.upload {
+    font-size: 14px;
+    font-family: monospace,monospace;
+    display: inline-block;
+    position: absolute;
+    }
 
   img {
   width: 114px;
