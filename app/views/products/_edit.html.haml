@@ -2,7 +2,7 @@
   .sellContent
     .sellContent--head#title
       商品の情報を入力
-  = form_with model: @product, html:{multipart:true,method: "PATCH"}, local: true do |f|
+  = form_with model: @product, html:{multipart:true,method: "PATCH", id:"product_form"}, local: true do |f|
     .sellContent
       = f.label "出品画像", class:"sellContent__form--label"
       %span{class:"form-require"} 必須
@@ -10,17 +10,16 @@
         最大5枚までアップロードできます
       #upload-container
         #items
-
-          -# - @images.each do |image|
-          -#   .item
-          -#     = image_tag("#{image.image}") if image.image?
-          -#     .button-area
-          -#       = link_to '編集', class:"upload-edit"
-          -#       = link_to '削除', class:"upload-delete"
+          - @image.each do |image|
+            .item
+              = image_tag("#{image.image}") if image.image?
+              .button-area
+                = link_to '編集', class:"upload-edit"
+                = link_to '削除', class:"upload-delete"
 
         = f.fields_for :images do |i|
           .form_upload#form_upload
-            = i.file_field :image, class: "upload", accept:"image/*", name: "images[image][]", id: "product_image", multiple: "multiple", multipart: true, selected: @product.images.ids, required:"required"
+            = i.file_field :image, class: "upload", accept:"image/*", name: "images[image][]", id: "product_image", multiple: "multiple", multipart: true, value: @product.images.ids, required:"required"
 
     .sellContent
       .sellContent__form
@@ -46,6 +45,7 @@
             .sellContent__select__right__form--label
               = f.label "カテゴリー"
               %span{class:"form-require"} 必須
+
             .select-wrap
               = f.select :category_id, options_from_collection_for_select(@product.category.root.siblings, :id, :name, selected: @product.category.root.id), {},{id:"edit_roots_category"}
               %i.fa.fa-chevron-down

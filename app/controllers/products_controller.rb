@@ -17,13 +17,13 @@ class ProductsController < ApplicationController
     @beauty_products = search_product(@beauty)
   end
 
+
   def new
     @product = Product.new
     @image = @product.images.build
-    @category = Category.ids
     @categories = Category.all
-    @roots = @categories.roots
   end
+
 
   def create
     @product = Product.new(product_params)
@@ -36,9 +36,7 @@ class ProductsController < ApplicationController
     else
       render 'new'
     end
-
   end
-
 
 
   def search
@@ -55,7 +53,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
-  
+
 
   def edit
     @images = @product.images
@@ -98,7 +96,6 @@ class ProductsController < ApplicationController
     redirect_to list_user_path(current_user)
   end
 
-  
   private
 
   def search_product(category)
@@ -115,7 +112,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-
     params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :category_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
