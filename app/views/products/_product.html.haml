@@ -1,0 +1,36 @@
+- if product.status == "selling"
+  .itemBox
+    =link_to product_path(product),  class:"itemBox_a" do
+      = image_tag("#{product.images.first.image}",height: "216", width: '213', alt: "product_image",class:"itemBox--image")
+      .itemBox_ditails
+        .itemBox_ditails--name
+          ="#{product.name}"
+          .hide
+        .itemBox_ditails_num
+          .itemBox_ditails_num--price
+            ="¥#{product.price.to_s(:delimited)}"
+          -# likeなければ消す if文？？
+          .itemBox_ditails_num--like
+            %i.fa.fa-heart
+          -# ライク数挿入
+        .itemBox_ditails--tax
+          (税込)
+- else product.status == "sold"
+  .itemBox
+    =link_to product_path(product),  class:"itemBox_a" do
+      = image_tag("#{product.images.first.image}",height: "216", width: '213', alt: "product_image",class:"itemBox--image")
+      .itemBox_ditails
+        .itemBox_ditails--name
+          ="#{product.name}"
+          .hide
+        .itemBox_ditails_num
+          .itemBox_ditails_num--price
+            ="¥#{product.price.to_s(:delimited)}"
+          -# likeなければ消す if文？？
+          .itemBox_ditails_num--like
+            %i.fa.fa-heart
+          -# ライク数挿入
+        .itemBox_ditails--tax
+          (税込)
+        .sold
+          .sold-text
