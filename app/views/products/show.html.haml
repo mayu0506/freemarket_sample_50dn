@@ -2,7 +2,7 @@
 .breadcrumbs
   .breadcrumbs_list
     - breadcrumb :products_name
-    = breadcrumbs separator: " #{content_tag(:i, '', class: 'fa fa-angle-right')} "
+    = breadcrumbs separator: "#{content_tag(:i, '', class: 'fa fa-angle-right')}"
 .product-details-body
   -# 上部の商品詳細コンテント
   = render "show-item"
@@ -34,169 +34,22 @@
     -# 出品者関連商品
     .related-products-contents__seller
       %h2.related-seller
-        きみさんのその他の出品
+        = @product.user.nickname
+        さんのその他の出品
       %ul.related-photos
         %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "cosmetics.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              コスメセット
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 3,500
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                2
-            %p.related-photos__box__description__tax (税込)
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "cosmetics2.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              コスメセット
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 800
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                10
-            %p.related-photos__box__description__tax (税込)
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "perfume.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              香水
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 1,500
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                20
-            %p.related-photos__box__description__tax (税込)
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "cosmetics.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              コスメセット
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 3,500
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                2
-            %p.related-photos__box__description__tax (税込)
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "cosmetics2.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              コスメセット
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 800
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                10
-            %p.related-photos__box__description__tax (税込)
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "perfume.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              香水
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 1,500
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                20
-            %p.related-photos__box__description__tax (税込)
-    -# ブランド関連商品
-    .related-products-contents__brand
-      %h2.related-brand
-        LANCOMのリップ　その他の商品
-      %ul.related-photos
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "cosmetics.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              コスメセット
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 3,500
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                2
-            %p.related-photos__box__description__tax (税込)
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "cosmetics2.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              コスメセット
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 800
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                10
-            %p.related-photos__box__description__tax (税込)
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "perfume.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              香水
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 1,500
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                20
-            %p.related-photos__box__description__tax (税込)
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "cosmetics.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              コスメセット
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 3,500
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                2
-            %p.related-photos__box__description__tax (税込)
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "cosmetics2.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              コスメセット
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 800
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                10
-            %p.related-photos__box__description__tax (税込)
-        %li.related-photos__box
-          .related-photos__box__photo
-            =image_tag "perfume.jpg", class: 'photo-size'
-          .related-photos__box__description
-            .related-photos__box__description__top
-              香水
-            .related-photos__box__description__bottom
-              .related-photos__box__description__bottom__price
-                ¥ 1,500
-              .related-photos__box__description__bottom__likes
-                = fa_icon 'heart-o', class: 'heart-icon'
-                20
-            %p.related-photos__box__description__tax (税込)
-
+          =link_to dammy_show_products_path,  class:"itemBox_a" do
+            .related-photos__box__photo
+              =image_tag "cosmetics.jpg", class: 'photo-size'
+            .related-photos__box__description
+              .related-photos__box__description__top
+                コスメセット
+              .related-photos__box__description__bottom
+                .related-photos__box__description__bottom__price
+                  ¥ 3,500
+                .related-photos__box__description__bottom__likes
+                  = fa_icon 'heart-o', class: 'heart-icon'
+                  2
+              %p.related-photos__box__description__tax (税込)
 = render 'footer-banner'
 = render 'footer'
