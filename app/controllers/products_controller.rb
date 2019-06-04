@@ -11,22 +11,21 @@ class ProductsController < ApplicationController
     Category.roots.each do |categories|
       @test << categories
     end
-     
+
     @category_item = ["レディース","メンズ","ベビー・キッズ","コスメ・香水・美容"]
     @categories = Category.where(name: @category_item)
   end
 
+
   def new
     @product = Product.new
     @image = @product.images.build
-    @category = Category.ids
     @categories = Category.all
-    @roots = @categories.roots
   end
+
 
   def create
     @product = Product.new(product_params)
-    
     if @product.save
       params[:images]['image'].reverse.each do |i|
         @image = @product.images.create!(image:i)
@@ -35,9 +34,7 @@ class ProductsController < ApplicationController
     else
       render 'new'
     end
-
   end
-
 
 
   def search
@@ -53,7 +50,7 @@ class ProductsController < ApplicationController
 
   def show
   end
-  
+
 
   def edit
     @images = @product.images
@@ -96,7 +93,6 @@ class ProductsController < ApplicationController
     redirect_to list_user_path(current_user)
   end
 
-  
   private
   def set_product
     @product = Product.find(params[:id])
@@ -108,7 +104,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-
     params.require(:product).permit(:name, :description, :price, :condition, :who_to_pay, :origin_of_delivery, :size, :deliverying_date, :category_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
