@@ -18,37 +18,55 @@
       -# カテゴリー毎
       .bodyMain_pickup
         .bodyMain_pickup--title.link_blue ピックアップカテゴリー
-        - @categories.each do |category|
-          .bodyMain_pickup_cotegory.clearfix
-            .bodyMain_pickup_cotegory_box
-              .bodyMain_pickup_cotegory_box--title
-                =link_to "#{category.name}新着アイテム",products_path,class:"category-title__link"
-              .bodyMain_pickup_cotegory_box_items.clearfix
-                - @products = Product.where(category_id: category.indirect_ids).limit(4).order(id: "DESC")
-                  - @products.each do |product|
-                  - if product.status != "stop"
-                    .itemBox
-                      =link_to product_path(product),  class:"itemBox_a" do
-                        = image_tag("#{product.images.first.image}",height: "216", width: '213', alt: "product_image",class:"itemBox--image")
-                        .itemBox_ditails
-                          .itemBox_ditails--name
-                            ="#{product.name}"
-                            .hide
-                          .itemBox_ditails_num
-                            .itemBox_ditails_num--price
-                              ="¥#{product.price.to_s(:delimited)}"
-                            -# likeなければ消す if文？？
-                            .itemBox_ditails_num--like
-                              %i.fa.fa-heart
-                            -# ライク数挿入
-                          .itemBox_ditails--tax
-                            (税込)
-                        - if product.status == "sold"
-                          .sold
-                            .sold-text SOLD
-              .viewAll
-                =link_to "すべての商品を見る", products_path
+        .bodyMain_pickup_cotegory.clearfix
+          .bodyMain_pickup_cotegory_box
+          .bodyMain_pickup_cotegory_box--title
+            = link_to "#{@ladies.name}新着アイテム", "#", class: "category-title__link"
+          - if @ladies_products.present?
+            .bodyMain_pickup_cotegory_box_items.clearfix
+              = render partial: 'product', collection: @ladies_products
+            .viewAll
+              =link_to "すべての商品を見る", products_path
+          - else
+            .no-item
+              %p まだ出品されていません
+        
+          
+          -# メンズの新着
+          .bodyMain_pickup_cotegory_box--title
+            = link_to "#{@mens.name}新着アイテム", "#", class: "category-title__link"
+          - if @mens_products.present?
+            .bodyMain_pickup_cotegory_box_items.clearfix
+              = render partial: 'product', collection: @mens_products
+            .viewAll
+              =link_to "すべての商品を見る", products_path
+          - else
+            .no-item
+              %p まだ出品されていません
 
+            -# ベビーの新着
+          .bodyMain_pickup_cotegory_box--title
+            = link_to "#{@baby.name}新着アイテム", "#", class: "category-title__link"
+          - if @baby_products.present?
+            .bodyMain_pickup_cotegory_box_items.clearfix
+              = render partial: 'product', collection: @baby_products
+            .viewAll
+              =link_to "すべての商品を見る", products_path
+          - else
+            .no-item
+              %p まだ出品されていません
+
+          -# コスメの新着
+          .bodyMain_pickup_cotegory_box--title
+            = link_to "#{@beauty.name}新着アイテム", "#", class: "category-title__link"
+          - if @beauty_products.present?
+            .bodyMain_pickup_cotegory_box_items.clearfix
+              = render partial: 'product', collection: @beauty_products
+            .viewAll
+              =link_to "すべての商品を見る", products_path
+          - else
+            .no-item
+              %p まだ出品されていません
 
   = render 'sell-btn'
   = render 'footer-banner'
