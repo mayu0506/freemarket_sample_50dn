@@ -18,5 +18,5 @@ CarrierWave.configure do |config|
 
   #   config.fog_directory  = 'freemarket-sample-50dn'
   #   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-sample-50dn'
-  # end
+  end
 end
