@@ -92,6 +92,7 @@ class ProductsController < ApplicationController
   end
 
   def change
+    redirect_to  root_path unless @product.user_id == current_user.id
   end
 
   def destroy
