@@ -52,6 +52,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @like = Like.new
   end
  
   def dammy_show
