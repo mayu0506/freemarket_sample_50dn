@@ -15,10 +15,15 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   
   belongs_to_active_hash :prefecture
-  has_many :likes
+  has_many :likes, dependent: :destroy
+  has_many :liked_products, through: :likes, source: :product
   has_one :payment
   has_one :address
   has_many :products
+
+  def already_liked?(product)
+    self.likes.exists?(product_id: product.id)
+  end
 
   def self.find_or_create_by_omniauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first

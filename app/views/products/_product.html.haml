@@ -12,7 +12,7 @@
           -# likeなければ消す if文？？
           .itemBox_ditails_num--like
             %i.fa.fa-heart
-          -# ライク数挿入
+            = product.likes.count.to_s
         .itemBox_ditails--tax
           (税込)
 - else product.status == "sold"
@@ -29,7 +29,7 @@
           -# likeなければ消す if文？？
           .itemBox_ditails_num--like
             %i.fa.fa-heart
-          -# ライク数挿入
+            = product.likes.count.to_s
         .itemBox_ditails--tax
           (税込)
         .sold
