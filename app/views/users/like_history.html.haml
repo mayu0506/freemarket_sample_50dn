@@ -1,0 +1,21 @@
+= render 'products/product-header.html.haml'
+= render 'products/sell-btn.html.haml'
+%main.mypage.clearfix
+  = render 'side'
+  .mypage-content
+    .userIdentificationContent
+      .userIdetificationHeader
+        %h2.identificationTitle いいね！一覧
+      %ul.mypage-item-list
+        %li.mypage-item-list__link
+          = link_to '#' do
+            %figure.mypage-item-list__link__icon
+              = image_tag 'user-icon.jpg'
+            .mypage-item-list__link__body
+              .mypage-item-list__link__text
+                パスケース
+              %time
+                %span ￥500
+            %i.fa.fa-angle-right
+= render 'products/footer-banner.html.haml'
+= render 'products/footer.html.haml'
