@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get :logout, on: :collection
     get :identification, on: :collection
     get :list, on: :member
+    get :like_history, on: :collection
   end
   resources :payments, only: [:show, :new, :create, :edit, :destroy] do
     post :new, to: 'payments#pay', on: :member

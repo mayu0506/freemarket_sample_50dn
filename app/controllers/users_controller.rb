@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   def logout
   end
 
+  def like_history
+  end
+
   def list
     @products = current_user.products
   end
