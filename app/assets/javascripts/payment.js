@@ -40,4 +40,11 @@ $(window).on('turbolinks:load', function() {
     $(this).css("background-color","");
     $(this).css("font-weight", "");
   });
+  $(".mypage-item-list__link").hover(function() {
+    $(this).css("background-color","#fafafa");
+    $(this).css("font-weight", "600");
+  }, function() {
+    $(this).css("background-color","");
+    $(this).css("font-weight", "");
+  });
 });

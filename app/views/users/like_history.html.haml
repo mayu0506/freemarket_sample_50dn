@@ -7,15 +7,20 @@
       .userIdetificationHeader
         %h2.identificationTitle いいね！一覧
       %ul.mypage-item-list
-        %li.mypage-item-list__link
-          = link_to '#' do
-            %figure.mypage-item-list__link__icon
-              = image_tag 'user-icon.jpg'
-            .mypage-item-list__link__body
-              .mypage-item-list__link__text
-                パスケース
-              %time
-                %span ￥500
-            %i.fa.fa-angle-right
+        -if @liked_products.present?
+          - @liked_products.each do |product|
+            %li.mypage-item-list__link
+              = link_to product_path(product) do
+                %figure.mypage-item-list__link__icon
+                  = image_tag("#{product.images.first.image}")
+                .mypage-item-list__link__body
+                  .mypage-item-list__link__text
+                    = product.name
+                  %time
+                    %span
+                    ="¥#{product.price.to_s(:delimited)}"
+                %i.fa.fa-angle-right
+        - else
+          %li.mypage-item-list__link　いいね！した商品はありません 
 = render 'products/footer-banner.html.haml'
 = render 'products/footer.html.haml'

@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   end
 
   def like_history
+    @user = User.find(params[:id])
+    @liked_products = @user.liked_products
   end
 
   def list
